@@ -1,0 +1,222 @@
+{
+  "B1": [
+    {
+      "id": "B1-Q1",
+      "question": "CPU 時鐘頻率為 3.2 GHz，這意指？",
+      "options": {
+        "A": "每秒可執行 3.2 億次時鐘週期",
+        "B": "每秒可執行約 32 億次時鐘週期",
+        "C": "快取記憶體為 3.2 GB",
+        "D": "擁有 3.2 個核心"
+      },
+      "answer": "B",
+      "explanation": "1 GHz = 10 億次/秒。3.2 GHz 即 32 億次時鐘週期。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "B1-Q2",
+      "question": "下列何者最能說明 GPU 相比 CPU 的優勢？",
+      "options": {
+        "A": "GPU 運算速度永遠比 CPU 快",
+        "B": "GPU 擁有大量核心，適合平行運算如圖形處理及 AI 訓練",
+        "C": "GPU 可取代 CPU 所有功能",
+        "D": "GPU 耗電量較低"
+      },
+      "answer": "B",
+      "explanation": "GPU 擁有數百至數千個核心，適合大量平行矩陣運算，因此在 3D 繪圖和 AI 訓練有優勢。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "B1-Q3",
+      "question": "快取記憶體 (Cache) 存在的主要目的是？",
+      "options": {
+        "A": "儲存開機資料",
+        "B": "暫存常用資料以加速 CPU 存取",
+        "C": "永久儲存用戶檔案",
+        "D": "取代主記憶體"
+      },
+      "answer": "B",
+      "explanation": "Cache 是位於 CPU 附近的高速記憶體，可減少 CPU 存取主記憶體的等待時間。",
+      "source": "AI 生成"
+    }
+  ],
+  "B2": [
+    {
+      "id": "B2-Q1",
+      "question": "關於 RAM 和 ROM 的比較，下列何者正確？",
+      "options": {
+        "A": "RAM 是唯讀的，ROM 可讀寫",
+        "B": "RAM 是非揮發性，ROM 是揮發性",
+        "C": "RAM 關機後資料消失，ROM 保留資料",
+        "D": "ROM 比 RAM 速度快"
+      },
+      "answer": "C",
+      "explanation": "RAM 是揮發性 (volatile)，關機後資料消失；ROM 是非揮發性，保留韌體/BIOS。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "B2-Q2",
+      "question": "以下哪項是 SSD 相比 HDD 的優勢？",
+      "options": {
+        "A": "容量較大",
+        "B": "價錢較便宜",
+        "C": "存取速度較快、無機械部件",
+        "D": "壽命必定較長"
+      },
+      "answer": "C",
+      "explanation": "SSD 使用快閃記憶體，沒有機械部件，讀寫速度較快、抗震耐摔。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "B2-Q3",
+      "question": "以下哪種儲存媒介在容量相同下通常最便宜？",
+      "options": {
+        "A": "SSD",
+        "B": "HDD",
+        "C": "USB 手指",
+        "D": "SD 記憶卡"
+      },
+      "answer": "B",
+      "explanation": "HDD 每 GB 成本最低，適合大容量儲存。",
+      "source": "AI 生成"
+    }
+  ],
+  "B3": [
+    {
+      "id": "B3-Q1",
+      "question": "1024 × 768、色深 24-bit 的未壓縮圖像大小約為？（以 1 KB = 1000 B 計算）",
+      "options": {
+        "A": "1.18 MB",
+        "B": "2.36 MB",
+        "C": "2.36 KB",
+        "D": "18.9 MB"
+      },
+      "answer": "B",
+      "explanation": "1024 × 768 × 24 ÷ 8 = 2,359,296 Bytes ≈ 2.36 MB。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "B3-Q2",
+      "question": "取樣率 44.1 kHz、16-bit、立體聲、30 秒音樂檔案大小約為？",
+      "options": {
+        "A": "約 5.3 MB",
+        "B": "約 2.6 MB",
+        "C": "約 10.6 MB",
+        "D": "約 1.3 MB"
+      },
+      "answer": "A",
+      "explanation": "44100 × 16 × 2 × 30 ÷ 8 = 5,292,000 Bytes ≈ 5.3 MB。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "B3-Q3",
+      "question": "某圖像檔案大小為 120 KB，若長寬都縮小一半，新檔案大小約為？",
+      "options": {
+        "A": "60 KB",
+        "B": "30 KB",
+        "C": "15 KB",
+        "D": "120 KB"
+      },
+      "answer": "B",
+      "explanation": "像素數量 = 長 × 寬，兩者各減半，總像素減至 1/4，檔案約 30 KB。",
+      "source": "AI 生成"
+    }
+  ],
+  "B4": [
+    {
+      "id": "B4-Q1",
+      "question": "下列何者屬於「驅動程式 (Driver)」？",
+      "options": {
+        "A": "Microsoft Word",
+        "B": "Windows 11 操作系統",
+        "C": "印表機驅動程式",
+        "D": "Google Chrome"
+      },
+      "answer": "C",
+      "explanation": "Driver 讓 OS 與特定硬件（印表機、顯示卡等）溝通。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "B4-Q2",
+      "question": "作業系統 (OS) 的主要職責不包括？",
+      "options": {
+        "A": "管理硬件資源",
+        "B": "提供使用者介面",
+        "C": "編輯文書檔案",
+        "D": "管理程序排程"
+      },
+      "answer": "C",
+      "explanation": "編輯文書屬於應用軟件（如 Word）的範疇，非 OS 本身的功能。",
+      "source": "AI 生成"
+    }
+  ],
+  "B5": [
+    {
+      "id": "B5-Q1",
+      "question": "銀行系統在夜間一次過處理日間交易，屬於哪種處理模式？",
+      "options": {
+        "A": "Real-time",
+        "B": "Batch",
+        "C": "Parallel",
+        "D": "Multi-user"
+      },
+      "answer": "B",
+      "explanation": "Batch 是累積工作後一次過處理，常用於夜間薪金計算、月結算。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "B5-Q2",
+      "question": "以下哪個系統必定需要「Real-time 實時處理」？",
+      "options": {
+        "A": "電子郵件系統",
+        "B": "月結算工資系統",
+        "C": "飛機自動駕駛系統",
+        "D": "圖書館借書系統"
+      },
+      "answer": "C",
+      "explanation": "自動駕駛必須在嚴格的時限內做出反應，屬 hard real-time。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "B5-Q3",
+      "question": "「Multi-tasking」 與「Parallel processing」 的最大分別是？",
+      "options": {
+        "A": "完全沒有分別",
+        "B": "Multi-tasking 是單 CPU 輪流處理；Parallel 是多 CPU 同時處理",
+        "C": "Multi-tasking 必須多 CPU",
+        "D": "Parallel 只能處理一個任務"
+      },
+      "answer": "B",
+      "explanation": "Multi-tasking 透過時間分片讓一顆 CPU「看似」同時處理多工；Parallel 是實際多 CPU 同時執行。",
+      "source": "AI 生成"
+    }
+  ],
+  "B6": [
+    {
+      "id": "B6-Q1",
+      "question": "以下何者不是虛擬化 (Virtualization) 的優點？",
+      "options": {
+        "A": "提升硬件資源使用率",
+        "B": "減低購買硬件成本",
+        "C": "允許多個作業系統在同一實體機器運行",
+        "D": "提升 CPU 的實際時鐘頻率"
+      },
+      "answer": "D",
+      "explanation": "虛擬化是軟件技術，無法改變實體硬件的物理性能。",
+      "source": "2025 新考點"
+    },
+    {
+      "id": "B6-Q2",
+      "question": "下列哪個是虛擬化技術的常見應用？",
+      "options": {
+        "A": "使用 VMware 在 Windows 上運行 Linux",
+        "B": "使用滑鼠點擊按鈕",
+        "C": "將音訊檔案轉換為 MP3",
+        "D": "安裝印表機驅動程式"
+      },
+      "answer": "A",
+      "explanation": "VMware、VirtualBox 是常見的虛擬化工具，可在同一主機運行多個作業系統。",
+      "source": "AI 生成"
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "2C1": [
+    {
+      "id": "2C1-Q1",
+      "question": "使用「傳值 (Pass by value)」傳遞參數時，下列何者正確？",
+      "options": {
+        "A": "修改參數會改變原變數",
+        "B": "修改參數不會改變原變數",
+        "C": "子程序不能使用該參數",
+        "D": "一定會發生編譯錯誤"
+      },
+      "answer": "B",
+      "explanation": "傳值是複製一份給子程序，子程序的改動不影響原變數。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "2C1-Q2",
+      "question": "在一個子程序內部宣告的變數，稱為？",
+      "options": {
+        "A": "全域變數",
+        "B": "局部變數",
+        "C": "靜態變數",
+        "D": "外部變數"
+      },
+      "answer": "B",
+      "explanation": "Local 局部變數只在該子程序中可見，離開後自動釋放；應優先使用以避免副作用。",
+      "source": "AI 生成"
+    }
+  ],
+  "2C2": [
+    {
+      "id": "2C2-Q1",
+      "question": "Stack 的基本特性是？",
+      "options": {
+        "A": "FIFO",
+        "B": "LIFO",
+        "C": "隨機存取",
+        "D": "按優先級存取"
+      },
+      "answer": "B",
+      "explanation": "Stack 是後進先出 (Last-In-First-Out)，像一疊書。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "2C2-Q2",
+      "question": "Queue 最典型的應用？",
+      "options": {
+        "A": "瀏覽器上一頁功能",
+        "B": "函數呼叫堆疊",
+        "C": "印表機工作排程",
+        "D": "文字編輯器 Undo 功能"
+      },
+      "answer": "C",
+      "explanation": "Queue 是 FIFO，適合按順序處理任務；其餘選項皆為 Stack 的典型應用。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "2C2-Q3",
+      "question": "Linked List 相比 Array 的優點？",
+      "options": {
+        "A": "隨機存取較快",
+        "B": "佔用記憶體較少",
+        "C": "插入和刪除效率較高",
+        "D": "索引較簡單"
+      },
+      "answer": "C",
+      "explanation": "Linked List 插入/刪除只需修改指標 O(1)；Array 隨機存取 O(1) 但插入要移動元素 O(n)。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "2C2-Q4",
+      "question": "Stack 執行以下操作後，頂端元素為何？\npush(1), push(2), push(3), pop(), push(4)",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      },
+      "answer": "D",
+      "explanation": "狀態變化：[1]→[1,2]→[1,2,3]→pop 3 得[1,2]→push 4 得[1,2,4]。頂端為 4。",
+      "source": "AI 生成"
+    }
+  ],
+  "2C3": [
+    {
+      "id": "2C3-Q1",
+      "question": "使用二分搜尋的必要前提是？",
+      "options": {
+        "A": "陣列元素必須為數字",
+        "B": "陣列必須已排序",
+        "C": "大小必須為 2 的次方",
+        "D": "元素必須唯一"
+      },
+      "answer": "B",
+      "explanation": "二分搜尋依賴中間值比較以決定往左或右，必須先排好序才有效。",
+      "source": "必考"
+    },
+    {
+      "id": "2C3-Q2",
+      "question": "在 1024 筆已排序資料中進行二分搜尋，最壞情況需比較約多少次？",
+      "options": {
+        "A": "10 次",
+        "B": "100 次",
+        "C": "512 次",
+        "D": "1024 次"
+      },
+      "answer": "A",
+      "explanation": "log₂(1024) = 10，最多 10 次比較。",
+      "source": "AI 生成"
+    }
+  ],
+  "2C4": [
+    {
+      "id": "2C4-Q1",
+      "question": "冒泡排序最壞情況時間複雜度？",
+      "options": {
+        "A": "O(1)",
+        "B": "O(log n)",
+        "C": "O(n)",
+        "D": "O(n²)"
+      },
+      "answer": "D",
+      "explanation": "冒泡排序需兩層巢狀迴圈，最壞情況為 O(n²)。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "2C4-Q2",
+      "question": "「每輪找出最小值放至已排序部分的末端」是哪種排序？",
+      "options": {
+        "A": "Bubble Sort",
+        "B": "Selection Sort",
+        "C": "Insertion Sort",
+        "D": "Quick Sort"
+      },
+      "answer": "B",
+      "explanation": "選擇排序每輪從未排序部分找最小值放到已排序區的末端。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "2C4-Q3",
+      "question": "對 [5, 2, 8, 1] 進行一輪 (pass) 冒泡排序（升序）後，結果為？",
+      "options": {
+        "A": "[1, 2, 5, 8]",
+        "B": "[2, 5, 1, 8]",
+        "C": "[2, 5, 8, 1]",
+        "D": "[5, 2, 1, 8]"
+      },
+      "answer": "B",
+      "explanation": "比較：(5,2)換→[2,5,8,1]；(5,8)不換；(8,1)換→[2,5,1,8]。",
+      "source": "AI 生成"
+    }
+  ],
+  "2C5": [
+    {
+      "id": "2C5-Q1",
+      "question": "時間複雜度由快到慢的正確排序？",
+      "options": {
+        "A": "O(1) < O(n) < O(log n) < O(n²)",
+        "B": "O(n²) < O(n) < O(log n) < O(1)",
+        "C": "O(1) < O(log n) < O(n) < O(n²)",
+        "D": "O(log n) < O(1) < O(n) < O(n²)"
+      },
+      "answer": "C",
+      "explanation": "效率比較：O(1) < O(log n) < O(n) < O(n log n) < O(n²) < O(2^n)。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "2C5-Q2",
+      "question": "對一個巢狀兩層迴圈 (各跑 n 次)，時間複雜度為？",
+      "options": {
+        "A": "O(n)",
+        "B": "O(n log n)",
+        "C": "O(n²)",
+        "D": "O(2^n)"
+      },
+      "answer": "C",
+      "explanation": "兩層迴圈各執行 n 次，總步數 n × n = n²。",
+      "source": "AI 生成"
+    }
+  ],
+  "2C6": [
+    {
+      "id": "2C6-Q1",
+      "question": "事件驅動程式設計最典型的應用？",
+      "options": {
+        "A": "批次處理",
+        "B": "GUI 使用者介面",
+        "C": "純數學運算",
+        "D": "排序演算法"
+      },
+      "answer": "B",
+      "explanation": "GUI 必須回應使用者點擊、鍵盤等事件；IoT 感測器觸發亦屬事件驅動。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "2C6-Q2",
+      "question": "智能家居中，「當溫度超過 30°C 時自動開啟冷氣」屬於？",
+      "options": {
+        "A": "批次處理模式",
+        "B": "事件驅動 + 實時處理",
+        "C": "分布式運算",
+        "D": "離線運算"
+      },
+      "answer": "B",
+      "explanation": "由感測器事件觸發，並需要即時反應，屬事件驅動的實時處理。",
+      "source": "AI 生成"
+    }
+  ]
+}

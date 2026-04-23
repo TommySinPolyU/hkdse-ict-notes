@@ -1,0 +1,287 @@
+{
+  "A1": [
+    {
+      "id": "A1-Q1",
+      "question": "關於「數據 (Data)」和「資訊 (Information)」的敘述，下列何者正確？",
+      "options": {
+        "A": "數據和資訊意思相同",
+        "B": "數據是經處理後的資訊",
+        "C": "資訊是經處理、有意義的數據",
+        "D": "資訊一定是數字，數據一定是文字"
+      },
+      "answer": "C",
+      "explanation": "Data 是原始無意義的事實；Information 是經處理、有意義、可用於決策的數據。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "A1-Q2",
+      "question": "以下哪一項不是資訊系統的組成部分？",
+      "options": {
+        "A": "Hardware",
+        "B": "Software",
+        "C": "Network Cable",
+        "D": "People"
+      },
+      "answer": "C",
+      "explanation": "資訊系統五大組成：Hardware、Software、Data、Procedure、People。Network Cable 只是硬件中的一部分。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "A1-Q3",
+      "question": "下列哪項最能描述「決策支援系統 (DSS)」？",
+      "options": {
+        "A": "處理日常交易（如超市收銀）",
+        "B": "協助管理層進行半結構化決策分析",
+        "C": "模擬專家思考並給予建議",
+        "D": "純粹輸出報表"
+      },
+      "answer": "B",
+      "explanation": "DSS 專為管理層提供資料分析工具，協助半結構化決策。TPS 處理交易；ES 是專家系統；MIS 主要輸出報表。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "A1-Q4",
+      "question": "連鎖超市使用的收銀系統，即時記錄每宗交易，屬於哪種資訊系統？",
+      "options": {
+        "A": "TPS 交易處理系統",
+        "B": "MIS 管理資訊系統",
+        "C": "DSS 決策支援系統",
+        "D": "ES 專家系統"
+      },
+      "answer": "A",
+      "explanation": "TPS 處理大量日常交易資料（POS、ATM、訂票系統等）屬於典型的 TPS。",
+      "source": "AI 生成"
+    }
+  ],
+  "A2": [
+    {
+      "id": "A2-Q1",
+      "question": "以 8 位元二進制補碼表示，-5 的正確表示為何？",
+      "options": {
+        "A": "10000101",
+        "B": "11111010",
+        "C": "11111011",
+        "D": "00000101"
+      },
+      "answer": "C",
+      "explanation": "5=00000101→所有位元翻轉=11111010→再+1=11111011",
+      "source": "AI 生成"
+    },
+    {
+      "id": "A2-Q2",
+      "question": "n 位元補碼可表示的整數範圍為何？",
+      "options": {
+        "A": "0 至 2^n - 1",
+        "B": "-2^n 至 2^n - 1",
+        "C": "-2^(n-1) 至 2^(n-1) - 1",
+        "D": "-2^(n-1) - 1 至 2^(n-1)"
+      },
+      "answer": "C",
+      "explanation": "n 位元補碼可表示的範圍：-2^(n-1) 至 2^(n-1) - 1。例如 8 位元可表示 -128 至 +127。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "A2-Q3",
+      "question": "下列何種編碼系統最適合表示中文、日文及英文等多語言內容？",
+      "options": {
+        "A": "ASCII",
+        "B": "BIG5",
+        "C": "Unicode",
+        "D": "EBCDIC"
+      },
+      "answer": "C",
+      "explanation": "Unicode (UTF-8/UTF-16) 支援全球所有書寫系統。ASCII 只支援英文；BIG5 只支援繁中。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "A2-Q4",
+      "question": "ASCII 碼使用多少位元編碼一個字符？",
+      "options": {
+        "A": "4 bits",
+        "B": "7 bits",
+        "C": "8 bits",
+        "D": "16 bits"
+      },
+      "answer": "B",
+      "explanation": "標準 ASCII 使用 7 位元，可表示 128 個字符；Extended ASCII 才是 8 位元 (256 字符)。",
+      "source": "AI 生成"
+    }
+  ],
+  "A3": [
+    {
+      "id": "A3-Q1",
+      "question": "關於有損壓縮 (Lossy Compression) 的敘述，下列何者正確？",
+      "options": {
+        "A": "還原後的檔案與原檔完全一致",
+        "B": "檔案可以完全還原",
+        "C": "會永久損失部份原始資料，但檔案較小",
+        "D": "不適用於圖像和音訊"
+      },
+      "answer": "C",
+      "explanation": "有損壓縮（如 JPEG、MP3）會捨棄人眼/人耳難察覺的資料以換取更小檔案，且無法完全還原。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "A3-Q2",
+      "question": "下列哪個圖像格式在放大時不會失真？",
+      "options": {
+        "A": "JPEG",
+        "B": "PNG",
+        "C": "SVG",
+        "D": "BMP"
+      },
+      "answer": "C",
+      "explanation": "SVG 為向量圖，以數學公式描述，放大不失真。其餘皆為位圖格式。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "A3-Q3",
+      "question": "色深 (Colour depth) 是什麼意思？",
+      "options": {
+        "A": "圖像中的顏色數量",
+        "B": "每個像素用來表示顏色的位元數",
+        "C": "圖像的解析度",
+        "D": "圖像的檔案大小"
+      },
+      "answer": "B",
+      "explanation": "色深指每像素所用位元數。例如 24-bit 色深可表示 2^24 = 約 1600 萬種顏色。",
+      "source": "AI 生成"
+    }
+  ],
+  "A4": [
+    {
+      "id": "A4-Q1",
+      "question": "在 Excel 中，公式 =COUNTIF(A1:A10, \">=\"&B1) 的作用為何？",
+      "options": {
+        "A": "計算 A1:A10 範圍中大於等於 B1 值的儲存格數目",
+        "B": "計算 A1:A10 的平均值",
+        "C": "將 A1:A10 與 B1 合併",
+        "D": "檢查 A1:A10 是否包含 B1 的文字"
+      },
+      "answer": "A",
+      "explanation": "2025 新題型，& 符號用來串接關係運算子與儲存格位址的值。",
+      "source": "2025 新題型"
+    },
+    {
+      "id": "A4-Q2",
+      "question": "關於 Pivot Table 的用途，何者最準確？",
+      "options": {
+        "A": "檢查錯字",
+        "B": "將大量數據以不同角度快速彙總、分析",
+        "C": "美化 Excel 表格",
+        "D": "儲存公式"
+      },
+      "answer": "B",
+      "explanation": "Pivot Table 是強大的數據分析工具，可從列、欄、值、篩選器多個角度彙總資料。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "A4-Q3",
+      "question": "VLOOKUP(A1, B1:D10, 2, FALSE) 中的 FALSE 代表什麼意思？",
+      "options": {
+        "A": "找不到資料",
+        "B": "返回錯誤值",
+        "C": "進行完全匹配（精確查找）",
+        "D": "進行模糊匹配"
+      },
+      "answer": "C",
+      "explanation": "第四個參數 FALSE (或 0) 表示精確匹配；TRUE (或 1) 表示近似匹配（需排序）。",
+      "source": "AI 生成"
+    }
+  ],
+  "A5": [
+    {
+      "id": "A5-Q1",
+      "question": "SQL 語句的實際執行次序中，以下何者最先執行？",
+      "options": {
+        "A": "SELECT",
+        "B": "FROM",
+        "C": "WHERE",
+        "D": "GROUP BY"
+      },
+      "answer": "B",
+      "explanation": "SQL 執行次序：FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY。",
+      "source": "必考重點"
+    },
+    {
+      "id": "A5-Q2",
+      "question": "要在 SQL 中過濾「每個部門的員工數大於 5 人」，應使用哪個子句？",
+      "options": {
+        "A": "WHERE COUNT(*) > 5",
+        "B": "HAVING COUNT(*) > 5",
+        "C": "SELECT COUNT(*) > 5",
+        "D": "ORDER BY COUNT(*) > 5"
+      },
+      "answer": "B",
+      "explanation": "HAVING 用於過濾分組後資料，必須搭配聚合函數；WHERE 不能使用聚合函數。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "A5-Q3",
+      "question": "DBMS 相比 Spreadsheet，下列何者不是 DBMS 的優勢？",
+      "options": {
+        "A": "減少資料冗餘",
+        "B": "較佳的多使用者支援",
+        "C": "學習曲線較平緩",
+        "D": "較強的資料完整性保證"
+      },
+      "answer": "C",
+      "explanation": "DBMS 功能強大但學習曲線較陡峭（需學 SQL、設計正規化等）。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "A5-Q4",
+      "question": "SQL 中 SELECT DISTINCT 的作用是？",
+      "options": {
+        "A": "排序結果",
+        "B": "去除重複記錄",
+        "C": "顯示前 N 項",
+        "D": "限制欄位數量"
+      },
+      "answer": "B",
+      "explanation": "DISTINCT 用於去除結果中的重複記錄。",
+      "source": "AI 生成"
+    }
+  ],
+  "A6": [
+    {
+      "id": "A6-Q1",
+      "question": "採用偶同位 (Even Parity)，資料 1010110 應附加的同位位元為何？",
+      "options": {
+        "A": "0",
+        "B": "1",
+        "C": "依資料長度而定",
+        "D": "永遠是 1"
+      },
+      "answer": "A",
+      "explanation": "資料含 4 個 1（偶數），附加 0 才能使 1 的總數維持偶數。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "A6-Q2",
+      "question": "下列何者屬於「Verification 驗證」？",
+      "options": {
+        "A": "檢查電話號碼是否為 8 位數字",
+        "B": "檢查年齡是否在 0-120 之間",
+        "C": "要求使用者輸入密碼兩次並比對",
+        "D": "檢查電郵是否包含 @ 符號"
+      },
+      "answer": "C",
+      "explanation": "Verification 比對輸入與原始資料是否一致（如雙重輸入、校對）；Validation 檢查格式/規則。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "A6-Q3",
+      "question": "奇偶位元 (Parity Bit) 的最大限制是？",
+      "options": {
+        "A": "只能偵測英文字符的錯誤",
+        "B": "無法偵測任何錯誤",
+        "C": "無法偵測同時有兩個位元出錯的情況",
+        "D": "只能用在無線通訊"
+      },
+      "answer": "C",
+      "explanation": "若兩個位元同時翻轉，奇偶數不變，無法偵測。",
+      "source": "AI 生成"
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "D1": [
+    {
+      "id": "D1-Q1",
+      "question": "Python 運算式 2 + 3 * 4 ** 2 的結果為何？",
+      "options": {
+        "A": "50",
+        "B": "80",
+        "C": "100",
+        "D": "400"
+      },
+      "answer": "A",
+      "explanation": "** 最高優先 → 4**2 = 16；* → 3*16 = 48；+ → 2+48 = 50。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "D1-Q2",
+      "question": "哪種數據類型最適合儲存「學生考試是否合格」？",
+      "options": {
+        "A": "int",
+        "B": "float",
+        "C": "string",
+        "D": "boolean"
+      },
+      "answer": "D",
+      "explanation": "布林值只有 True/False，最適合是/否資訊；省空間且邏輯清晰。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "D1-Q3",
+      "question": "Python 運算 10 % 3 的結果是？",
+      "options": {
+        "A": "3",
+        "B": "1",
+        "C": "3.33",
+        "D": "0"
+      },
+      "answer": "B",
+      "explanation": "% 是取餘數運算子。10 ÷ 3 商為 3，餘數為 1。",
+      "source": "AI 生成"
+    }
+  ],
+  "D2": [
+    {
+      "id": "D2-Q1",
+      "question": "Python 以下程式輸出是什麼？\ntotal = 0\nfor i in range(1, 5):\n    total += i\nprint(total)",
+      "options": {
+        "A": "10",
+        "B": "15",
+        "C": "5",
+        "D": "4"
+      },
+      "answer": "A",
+      "explanation": "range(1, 5) 產生 1, 2, 3, 4。total = 1+2+3+4 = 10。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "D2-Q2",
+      "question": "偽代碼 for i = 1 to 10 在 Python 中應寫為？",
+      "options": {
+        "A": "range(1, 10)",
+        "B": "range(1, 11)",
+        "C": "range(0, 10)",
+        "D": "range(10)"
+      },
+      "answer": "B",
+      "explanation": "range(a, b) 不含 b。要涵蓋 1 到 10 必須用 range(1, 11)。",
+      "source": "2025 熱門陷阱"
+    },
+    {
+      "id": "D2-Q3",
+      "question": "下列程式執行後 x 的最終值為何？\nx = 5\nwhile x > 0:\n    x = x - 2\nprint(x)",
+      "options": {
+        "A": "0",
+        "B": "-1",
+        "C": "1",
+        "D": "2"
+      },
+      "answer": "B",
+      "explanation": "x: 5→3→1→-1。當 x=-1 時不再進入迴圈。",
+      "source": "AI 生成"
+    }
+  ],
+  "D3": [
+    {
+      "id": "D3-Q1",
+      "question": "執行偽代碼後，x 和 y 的值為？\nx = 5\ny = 3\nx = x + y\ny = x - y\nx = x - y",
+      "options": {
+        "A": "x=5, y=3",
+        "B": "x=3, y=5",
+        "C": "x=8, y=5",
+        "D": "x=8, y=3"
+      },
+      "answer": "B",
+      "explanation": "無暫存變數交換值的技巧。x=8 → y=8-3=5 → x=8-5=3。",
+      "source": "Trace Table 經典題"
+    },
+    {
+      "id": "D3-Q2",
+      "question": "哪個變數最可能扮演「累加器 (Accumulator)」的角色？",
+      "options": {
+        "A": "用於計算迴圈次數的 i",
+        "B": "儲存總和的 total",
+        "C": "記錄最大值的位置 maxIndex",
+        "D": "表示迴圈結束的 flag"
+      },
+      "answer": "B",
+      "explanation": "Accumulator 累積加總；i 是 Counter；maxIndex 是 Pointer；flag 是 Flag。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "D3-Q3",
+      "question": "2025 新題型中，改正編程錯誤時應如何作答？",
+      "options": {
+        "A": "只需圈起錯字",
+        "B": "寫上「錯誤」兩字",
+        "C": "必須寫上行號並寫出整句正確編碼",
+        "D": "重新執行程式"
+      },
+      "answer": "C",
+      "explanation": "2025 除錯題新要求：明確指出行號並寫出完整正確的一行程式碼。",
+      "source": "2025 新要求"
+    }
+  ],
+  "D4": [
+    {
+      "id": "D4-Q1",
+      "question": "若程式接受 1-100 之間的整數，下列何者最適合作為「邊界測試」？",
+      "options": {
+        "A": "50",
+        "B": "25 和 75",
+        "C": "1 和 100",
+        "D": "-5 和 200"
+      },
+      "answer": "C",
+      "explanation": "邊界測試針對範圍邊界值（1 和 100）；50 是正常測試；-5 與 200 是錯誤測試。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "D4-Q2",
+      "question": "二分搜尋的時間複雜度為？",
+      "options": {
+        "A": "O(1)",
+        "B": "O(n)",
+        "C": "O(log n)",
+        "D": "O(n²)"
+      },
+      "answer": "C",
+      "explanation": "二分搜尋每次將搜尋範圍減半，為 O(log n)，但前提是資料已排序。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "D4-Q3",
+      "question": "測試「輸入字母到只接受數字的欄位」屬於哪種測試資料？",
+      "options": {
+        "A": "正常資料",
+        "B": "邊界資料",
+        "C": "極端資料",
+        "D": "錯誤資料"
+      },
+      "answer": "D",
+      "explanation": "字母不符合規格要求，屬於錯誤資料 (Erroneous)，用於測試程式的錯誤處理。",
+      "source": "AI 生成"
+    }
+  ]
+}

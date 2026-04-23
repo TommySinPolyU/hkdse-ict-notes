@@ -1,0 +1,194 @@
+{
+  "C1": [
+    {
+      "id": "C1-Q1",
+      "question": "「光纖」相比「雙絞線」的優勢？",
+      "options": {
+        "A": "價錢較便宜",
+        "B": "傳輸速度快、距離長、不受電磁干擾",
+        "C": "安裝較簡單",
+        "D": "易於彎曲"
+      },
+      "answer": "B",
+      "explanation": "光纖以光訊號傳輸，速度快、距離遠、無電磁干擾，但成本較高、安裝較難。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "C1-Q2",
+      "question": "Switch 和 Router 的主要分別是？",
+      "options": {
+        "A": "Switch 用於 WAN，Router 用於 LAN",
+        "B": "Switch 依 MAC 地址轉送；Router 依 IP 在不同網絡間轉送",
+        "C": "Switch 比 Router 快",
+        "D": "兩者作用完全相同"
+      },
+      "answer": "B",
+      "explanation": "Switch 在 OSI Layer 2 依 MAC 地址；Router 在 Layer 3 依 IP 地址連接不同網絡。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "C1-Q3",
+      "question": "某檔案大小為 40 MB，以 100 Mbps 網絡下載約需多少秒？（1 MB = 1000 KB, 1 KB = 1000 B）",
+      "options": {
+        "A": "0.4 秒",
+        "B": "3.2 秒",
+        "C": "4 秒",
+        "D": "40 秒"
+      },
+      "answer": "B",
+      "explanation": "40 MB = 40 × 8 = 320 Mb；320 Mb ÷ 100 Mbps = 3.2 秒。網絡傳輸率的單位是 bits per second。",
+      "source": "AI 生成"
+    }
+  ],
+  "C2": [
+    {
+      "id": "C2-Q1",
+      "question": "IPv6 地址的長度為多少位元？",
+      "options": {
+        "A": "32 bits",
+        "B": "64 bits",
+        "C": "128 bits",
+        "D": "256 bits"
+      },
+      "answer": "C",
+      "explanation": "IPv4 是 32 位元，IPv6 是 128 位元，可提供約 3.4 × 10^38 個地址。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "C2-Q2",
+      "question": "HTTPS 預設使用的通訊埠為何？",
+      "options": {
+        "A": "21",
+        "B": "25",
+        "C": "80",
+        "D": "443"
+      },
+      "answer": "D",
+      "explanation": "HTTP: 80；HTTPS: 443；FTP: 21；SMTP: 25；DNS: 53。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "C2-Q3",
+      "question": "TCP 與 UDP 的主要分別是？",
+      "options": {
+        "A": "TCP 較快但不可靠；UDP 較慢但可靠",
+        "B": "TCP 提供可靠連線；UDP 快速但不保證送達",
+        "C": "TCP 只用於網頁；UDP 只用於電郵",
+        "D": "兩者完全相同"
+      },
+      "answer": "B",
+      "explanation": "TCP 保證可靠送達（三向交握、重送）；UDP 無連線、無保證但延遲低，適合串流、遊戲。",
+      "source": "AI 生成"
+    }
+  ],
+  "C3": [
+    {
+      "id": "C3-Q1",
+      "question": "<img src=\"cat.jpg\" width=\"100\" height=\"100\"> 對圖像的作用是？",
+      "options": {
+        "A": "將 cat.jpg 檔案實際大小縮減",
+        "B": "只改變圖像在網頁上的顯示大小，不改變檔案大小",
+        "C": "刪除原來的 cat.jpg 檔案",
+        "D": "將 cat.jpg 轉換為其他格式"
+      },
+      "answer": "B",
+      "explanation": "HTML 屬性只控制顯示尺寸，不改變圖像檔案本身大小。",
+      "source": "歷屆常考"
+    },
+    {
+      "id": "C3-Q2",
+      "question": "下列哪個 HTML 標籤用於建立超連結？",
+      "options": {
+        "A": "<link>",
+        "B": "<a>",
+        "C": "<href>",
+        "D": "<url>"
+      },
+      "answer": "B",
+      "explanation": "<a href=\"...\"> 是建立超連結的標籤；<link> 用於引入 CSS 等外部資源。",
+      "source": "AI 生成"
+    }
+  ],
+  "C4": [
+    {
+      "id": "C4-Q1",
+      "question": "防火牆 (Firewall) 的主要功能是？",
+      "options": {
+        "A": "偵測並清除病毒",
+        "B": "監控網絡流量、阻擋未授權存取",
+        "C": "加密硬碟資料",
+        "D": "定期備份資料"
+      },
+      "answer": "B",
+      "explanation": "Firewall 是網絡層面保護；清除病毒是 Anti-virus 的工作。",
+      "source": "必考"
+    },
+    {
+      "id": "C4-Q2",
+      "question": "2FA 雙重認證最常見的組合是？",
+      "options": {
+        "A": "密碼 + 另一個密碼",
+        "B": "密碼 + 手機短訊/App 驗證碼",
+        "C": "驗證碼 + 人機驗證",
+        "D": "指紋 + 面部辨識"
+      },
+      "answer": "B",
+      "explanation": "2FA 原則：「你知道的」+「你擁有的」兩種不同類型驗證。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "C4-Q3",
+      "question": "HTTPS 相比 HTTP 最重要的特點是？",
+      "options": {
+        "A": "速度更快",
+        "B": "使用 SSL/TLS 加密傳輸資料",
+        "C": "不需要伺服器",
+        "D": "免費使用"
+      },
+      "answer": "B",
+      "explanation": "HTTPS 在傳輸層加密，防止中間人竊聽（例如公共 WiFi 下的密碼傳送）。",
+      "source": "AI 生成"
+    }
+  ],
+  "C5": [
+    {
+      "id": "C5-Q1",
+      "question": "Alice 要傳送機密訊息給 Bob，確保只有 Bob 能閱讀。Alice 應使用哪個密碼匙加密？",
+      "options": {
+        "A": "Alice 的公開匙",
+        "B": "Alice 的私人匙",
+        "C": "Bob 的公開匙",
+        "D": "Bob 的私人匙"
+      },
+      "answer": "C",
+      "explanation": "加密（保密）：用「收件者 Bob 的公開匙」加密，只有 Bob 用自己私人匙能解密。",
+      "source": "必考"
+    },
+    {
+      "id": "C5-Q2",
+      "question": "Alice 要向 Bob 證明文件由自己發出，應進行哪個操作？",
+      "options": {
+        "A": "用 Alice 的公開匙加密",
+        "B": "用 Alice 的私人匙簽署",
+        "C": "用 Bob 的公開匙簽署",
+        "D": "用 Bob 的私人匙加密"
+      },
+      "answer": "B",
+      "explanation": "數碼簽署（驗證身份）：發件者用「自己的私人匙」簽署，他人可用其公開匙驗證。",
+      "source": "PKI 核心"
+    },
+    {
+      "id": "C5-Q3",
+      "question": "Alice 要既保密又讓 Bob 確認是 Alice 所發出，正確的做法是？",
+      "options": {
+        "A": "只用 Bob 的公開匙加密",
+        "B": "先用 Alice 私人匙簽署，再用 Bob 公開匙加密",
+        "C": "先用 Alice 公開匙加密，再用 Bob 私人匙簽署",
+        "D": "用兩人的私人匙互相加密"
+      },
+      "answer": "B",
+      "explanation": "完整流程：簽署（Alice 私人匙）確認身份 + 加密（Bob 公開匙）保密。",
+      "source": "必考"
+    }
+  ]
+}

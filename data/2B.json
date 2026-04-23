@@ -1,0 +1,196 @@
+{
+  "2B1": [
+    {
+      "id": "2B1-Q1",
+      "question": "DHCP 伺服器的主要功能是？",
+      "options": {
+        "A": "提供網頁內容",
+        "B": "動態分配 IP 位址",
+        "C": "將域名轉換為 IP 位址",
+        "D": "儲存使用者檔案"
+      },
+      "answer": "B",
+      "explanation": "DHCP 自動為設備分配 IP、子網遮罩、預設閘道、DNS 等資訊。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "2B1-Q2",
+      "question": "Proxy Server 的作用不包括？",
+      "options": {
+        "A": "快取常用網頁",
+        "B": "過濾不當內容",
+        "C": "隱藏客戶端真實 IP",
+        "D": "將域名轉換為 IP"
+      },
+      "answer": "D",
+      "explanation": "域名轉 IP 是 DNS 伺服器的工作；Proxy 主要功能是代理、快取、過濾。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "2B1-Q3",
+      "question": "你在瀏覽器輸入 www.google.com，哪個伺服器首先協助你找到對應 IP？",
+      "options": {
+        "A": "Web Server",
+        "B": "DNS Server",
+        "C": "DHCP Server",
+        "D": "File Server"
+      },
+      "answer": "B",
+      "explanation": "DNS 將網域名稱轉換為 IP 地址，之後瀏覽器才連接到該 IP 的 Web Server。",
+      "source": "AI 生成"
+    }
+  ],
+  "2B2": [
+    {
+      "id": "2B2-Q1",
+      "question": "關於 GET 和 POST，下列何者正確？",
+      "options": {
+        "A": "GET 資料在 URL 中可見，不適合敏感資訊",
+        "B": "POST 資料顯示在 URL 中",
+        "C": "GET 可傳送較大量資料",
+        "D": "POST 不支援檔案上傳"
+      },
+      "answer": "A",
+      "explanation": "GET 附在 URL，會被瀏覽器歷史記錄/書籤留下；POST 在 HTTP Body 較隱密。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "2B2-Q2",
+      "question": "HTTP 狀態碼 404 代表？",
+      "options": {
+        "A": "伺服器內部錯誤",
+        "B": "成功",
+        "C": "找不到資源",
+        "D": "需要授權"
+      },
+      "answer": "C",
+      "explanation": "200 OK；404 Not Found；500 Internal Server Error；401 Unauthorized。",
+      "source": "AI 生成"
+    }
+  ],
+  "2B3": [
+    {
+      "id": "2B3-Q1",
+      "question": "公共下載文件夾，一般使用者的權限最適合設為？",
+      "options": {
+        "A": "R + W + X",
+        "B": "只有 R",
+        "C": "只有 W",
+        "D": "只有 X"
+      },
+      "answer": "B",
+      "explanation": "公共下載只應允許讀取，避免誤刪或惡意修改。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "2B3-Q2",
+      "question": "對於一個「可執行的程式檔案」，哪種權限組合最合理？",
+      "options": {
+        "A": "R + W（可讀可寫）",
+        "B": "R + X（可讀可執行）",
+        "C": "只有 W",
+        "D": "完全不設權限"
+      },
+      "answer": "B",
+      "explanation": "執行檔需要讀取和執行權限，但不應給 W 以防被修改或感染。",
+      "source": "AI 生成"
+    }
+  ],
+  "2B4": [
+    {
+      "id": "2B4-Q1",
+      "question": "External CSS 相比 Internal CSS 的優點？",
+      "options": {
+        "A": "載入速度必定較快",
+        "B": "可跨多個網頁重用、易維護",
+        "C": "原始碼較少",
+        "D": "支援更多屬性"
+      },
+      "answer": "B",
+      "explanation": "External CSS 獨立檔案可跨頁共用、集中維護；瀏覽器還可快取以加速後續載入。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "2B4-Q2",
+      "question": "伺服器端腳本（如 PHP）相比客戶端腳本（如 JavaScript）的優勢？",
+      "options": {
+        "A": "執行速度必定較快",
+        "B": "原始碼隱藏，可安全處理數據庫",
+        "C": "不需要伺服器",
+        "D": "支援即時動畫"
+      },
+      "answer": "B",
+      "explanation": "Server-side 程式原始碼不會發送到客戶端，可安全處理帳號密碼與資料庫查詢。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "2B4-Q3",
+      "question": "下列哪項任務最適合由 Client-side (JavaScript) 處理？",
+      "options": {
+        "A": "即時驗證使用者輸入格式",
+        "B": "查詢資料庫",
+        "C": "驗證使用者密碼是否正確",
+        "D": "處理付款交易"
+      },
+      "answer": "A",
+      "explanation": "客戶端適合做輕量、即時互動；涉及安全或資料庫的驗證必須在伺服器端進行。",
+      "source": "AI 生成"
+    }
+  ],
+  "2B5": [
+    {
+      "id": "2B5-Q1",
+      "question": "「身份證號碼必須為 8 字元」屬於哪種驗證？",
+      "options": {
+        "A": "Range Check",
+        "B": "Format Check",
+        "C": "Length Check",
+        "D": "Presence Check"
+      },
+      "answer": "C",
+      "explanation": "Length Check 驗證字元數；若還檢查字母+數字組合則屬 Format Check。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "2B5-Q2",
+      "question": "檢查「性別」欄只能輸入 M 或 F，屬於？",
+      "options": {
+        "A": "Range Check",
+        "B": "Fixed Value Check",
+        "C": "Format Check",
+        "D": "Type Check"
+      },
+      "answer": "B",
+      "explanation": "Fixed Value Check 檢查輸入是否符合預設清單（如 M/F、地區代號等）。",
+      "source": "AI 生成"
+    }
+  ],
+  "2B6": [
+    {
+      "id": "2B6-Q1",
+      "question": "預防 SQL Injection 最有效的方法？",
+      "options": {
+        "A": "使用複雜密碼",
+        "B": "使用參數化查詢 (Prepared Statement) 及驗證輸入",
+        "C": "關閉數據庫",
+        "D": "將數據庫放在公開網絡"
+      },
+      "answer": "B",
+      "explanation": "參數化查詢將使用者輸入視為純資料，不會被解釋為 SQL 指令。",
+      "source": "AI 生成"
+    },
+    {
+      "id": "2B6-Q2",
+      "question": "Cookie 的常見用途不包括？",
+      "options": {
+        "A": "記住登入狀態",
+        "B": "儲存使用者偏好",
+        "C": "追蹤購物車內容",
+        "D": "加速電腦 CPU 運算"
+      },
+      "answer": "D",
+      "explanation": "Cookie 是儲存於客戶端的小型資料，與 CPU 性能無關。",
+      "source": "AI 生成"
+    }
+  ]
+}

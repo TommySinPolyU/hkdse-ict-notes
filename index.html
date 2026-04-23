@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HKDSE ICT 2026 速讀溫習筆記</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style>
+  body { font-family: "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", system-ui, sans-serif; -webkit-tap-highlight-color: transparent; }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 4px; }
+  ::-webkit-scrollbar-track { background: #f1f5f9; }
+  .fade-in { animation: fadeIn 0.3s ease-in; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+  .content-text { line-height: 1.8; }
+  .hl-mark { background: linear-gradient(transparent 55%, #fde68a 55%); padding: 0 2px; border-radius: 2px; cursor: pointer; transition: background 0.2s; }
+  .hl-mark.has-note { background: linear-gradient(transparent 55%, #fcd34d 55%); border-bottom: 2px dotted #d97706; }
+  .hl-mark:hover { filter: brightness(0.95); }
+  .timer-pulse { animation: pulse 1s infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.6; } }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" data-presets="react">
+const { useState, useEffect, useRef, useMemo } = React;
+
+// ============================================================
+// 💾 localStorage
+// ============================================================
+const STORAGE_KEYS = {
+  STARRED: 'hkdse-ict-starred-v2',
+  PRACTICE: 'hkdse-ict-practice-v2',
+  TESTS: 'hkdse-ict-tests-v1',
+  SETTINGS: 'hkdse-ict-settings-v1'
+};
+
+const storage = {
+  get: (key, fallback) => {
+    try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; } catch { return fallback; }
+  },
+  set: (key, value) => { try { localStorage.setItem(key, JSON.stringify(value)); } catch {} }
+};
+
+// 舊版相容
+const migrateStarred = (arr) => (arr || []).map(s => ({ note: '', ...s }));
+
+// 時間格式化
+const fmtTime = (seconds) => {
+  if (isNaN(seconds) || seconds < 0) seconds = 0;
+  const m = Math.floor(seconds / 60);
+  const s = Math.floor(seconds % 60);
+  return `${m}:${String(s).padStart(2, '0')}`;
+};
+
+// ============================================================
+// 📚 課程資料
+// ============================================================
+const curriculumData = [
+  {id:"unit-A",title:"單元 A：資訊處理",subtitle:"Information Processing",duration:"37小時",type:"compulsory",color:"blue",
+    sections:[
+      {id:"A1",title:"A1. 資訊系統基礎",content:[
+        {type:"heading",text:"🎯 核心概念"},
+        {type:"para",text:"資訊系統 (Information Systems) 是由硬件、軟件、數據、程序及使用者組成，用於處理、儲存及傳遞資訊。"},
+        {type:"keypoint",title:"Data vs Information",text:"Data（數據）是原始事實或數字，本身無意義；Information（資訊）是經處理後有意義的數據，可用於決策。"},
+        {type:"list",title:"資訊系統五大組成部分",items:["Hardware（硬件）","Software（軟件）","Data（數據）","Procedure（程序/程序）","People（使用者）"]},
+        {type:"list",title:"常見資訊系統類型",items:["交易處理系統 TPS","管理資訊系統 MIS","決策支援系統 DSS","專家系統 ES"]},
+      ]},
+      {id:"A2",title:"A2. 數據表示法",content:[
+        {type:"heading",text:"🎯 二進制補碼 (2's Complement)"},
+        {type:"para",text:"二進制補碼用於表示正負數。計算步驟：(1) 先將正數表示為二進制 (2) 所有位元翻轉 (3) 加 1。"},
+        {type:"example",title:"例：8 位元表示 -5",text:"5 = 00000101 → 翻轉 = 11111010 → +1 = 11111011"},
+        {type:"warning",text:"⚠️ n 位元補碼的表示範圍為 -2^(n-1) 至 2^(n-1) - 1，例如 8 位元可表示 -128 至 +127。"},
+        {type:"heading",text:"🎯 字符編碼"},
+        {type:"list",items:["ASCII：7位元，可表示 128 個字符，主要用於英文","Extended ASCII：8位元，可表示 256 個字符","Unicode (UTF-8/UTF-16)：可表示全球所有語言，包括中文"]},
+      ]},
+      {id:"A3",title:"A3. 多媒體數位化",content:[
+        {type:"heading",text:"🎯 圖像表示"},
+        {type:"list",items:["位圖 Bitmap：由像素 (pixels) 組成，格式有 BMP、JPEG、PNG、GIF","向量圖 Vector：由數學公式描述，放大不失真，格式有 SVG、AI","解析度 (Resolution)：像素總數；色深 (Color depth)：每像素所用位元數"]},
+        {type:"heading",text:"🎯 聲音與影片"},
+        {type:"list",items:["取樣率 (Sampling rate)：每秒取樣次數 (Hz)","取樣解析度 (Sampling resolution)：每次取樣的位元數","常見聲音格式：WAV (無損)、MP3 (有損壓縮)","影片格式：MP4、AVI、MOV、MKV"]},
+        {type:"heading",text:"🎯 壓縮技術"},
+        {type:"list",items:["有損壓縮 (Lossy)：JPEG、MP3 — 檔案小，但質素下降","無損壓縮 (Lossless)：PNG、FLAC、ZIP — 可完全還原"]},
+      ]},
+      {id:"A4",title:"A4. 試算表應用",content:[
+        {type:"heading",text:"🎯 常用函數（熟記參數次序）"},
+        {type:"table",headers:["函數","用途","語法範例"],rows:[["IF","條件判斷","=IF(A1>60, \"Pass\", \"Fail\")"],["SUMIF","條件求和","=SUMIF(A1:A10, \">50\", B1:B10)"],["COUNTIF","條件計數","=COUNTIF(A1:A10, \">=60\")"],["VLOOKUP","垂直查找","=VLOOKUP(A1, B1:D10, 2, FALSE)"],["AVERAGE","平均值","=AVERAGE(A1:A10)"]]},
+        {type:"warning",text:"⚠️ 2025 新題型：關係運算子與儲存格位址用 & 串接，例：=COUNTIF(A1:A10, \">=\"&B1)"},
+        {type:"heading",text:"🎯 Pivot Table（樞紐分析表）"},
+        {type:"list",items:["用於彙總、分析大量數據","可設定：列（Row）、欄（Column）、值（Values）、篩選器（Filter）","Pivot Chart：以圖表形式呈現樞紐分析結果"]},
+      ]},
+      {id:"A5",title:"A5. 數據庫及 SQL",content:[
+        {type:"heading",text:"🎯 DBMS vs 試算表"},
+        {type:"table",headers:["比較項目","DBMS","Spreadsheet"],rows:[["數據量","大","小"],["多使用者支援","佳","差"],["資料完整性","強 (約束條件)","弱"],["數據冗餘","少","多"],["存取速度","快","適中"]]},
+        {type:"heading",text:"🎯 SQL 結構"},
+        {type:"example",text:"SELECT 欄位 FROM 表 WHERE 條件 GROUP BY 欄位 HAVING 聚合條件 ORDER BY 欄位"},
+        {type:"keypoint",title:"🔑 SQL 執行次序（極重要！）",text:"FROM ➔ WHERE ➔ GROUP BY ➔ HAVING ➔ SELECT ➔ ORDER BY"},
+        {type:"heading",text:"🎯 WHERE vs HAVING"},
+        {type:"list",items:["WHERE：過濾「單筆資料」，在分組前執行","HAVING：過濾「分組後」的資料，必須搭配聚合函數（SUM, COUNT, AVG, MAX, MIN）","例：SELECT 系, COUNT(*) FROM 學生 GROUP BY 系 HAVING COUNT(*) > 30"]},
+      ]},
+      {id:"A6",title:"A6. 誤差控制",content:[
+        {type:"heading",text:"🎯 Validation vs Verification"},
+        {type:"table",headers:["名稱","中文","作用"],rows:[["Validation","有效性檢驗","檢查資料是否符合規則/格式（如範圍、類型、長度）"],["Verification","驗證","確認輸入資料與原始資料一致（如雙重輸入、校對）"]]},
+        {type:"heading",text:"🎯 Parity Bit（奇偶檢測）"},
+        {type:"list",items:["Even parity（偶同位）：1 的總數為偶數","Odd parity（奇同位）：1 的總數為奇數","可偵測單一位元錯誤，但不能偵測兩個位元同時錯誤"]},
+        {type:"heading",text:"🎯 Check Digit（檢查數位）"},
+        {type:"para",text:"一組數字末尾的額外數字，透過特定演算法（如 Modulus 10/11）計算，用於檢測輸入錯誤。常見例子：身份證號碼末位、ISBN、信用卡號碼、條碼。"},
+      ]},
+    ]},
+  {id:"unit-B",title:"單元 B：電腦系統基礎",subtitle:"Computer System Fundamentals",duration:"20小時",type:"compulsory",color:"green",
+    sections:[
+      {id:"B1",title:"B1. 硬件性能 (CPU/GPU)",content:[
+        {type:"heading",text:"🎯 CPU 性能指標（熱門考點）"},
+        {type:"list",items:["時鐘頻率 (Clock rate)：每秒時鐘週期數，單位 GHz，越高越快","核心數量 (Number of cores)：同時處理任務的數量，多核心可並行處理","字長 (Word size)：CPU 一次可處理的位元數，32-bit vs 64-bit","快取記憶體 (Cache)：L1/L2/L3，容量越大存取速度越快"]},
+        {type:"heading",text:"🎯 GPU（圖形處理器，近年熱門）"},
+        {type:"list",items:["專門處理圖像及平行運算的處理器","擁有大量核心（數百至數千），適合矩陣運算","應用：3D 遊戲、影片編碼、AI 訓練、加密貨幣挖礦","CPU 擅長序列運算；GPU 擅長並行運算"]},
+      ]},
+      {id:"B2",title:"B2. 記憶體與儲存",content:[
+        {type:"heading",text:"🎯 主記憶體"},
+        {type:"table",headers:["類型","特性"],rows:[["RAM (動態記憶體)","揮發性 (關機後消失)，存取速度快，可讀寫"],["ROM (唯讀記憶體)","非揮發性，儲存開機程序 (BIOS)"],["Cache (快取)","CPU 內部，速度最快但容量小"]]},
+        {type:"heading",text:"🎯 輔助儲存"},
+        {type:"list",items:["HDD（硬碟）：容量大、價錢平、速度慢（機械結構）","SSD（固態硬碟）：速度快、無機械部分、抗震、價錢較貴","光碟：CD / DVD / Blu-ray","雲端儲存：隨時隨地存取、需要網絡"]},
+      ]},
+      {id:"B3",title:"B3. 檔案大小計算",content:[
+        {type:"keypoint",title:"🔑 換算必記",text:"1 Byte = 8 bits｜1 KB = 1000 B 或 1024 B（視題目要求）｜1 MB = 1000 KB｜1 GB = 1000 MB"},
+        {type:"warning",text:"⚠️ 答案必須加上 SI 單位！計算時如要轉 Byte 勿忘 ÷ 8。"},
+        {type:"heading",text:"🎯 常見計算公式"},
+        {type:"list",items:["圖像檔案：寬 × 高 × 色深(bits) ÷ 8 = Bytes","聲音檔案：取樣率 × 取樣解析度 × 聲道 × 時長 ÷ 8 = Bytes","影片檔案：幀率 × 每幀大小 × 時長 + 聲音檔案大小"]},
+        {type:"example",title:"例",text:"800 × 600 像素、24-bit 色深的圖像 = 800 × 600 × 24 ÷ 8 = 1,440,000 Bytes ≈ 1.44 MB"},
+      ]},
+      {id:"B4",title:"B4. 軟件分類",content:[
+        {type:"heading",text:"🎯 軟件四大類"},
+        {type:"table",headers:["類型","作用","例子"],rows:[["操作系統 OS","管理硬件資源、提供使用者介面","Windows, macOS, Linux, Android"],["系統軟件","支援電腦運作的軟件","Utility、Compiler、Device Driver"],["應用軟件","協助使用者完成特定任務","Word, Excel, Chrome"],["驅動程式 Driver","讓 OS 與硬件溝通","印表機驅動程式、顯示卡驅動程式"]]},
+      ]},
+      {id:"B5",title:"B5. 處理模式",content:[
+        {type:"table",headers:["模式","特點","應用"],rows:[["Multi-tasking 多工","同時執行多個程式 (CPU 輪流處理)","個人電腦"],["Multi-user 多使用者","多人同時使用同一系統","銀行系統、伺服器"],["Real-time 實時","規定時間內必須完成 (即時回應)","自動駕駛、醫療監察、導彈系統"],["Batch 成批","累積工作後一次處理","銀行月結、薪金計算"],["Parallel 並行","多個 CPU 同時處理一個工作","超級電腦、天氣預報"],["Distributed 分布式","不同地點電腦合作處理","雲端運算、區塊鏈"]]},
+      ]},
+      {id:"B6",title:"B6. 虛擬化 (Virtualization)",content:[
+        {type:"heading",text:"🎯 新興課題（2025 新加內容）"},
+        {type:"para",text:"虛擬化是一種軟件技術，將單一實體硬件資源劃分為多個獨立的虛擬環境，使不同的作業系統和應用程式能在同一實體機器上同時運行，且互不干擾。"},
+        {type:"list",title:"優點",items:["大幅提升硬件資源的使用率","減低購買額外硬件的成本","方便建立測試環境、快速部署","易於備份及災難復原"]},
+        {type:"list",title:"常見例子",items:["VMware、VirtualBox、Hyper-V","雲端服務 (AWS、Azure)","Docker（容器化）"]},
+      ]},
+    ]},
+  {id:"unit-C",title:"單元 C：互聯網及其應用",subtitle:"Internet and Its Application",duration:"31小時",type:"compulsory",color:"purple",
+    sections:[
+      {id:"C1",title:"C1. 網絡硬件與傳輸",content:[
+        {type:"heading",text:"🎯 網絡傳輸媒介"},
+        {type:"list",items:["雙絞線 (Twisted Pair)：便宜、易安裝、距離短","同軸電纜 (Coaxial)：抗干擾較佳","光纖 (Fibre Optic)：速度最快、距離最遠、無電磁干擾、成本較高","無線 (WiFi / Bluetooth)：方便但易受干擾"]},
+        {type:"heading",text:"🎯 網絡設備"},
+        {type:"table",headers:["設備","作用"],rows:[["NIC 網絡卡","讓電腦連接至網絡，每張有唯一 MAC 地址"],["Hub 集線器","將封包廣播至所有埠 (OSI Layer 1)"],["Switch 交換器","根據 MAC 地址傳送封包至特定埠 (Layer 2)"],["Router 路由器","在不同網絡間傳送封包 (Layer 3)，使用 IP 地址"]]},
+        {type:"warning",text:"⚠️ 網絡數據傳輸率計算：一律用 1000 作換算（非 1024）"},
+      ]},
+      {id:"C2",title:"C2. 網絡協定",content:[
+        {type:"heading",text:"🎯 TCP/IP 模型"},
+        {type:"list",items:["應用層 Application：HTTP, FTP, SMTP, DNS","傳輸層 Transport：TCP (可靠), UDP (快速但不可靠)","網絡層 Internet：IP (IPv4/IPv6)","連結層 Link：Ethernet, WiFi"]},
+        {type:"heading",text:"🎯 IPv4 vs IPv6"},
+        {type:"table",headers:["項目","IPv4","IPv6"],rows:[["長度","32 位元","128 位元"],["格式","點分十進制 (192.168.1.1)","冒號十六進制 (2001:db8::1)"],["位址數量","約 43 億","約 3.4 × 10^38"]]},
+        {type:"heading",text:"🎯 常見通訊埠 (Port)"},
+        {type:"list",items:["HTTP: 80 | HTTPS: 443 | FTP: 21 | SMTP: 25 | DNS: 53 | SSH: 22"]},
+      ]},
+      {id:"C3",title:"C3. HTML 與網頁基礎",content:[
+        {type:"heading",text:"🎯 基本 HTML 標籤"},
+        {type:"list",items:["<h1>-<h6>：標題 | <p>：段落 | <br>：換行","<a href=\"url\">：超連結 | <img src=\"path\">：圖像","<ul>/<ol>/<li>：列表 | <table>/<tr>/<td>：表格","<div>：區塊容器 | <span>：行內容器"]},
+        {type:"warning",text:"⚠️ 用 HTML 屬性（width/height）修改圖像顯示大小，不會改變圖像實際檔案大小。"},
+        {type:"heading",text:"🎯 互聯網應用"},
+        {type:"list",items:["物聯網 (IoT)：日常物品連接互聯網","雲端服務：SaaS, PaaS, IaaS","智慧城市：透過 ICT 改善城市管理"]},
+      ]},
+      {id:"C4",title:"C4. 資訊保安 (Firewall vs Anti-virus)",content:[
+        {type:"keypoint",title:"🔑 常被混淆！嚴格分清",text:"Firewall 監控流量、防未授權存取｜Anti-virus 偵測清除惡意程式"},
+        {type:"table",headers:["項目","Firewall 防火牆","Anti-virus 防毒軟件"],rows:[["作用層面","網絡層面","檔案／系統層面"],["功能","監控進出流量、阻擋未授權連線","掃描、偵測、清除惡意程式"],["防範對象","黑客、未授權存取","病毒、木馬、蠕蟲、勒索軟件"]]},
+        {type:"heading",text:"🎯 其他保安措施"},
+        {type:"list",items:["SSL / TLS：在傳輸過程加密（HTTPS）","智能卡 (Smart Card)：實體認證","數碼證書 (Digital Certificate)：驗證身份","雙重認證 2FA：密碼 + 手機短訊／App 驗證碼","生物認證：指紋、面部辨識"]},
+      ]},
+      {id:"C5",title:"C5. PKI 公開密碼匙加密",content:[
+        {type:"keypoint",title:"🔑 作答格式（DSE 常錯！）",text:"必須寫明「誰的什麼匙」→ 例：用收件者的公開匙加密、用發件者的私人匙簽署"},
+        {type:"heading",text:"🎯 加密（保密用途）"},
+        {type:"list",items:["發件者用「收件者的公開匙」加密訊息","收件者用「自己的私人匙」解密","確保只有收件者能閱讀"]},
+        {type:"heading",text:"🎯 數碼簽署（驗證身份）"},
+        {type:"list",items:["發件者用「自己的私人匙」簽署","收件者用「發件者的公開匙」驗證簽署","確保訊息來自真正的發件者，且未被篡改"]},
+        {type:"example",title:"綜合應用（保密 + 驗證）",text:"發件者：先用自己的私人匙簽署 → 再用收件者的公開匙加密\n收件者：先用自己的私人匙解密 → 再用發件者的公開匙驗證"},
+      ]},
+    ]},
+  {id:"unit-D",title:"單元 D：計算思維與程式編寫",subtitle:"Computational Thinking and Programming",duration:"48小時 ⭐",type:"compulsory",color:"orange",
+    sections:[
+      {id:"D1",title:"D1. 編程基礎",content:[
+        {type:"heading",text:"🎯 支援語言"},
+        {type:"list",items:["Python、C++、Pascal（Pascal 僅限 2027 年或以前使用）","新制大幅增加編程課時：24小時 → 48小時"]},
+        {type:"heading",text:"🎯 數據類型"},
+        {type:"list",items:["整數 int：5, -10, 0","浮點數 float/real：3.14, -0.5","字串 string/str：\"Hello\"","布林值 boolean：True / False","字符 char：'A' (C++)"]},
+        {type:"heading",text:"🎯 運算子優先次序"},
+        {type:"list",items:["() > ** > * / % > + - > 比較運算子 > and/or/not","記：「先乘除，後加減」、「必要時加括號」"]},
+      ]},
+      {id:"D2",title:"D2. 控制結構",content:[
+        {type:"heading",text:"🎯 條件結構"},
+        {type:"example",text:"if (條件):\n    執行\nelif (另一條件):\n    執行\nelse:\n    執行"},
+        {type:"heading",text:"🎯 迴圈結構"},
+        {type:"list",items:["for 迴圈：已知迭代次數 — for i in range(1, 11)","while 迴圈：條件成立時重複 — while x < 10:","repeat-until (do-while)：至少執行一次"]},
+        {type:"warning",text:"⚠️ Python 陷阱：題目偽代碼 for i = 1 to 10，Python 必須寫 range(1, 11)"},
+      ]},
+      {id:"D3",title:"D3. 追蹤與除錯",content:[
+        {type:"heading",text:"🎯 Trace Table（追蹤表）"},
+        {type:"para",text:"紙筆模擬編程必備工具，列出每個變數在每步的值變化。"},
+        {type:"keypoint",title:"變數身份識別",text:"指標 (Pointer)｜累加器 (Accumulator)｜計數器 (Counter)｜邊界 (Boundary)｜旗標 (Flag)"},
+        {type:"warning",text:"⚠️ 2025 新題型：除錯題必須寫上「行號」（Line number），並重新寫上「整句正確編碼」，不能只圈錯字。"},
+        {type:"heading",text:"🎯 編程邏輯檢查清單"},
+        {type:"list",items:["變數是否有初始值？（在迴圈內還是外？）","迴圈迭代次數是否正確？（off-by-one 錯誤）","是否避免誤改變數的原值？","陣列索引從 0 還是 1？","邊界條件處理是否完整？"]},
+      ]},
+      {id:"D4",title:"D4. 測試與演算法",content:[
+        {type:"heading",text:"🎯 測試數據設計"},
+        {type:"list",items:["正常數據 (Normal)：符合要求的中間值","邊界數據 (Boundary)：剛好在範圍邊界，例 1 和 100","極端數據 (Extreme)：很大或很小的值","錯誤數據 (Erroneous)：不符合要求的值 (如字母、負數)"]},
+        {type:"heading",text:"🎯 演算法分析"},
+        {type:"list",items:["時間複雜度 (Time Complexity)：執行步數","空間複雜度 (Space Complexity)：佔用記憶體","Big-O 記號：O(1) < O(log n) < O(n) < O(n log n) < O(n²)"]},
+      ]},
+    ]},
+  {id:"unit-E",title:"單元 E：資訊及通訊科技對社會的影響",subtitle:"Social Implications",duration:"8小時",type:"compulsory",color:"pink",
+    sections:[
+      {id:"E1",title:"E1. 科技創新",content:[
+        {type:"heading",text:"🎯 新興技術"},
+        {type:"list",items:["AI 人工智能：機器學習、自然語言處理、生成式 AI (ChatGPT)","AR 擴增實境：在現實場景加入虛擬元素 (Pokémon GO)","VR 虛擬實境：完全沉浸式虛擬環境 (Oculus)","區塊鏈 Blockchain：去中心化、透明、不可竄改","5G 通訊：高速、低延遲"]},
+        {type:"heading",text:"🎯 智慧城市應用"},
+        {type:"list",items:["智慧交通、智慧能源、智慧醫療、智慧教育"]},
+      ]},
+      {id:"E2",title:"E2. 健康與人體工程學",content:[
+        {type:"heading",text:"🎯 常見健康問題"},
+        {type:"list",items:["RSI (Repetitive Strain Injury)：重複性勞損，長期重複動作引致","CVS (Computer Vision Syndrome)：電腦視覺綜合症，眼睛疲勞","姿勢不良：腰背痛、頸部疼痛"]},
+        {type:"heading",text:"🎯 預防方法"},
+        {type:"list",items:["人體工程學鍵盤/滑鼠：減少手腕壓力","定時休息：20-20-20 原則","調整螢幕高度及距離","適當照明、護眼燈光"]},
+      ]},
+      {id:"E3",title:"E3. 知識產權",content:[
+        {type:"heading",text:"🎯 版權 (Copyright)"},
+        {type:"list",items:["使用他人作品必須取得版權持有人同意","必須標明出處 (Source reference)","⚠️ AI 生成的圖片亦必須加入來源標註，並列明為 AI 生成"]},
+        {type:"heading",text:"🎯 軟件授權類型比較"},
+        {type:"table",headers:["類型","收費","原始碼","修改/分發"],rows:[["Freeware 免費軟件","免費","不公開","不允許"],["Shareware 共享軟件","試用期後收費","不公開","不允許"],["Open-source 開放源碼","多數免費","公開","允許"],["Proprietary 版權軟件","付費","不公開","不允許"]]},
+      ]},
+      {id:"E4",title:"E4. 社會議題",content:[
+        {type:"heading",text:"🎯 數碼隔閡 (Digital Divide)"},
+        {type:"para",text:"指有機會接觸 ICT 與無機會接觸 ICT 的人之間的差距，造成資訊不平等。"},
+        {type:"list",title:"成因",items:["經濟差異（無法負擔電腦/網絡）","地理差異（偏遠地區網絡基建不足）","年齡差異（長者不熟悉科技）","教育差異"]},
+        {type:"heading",text:"🎯 其他議題"},
+        {type:"list",items:["性別平等：女性從事 ICT 行業比例偏低","殘障人士平等：無障礙網頁設計 (WCAG)、屏幕閱讀器、語音辨識"]},
+      ]},
+    ]},
+  {id:"elective-A",title:"選修 A：數據庫",subtitle:"Databases",duration:"選修 (三選二)",type:"elective",color:"cyan",
+    sections:[
+      {id:"2A1",title:"2A1. ER 圖",content:[
+        {type:"heading",text:"🎯 ER 圖符號"},
+        {type:"list",items:["實體 Entity：矩形 □","主鍵 Primary Key：底線 __","關係 Relationship：菱形 ◇","屬性 Attribute：橢圓 ○"]},
+        {type:"heading",text:"🎯 基數 (Cardinality)"},
+        {type:"list",items:["1:1 一對一","1:N 一對多（最常見）","M:N 多對多（必須分解為兩個 1:N，引入中間關聯表）"]},
+        {type:"heading",text:"🎯 參與度"},
+        {type:"list",items:["Mandatory 必要：實體必須參與關係","Optional 可選：實體可選擇參與關係"]},
+      ]},
+      {id:"2A2",title:"2A2. SQL 語法",content:[
+        {type:"heading",text:"🎯 DDL（資料定義語言）"},
+        {type:"example",text:"CREATE TABLE Student (\n  SID INT PRIMARY KEY,\n  Name VARCHAR(50) NOT NULL,\n  Email VARCHAR(100) UNIQUE\n);"},
+        {type:"heading",text:"🎯 DML（資料操作語言）"},
+        {type:"list",items:["INSERT INTO Student VALUES (...)","UPDATE Student SET Name='Amy' WHERE SID=1","DELETE FROM Student WHERE SID=1"]},
+        {type:"warning",text:"⚠️ UPDATE / DELETE 必須加 WHERE，否則會影響全表！"},
+        {type:"heading",text:"🎯 JOIN 類型"},
+        {type:"table",headers:["類型","作用"],rows:[["INNER JOIN","只保留兩表都有匹配的記錄"],["LEFT JOIN","保留左表所有記錄，右表無匹配用 NULL"],["RIGHT JOIN","保留右表所有記錄，左表無匹配用 NULL"],["FULL JOIN","保留兩表所有記錄"]]},
+        {type:"heading",text:"🎯 Subquery 與 UNION"},
+        {type:"list",items:["子查詢：在 WHERE 或 FROM 中嵌套另一個 SELECT","UNION：合併並去重","UNION ALL：合併但保留重複"]},
+      ]},
+      {id:"2A3",title:"2A3. 規範化 (Normalization)",content:[
+        {type:"keypoint",title:"🔑 口訣：「重複 — 部分 — 傳遞，異常每步消」",text:"1NF 消重複；2NF 消部分依賴；3NF 消傳遞依賴"},
+        {type:"heading",text:"🎯 各階段"},
+        {type:"list",items:["1NF：消除重複組、多值屬性、非原子值","2NF：消除部分依賴（Partial Dependency）— 非主鍵屬性應完全依賴於整個主鍵","3NF：消除傳遞依賴（Transitive Dependency）— 非主鍵屬性不能依賴於其他非主鍵屬性"]},
+        {type:"heading",text:"🎯 Denormalisation（反規範化）"},
+        {type:"list",items:["刻意增加冗餘以提升查詢速度、減少 JOIN","缺點：增加冗餘、更新異常風險"]},
+      ]},
+      {id:"2A4",title:"2A4. 數據庫管理概念",content:[
+        {type:"heading",text:"🎯 Rollback（回滾）"},
+        {type:"keypoint",title:"完整作答",text:"交易失敗時，將資料庫回復至交易開始前的狀態，確保資料的一致性 (Consistency) 及完整性 (Integrity)。"},
+        {type:"heading",text:"🎯 View（視圖）"},
+        {type:"list",items:["虛擬表，不儲存實際數據，只儲存 SELECT 定義","優點：簡化查詢、提升保安、隱藏敏感資料（提升隱私）"]},
+        {type:"heading",text:"🎯 Index（索引）"},
+        {type:"list",items:["加速查詢（WHERE、JOIN、ORDER BY）","缺點：佔用儲存空間、拖慢 INSERT/UPDATE 速度"]},
+      ]},
+    ]},
+  {id:"elective-B",title:"選修 B：網絡應用程式開發",subtitle:"Web Application Development",duration:"選修 (三選二)",type:"elective",color:"teal",
+    sections:[
+      {id:"2B1",title:"2B1. 網絡服務",content:[
+        {type:"table",headers:["伺服器","功能"],rows:[["DHCP 伺服器","動態分配 IP 位址給客戶端"],["DNS 伺服器","將域名轉換為 IP 位址"],["Domain Controller","管理網域使用者及權限（Active Directory）"],["File Server","集中儲存檔案，供網絡使用者共享"],["Proxy Server","代理客戶端存取網絡，可過濾、快取、隱藏身份"],["Web Server","提供網頁服務 (HTTP/HTTPS)"],["Database Server","儲存及管理數據庫"],["Gateway","連接不同網絡 (協定轉換)"]]},
+      ]},
+      {id:"2B2",title:"2B2. 通訊基礎 (GET vs POST)",content:[
+        {type:"heading",text:"🎯 Client-Server 通訊"},
+        {type:"list",items:["客戶端發送 HTTP Request","伺服器處理後發送 HTTP Response","常用狀態碼：200 成功、404 找不到、500 伺服器錯誤"]},
+        {type:"heading",text:"🎯 GET vs POST 差異"},
+        {type:"table",headers:["項目","GET","POST"],rows:[["資料位置","URL 中（可見）","HTTP Body（不可見）"],["資料量限制","有（URL 長度限制）","無（較大）"],["瀏覽記錄","會保留","不會保留"],["適用場景","查詢、書籤連結","敏感資料（密碼）、檔案上傳"]]},
+      ]},
+      {id:"2B3",title:"2B3. 文件夾／檔案權限",content:[
+        {type:"table",headers:["權限","檔案","文件夾"],rows:[["Read 讀取","讀取內容","列出檔案"],["Write 寫入","修改內容","建立/刪除檔案"],["Execute 執行","執行程式","進入文件夾"]]},
+        {type:"heading",text:"🎯 情境分析題"},
+        {type:"list",items:["公共文件：R（所有人可讀）+ W (特定人可寫)","執行檔：R + X（不應給 W 以防修改）","唯讀文件：只給 R"]},
+      ]},
+      {id:"2B4",title:"2B4. 網頁編程 (HTML/CSS/JS/PHP)",content:[
+        {type:"heading",text:"🎯 CSS 三種方式"},
+        {type:"table",headers:["類型","位置","優點","缺點"],rows:[["Inline","HTML 標籤內","簡單","不可重用、難維護"],["Internal","<head>/<style>","同頁可重用","不能跨頁"],["External","獨立 .css 檔","跨頁重用、易維護","需額外下載檔案"]]},
+        {type:"heading",text:"🎯 Client-side vs Server-side"},
+        {type:"table",headers:["項目","Client-side (JavaScript)","Server-side (PHP)"],rows:[["執行位置","使用者瀏覽器","伺服器"],["應用","表單驗證、動畫、互動","數據庫存取、會員系統"],["安全","原始碼可見","原始碼隱藏"]]},
+      ]},
+      {id:"2B5",title:"2B5. 數據驗證",content:[
+        {type:"list",items:["Range Check 範圍檢查：值在範圍內（如 0-100）","Format Check 格式檢查：符合指定格式（如電郵、日期）","Type Check 類型檢查：類型正確（如數字）","Fixed Value Check 固定值檢查：符合預設清單（如性別 M/F）","Length Check 長度檢查：字符數符合要求（如身份證 8 位）","Presence Check 存在性檢查：不得為空"]},
+      ]},
+      {id:"2B6",title:"2B6. 安全與隱私",content:[
+        {type:"heading",text:"🎯 SQL Injection（SQL 注入攻擊）"},
+        {type:"para",text:"惡意使用者在輸入欄位加入 SQL 代碼，繞過驗證或存取未授權資料。"},
+        {type:"list",title:"防範方法",items:["使用參數化查詢 (Prepared Statement)","驗證及轉義使用者輸入","限制數據庫使用者權限","使用 Web Application Firewall"]},
+        {type:"heading",text:"🎯 Cookies"},
+        {type:"list",items:["儲存在客戶端的小型文字檔","用途：記住登入狀態、使用者偏好、購物車","優點：改善使用者體驗","缺點:隱私風險（追蹤使用者行為）、可能被盜用"]},
+      ]},
+    ]},
+  {id:"elective-C",title:"選修 C：算法與程式編寫",subtitle:"Algorithm and Programming",duration:"選修 (三選二)",type:"elective",color:"red",
+    sections:[
+      {id:"2C1",title:"2C1. 子程序與模組化",content:[
+        {type:"heading",text:"🎯 參數傳遞"},
+        {type:"table",headers:["類型","特性"],rows:[["Pass by value 傳值","複製參數的值，不改原變數"],["Pass by reference 傳址","傳參數的記憶體位址，會改原變數"]]},
+        {type:"heading",text:"🎯 變數範圍"},
+        {type:"list",items:["Local 局部變數：只在該子程序內可見","Global 全域變數：整個程式皆可存取","盡量使用局部變數，避免副作用"]},
+      ]},
+      {id:"2C2",title:"2C2. 資料結構",content:[
+        {type:"heading",text:"🎯 陣列 (Array)"},
+        {type:"list",items:["一維／二維陣列","Python 索引從 0 開始；Pascal 可自訂起始","宣告、初始化、存取、遍歷"]},
+        {type:"heading",text:"🎯 Stack 堆疊 (LIFO)"},
+        {type:"list",items:["後進先出 (Last-In-First-Out)","操作：push (加入)、pop (移除並返回頂端)","應用：瀏覽器上一頁、函數呼叫堆疊、復原 (Undo)"]},
+        {type:"heading",text:"🎯 Queue 隊列 (FIFO)"},
+        {type:"list",items:["先進先出 (First-In-First-Out)","操作：enqueue (加入尾端)、dequeue (移除前端)","應用:印表機工作、處理器排程"]},
+        {type:"heading",text:"🎯 Linked List 鏈結串列"},
+        {type:"list",items:["由節點 (Node) 和指標 (Pointer) 組成","插入／刪除效率高，但隨機存取效率低","與陣列比較：大小動態、不連續記憶體"]},
+      ]},
+      {id:"2C3",title:"2C3. 搜尋演算法",content:[
+        {type:"table",headers:["演算法","前提","時間複雜度"],rows:[["Sequential Search 線性搜尋","無","O(n)"],["Binary Search 二分搜尋","陣列必須已排序","O(log n)"]]},
+        {type:"example",title:"Binary Search 步驟",text:"1. 取中間值與目標比較\n2. 若相等：找到\n3. 若目標較小：搜尋左半\n4. 若目標較大：搜尋右半\n5. 重複直至找到或範圍為空"},
+      ]},
+      {id:"2C4",title:"2C4. 排序演算法",content:[
+        {type:"keypoint",title:"🔑 排序口訣",text:"「冒泡像氣泡上升、選擇找最小放前面、插入像排隊插隊」"},
+        {type:"table",headers:["演算法","原理","最壞時間"],rows:[["Bubble Sort 冒泡","相鄰兩元素比較交換，最大者「浮」到最後","O(n²)"],["Selection Sort 選擇","每輪找最小值放至前面","O(n²)"],["Insertion Sort 插入","逐個將元素插入已排序部分","O(n²)"]]},
+      ]},
+      {id:"2C5",title:"2C5. 演算法分析",content:[
+        {type:"heading",text:"🎯 Big-O 時間複雜度比較"},
+        {type:"list",items:["O(1) 常數：不隨 n 改變（陣列索引存取）","O(log n) 對數：每次減半（二分搜尋）","O(n) 線性：與 n 成正比（線性搜尋）","O(n log n) 線性對數（合併排序、快速排序平均）","O(n²) 平方：雙重迴圈（冒泡、選擇、插入）","O(2^n) 指數：遞迴爆炸（費波那契遞迴）"]},
+        {type:"heading",text:"🎯 空間複雜度"},
+        {type:"para",text:"指演算法執行所需的額外記憶體。例如：就地排序 (in-place) 空間複雜度為 O(1)；合併排序需要額外陣列，為 O(n)。"},
+      ]},
+      {id:"2C6",title:"2C6. 事件驅動程式",content:[
+        {type:"heading",text:"🎯 事件驅動概念"},
+        {type:"list",items:["由特定事件觸發相應程式碼","例：按鈕點擊、感測器數值改變、時間到達","常用於 GUI 程式、遊戲開發、IoT"]},
+        {type:"heading",text:"🎯 自動化應用"},
+        {type:"list",items:["Forever loop（無窮迴圈）：持續監聽事件","感測器觸發：溫度、光線、動作偵測","例：智能家居、自動燈光、警報系統"]},
+      ]},
+    ]},
+];
+
+const QUESTION_FILES = ['A', 'B', 'C', 'D', 'E', '2A', '2B', '2C'];
+
+// ============================================================
+// 🔍 輔助：根據 sectionId / unitId 查找
+// ============================================================
+const findSection = (sid) => {
+  for (const u of curriculumData) for (const s of u.sections) if (s.id === sid) return { unit: u, section: s };
+  return null;
+};
+const findUnit = (uid) => curriculumData.find(u => u.id === uid);
+const getUnitBySection = (sid) => {
+  for (const u of curriculumData) for (const s of u.sections) if (s.id === sid) return u;
+  return null;
+};
+
+// ============================================================
+// 🖍️ 高亮元件
+// ============================================================
+function HighlightMark({ star, children }) {
+  const [show, setShow] = useState(false);
+  const ref = useRef(null);
+  
+  useEffect(() => {
+    if (!show) return;
+    const close = (e) => { if (ref.current && !ref.current.contains(e.target)) setShow(false); };
+    const t = setTimeout(() => document.addEventListener('click', close), 50);
+    return () => { clearTimeout(t); document.removeEventListener('click', close); };
+  }, [show]);
+  
+  const hasNote = star.note && star.note.trim().length > 0;
+  return (
+    <span ref={ref} className="relative inline"
+      onMouseEnter={() => hasNote && setShow(true)}
+      onMouseLeave={() => setShow(false)}>
+      <mark
+        className={`hl-mark ${hasNote ? 'has-note' : ''}`}
+        onClick={(e) => { if (hasNote) { e.stopPropagation(); setShow(!show); } }}
+        title={hasNote ? '點擊查看筆記' : '已標記'}
+      >{children}{hasNote && <span className="text-xs ml-0.5">📝</span>}</mark>
+      {show && hasNote && (
+        <span className="absolute bottom-full left-0 mb-2 z-50 bg-slate-900 text-yellow-50 text-xs rounded-lg p-3 shadow-2xl block fade-in" style={{width: '260px', maxWidth: '90vw'}}>
+          <span className="block font-bold text-yellow-300 mb-1">📝 我的筆記</span>
+          <span className="block whitespace-pre-wrap break-words">{star.note}</span>
+        </span>
+      )}
+    </span>
+  );
+}
+
+function HighlightedText({ text, sectionId, starred }) {
+  if (typeof text !== 'string' || !text) return text;
+  const relevant = (starred || []).filter(s => s.section === sectionId && s.text && text.includes(s.text));
+  if (relevant.length === 0) return text;
+  const sorted = [...relevant].sort((a, b) => b.text.length - a.text.length);
+  let segments = [{ text, star: null }];
+  sorted.forEach(star => {
+    const next = [];
+    segments.forEach(seg => {
+      if (seg.star || !seg.text.includes(star.text)) { next.push(seg); return; }
+      const parts = seg.text.split(star.text);
+      parts.forEach((part, i) => {
+        if (part) next.push({ text: part, star: null });
+        if (i < parts.length - 1) next.push({ text: star.text, star });
+      });
+    });
+    segments = next;
+  });
+  return segments.map((seg, i) =>
+    seg.star
+      ? <HighlightMark key={i} star={seg.star}>{seg.text}</HighlightMark>
+      : <React.Fragment key={i}>{seg.text}</React.Fragment>
+  );
+}
+
+// ============================================================
+// 搜尋 / 側邊欄 / 內容區
+// ============================================================
+function SearchBar({ value, onChange, results, onNavigate }) {
+  const [focused, setFocused] = useState(false);
+  const showDropdown = focused && value.trim().length > 0;
+  return (
+    <div className="relative px-4 py-2 bg-white border-b shadow-sm z-40">
+      <div className="relative">
+        <input type="text" value={value} onChange={(e) => onChange(e.target.value)}
+          onFocus={() => setFocused(true)} onBlur={() => setTimeout(() => setFocused(false), 200)}
+          placeholder="🔍 搜尋關鍵字..."
+          className="w-full px-4 py-2 pr-10 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"/>
+        {value && <button onClick={() => onChange('')} className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700 text-xl">×</button>}
+      </div>
+      {showDropdown && (
+        <div className="absolute left-4 right-4 mt-1 bg-white border rounded-lg shadow-xl max-h-96 overflow-y-auto fade-in">
+          {results.length === 0 ? <div className="p-4 text-slate-500 text-sm">沒有結果</div> : (
+            <div>
+              <div className="px-3 py-2 bg-slate-50 text-xs text-slate-600 border-b">找到 {results.length} 個結果</div>
+              {results.map((r, i) => (
+                <button key={i} onClick={() => onNavigate(r.sectionId)} className="block w-full text-left px-3 py-2 hover:bg-indigo-50 border-b border-slate-100 last:border-0">
+                  <div className="text-xs text-indigo-600 font-medium">{r.unitTitle} › {r.sectionTitle}</div>
+                  <div className="text-sm text-slate-700 mt-1">{r.match}</div>
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function Sidebar({ visible, data, activeSection, onSelect, onClose, questionBank }) {
+  const [expanded, setExpanded] = useState(() => { const i = {}; data.forEach(u => i[u.id] = true); return i; });
+  const toggle = (id) => setExpanded({ ...expanded, [id]: !expanded[id] });
+  const colors = { blue:"border-blue-400 bg-blue-50 text-blue-900", green:"border-green-400 bg-green-50 text-green-900", purple:"border-purple-400 bg-purple-50 text-purple-900", orange:"border-orange-400 bg-orange-50 text-orange-900", pink:"border-pink-400 bg-pink-50 text-pink-900", cyan:"border-cyan-400 bg-cyan-50 text-cyan-900", teal:"border-teal-400 bg-teal-50 text-teal-900", red:"border-red-400 bg-red-50 text-red-900" };
+  return (
+    <>
+      {visible && <div className="fixed inset-0 bg-black/30 z-30 md:hidden" onClick={onClose}></div>}
+      <aside className={`${visible ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 fixed md:relative z-40 md:z-auto top-0 md:top-auto bottom-0 md:bottom-auto h-full md:h-auto w-72 bg-white border-r overflow-y-auto transition-transform duration-300`}>
+        <div className="p-3 md:p-4">
+          <div className="flex items-center justify-between mb-3">
+            <h2 className="text-sm font-bold text-slate-700">📖 課程單元</h2>
+            <button onClick={onClose} className="md:hidden text-slate-500 text-xl">×</button>
+          </div>
+          {data.map(unit => (
+            <div key={unit.id} className="mb-2">
+              <button onClick={() => toggle(unit.id)} className={`w-full text-left p-2 rounded-lg border-l-4 ${colors[unit.color]} hover:brightness-95`}>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <div className="font-bold text-sm">{unit.title}</div>
+                    <div className="text-xs opacity-70">{unit.subtitle} · {unit.duration}</div>
+                  </div>
+                  <span className="text-xs">{expanded[unit.id] ? '▼' : '▶'}</span>
+                </div>
+              </button>
+              {expanded[unit.id] && (
+                <div className="ml-4 mt-1 space-y-0.5">
+                  {unit.sections.map(s => {
+                    const qCount = (questionBank[s.id] || []).length;
+                    return (
+                      <button key={s.id} onClick={() => onSelect(s.id)}
+                        className={`w-full text-left px-3 py-1.5 text-sm rounded transition flex items-center justify-between ${activeSection === s.id ? 'bg-indigo-100 text-indigo-800 font-semibold border-l-4 border-indigo-500' : 'text-slate-600 hover:bg-slate-50'}`}>
+                        <span>{s.title}</span>
+                        {qCount > 0 && <span className="text-xs bg-indigo-100 text-indigo-700 px-1.5 rounded-full ml-2">{qCount}</span>}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </aside>
+    </>
+  );
+}
+
+function ContentBlock({ block, sectionId, starred }) {
+  const ht = (txt) => <HighlightedText text={txt} sectionId={sectionId} starred={starred} />;
+  switch (block.type) {
+    case "heading": return <h3 className="text-lg font-bold text-indigo-700 mt-6 mb-2 border-b-2 border-indigo-200 pb-1">{block.text}</h3>;
+    case "para": return <p className="mb-3 text-slate-800 content-text">{ht(block.text)}</p>;
+    case "list": return (
+      <div className="mb-3">
+        {block.title && <p className="font-semibold text-slate-700 mb-1">{ht(block.title)}</p>}
+        <ul className="list-disc list-inside space-y-1 text-slate-800 content-text">{block.items.map((it, i) => <li key={i}>{ht(it)}</li>)}</ul>
+      </div>
+    );
+    case "keypoint": return (
+      <div className="my-4 p-3 bg-gradient-to-r from-yellow-50 to-amber-50 border-l-4 border-amber-400 rounded-r">
+        {block.title && <div className="font-bold text-amber-800 mb-1">{ht(block.title)}</div>}
+        <div className="text-slate-800 content-text">{ht(block.text)}</div>
+      </div>
+    );
+    case "warning": return <div className="my-3 p-3 bg-red-50 border-l-4 border-red-400 rounded-r text-red-800 content-text">{ht(block.text)}</div>;
+    case "example": return (
+      <div className="my-3 p-3 bg-slate-800 text-green-300 font-mono text-sm rounded whitespace-pre-wrap">
+        {block.title && <div className="text-yellow-300 font-bold mb-1">{block.title}</div>}{block.text}
+      </div>
+    );
+    case "table": return (
+      <div className="overflow-x-auto my-3">
+        <table className="min-w-full border-collapse border border-slate-300 text-sm">
+          <thead><tr className="bg-indigo-100">{block.headers.map((h, i) => <th key={i} className="border border-slate-300 px-3 py-2 text-left font-bold text-indigo-900">{h}</th>)}</tr></thead>
+          <tbody>{block.rows.map((row, i) => <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>{row.map((cell, j) => <td key={j} className="border border-slate-300 px-3 py-2 text-slate-800">{ht(cell)}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+    );
+    default: return null;
+  }
+}
+
+function QuizQuestion({ question, sectionId, onAnswer }) {
+  const [selected, setSelected] = useState(null);
+  const [submitted, setSubmitted] = useState(false);
+  const submit = () => { if (selected && !submitted) { setSubmitted(true); onAnswer(sectionId, question, selected, selected === question.answer); } };
+  const reset = () => { setSelected(null); setSubmitted(false); };
+  return (
+    <div className="p-4 border border-slate-200 rounded-lg bg-white shadow-sm mb-4">
+      <div className="flex justify-between items-start mb-3">
+        <div className="text-sm text-indigo-600 font-semibold">📝 {question.id}</div>
+        {question.source && <div className="text-xs text-slate-400">{question.source}</div>}
+      </div>
+      <p className="mb-3 font-medium text-slate-800 whitespace-pre-wrap">{question.question}</p>
+      <div className="space-y-2 mb-3">
+        {Object.entries(question.options).map(([k, v]) => {
+          let cn = "w-full text-left p-3 rounded border cursor-pointer transition ";
+          if (!submitted) cn += selected === k ? "bg-indigo-100 border-indigo-400" : "bg-white border-slate-200 hover:bg-slate-50";
+          else { if (k === question.answer) cn += "bg-green-100 border-green-500 font-semibold"; else if (k === selected) cn += "bg-red-100 border-red-500"; else cn += "bg-white border-slate-200 opacity-60"; }
+          return <button key={k} onClick={() => !submitted && setSelected(k)} disabled={submitted} className={cn}><span className="font-bold mr-2">{k}.</span>{v}{submitted && k === question.answer && <span className="ml-2 text-green-600">✓ 正確</span>}{submitted && k === selected && k !== question.answer && <span className="ml-2 text-red-600">✗ 你的選擇</span>}</button>;
+        })}
+      </div>
+      {!submitted ? (
+        <button onClick={submit} disabled={!selected} className="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 disabled:bg-slate-300">提交答案</button>
+      ) : (
+        <div>
+          <div className={`p-3 rounded mb-2 ${selected === question.answer ? 'bg-green-50 border-l-4 border-green-400' : 'bg-red-50 border-l-4 border-red-400'}`}>
+            <div className="font-bold mb-1">{selected === question.answer ? '🎉 答對了！' : '❌ 答錯了，再接再厲！'}</div>
+            <div className="text-sm text-slate-700"><span className="font-semibold">解釋：</span>{question.explanation}</div>
+          </div>
+          <button onClick={reset} className="px-4 py-2 bg-slate-500 text-white rounded hover:bg-slate-600 text-sm">重新作答</button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function SectionContent({ unit, section, onRecordAnswer, questionBank, starred }) {
+  const sq = questionBank[section.id] || [];
+  const [current, setCurrent] = useState([]);
+  const [quizCount, setQuizCount] = useState(3);
+  useEffect(() => { const s = [...sq].sort(() => Math.random() - 0.5); setCurrent(s.slice(0, Math.min(quizCount, s.length))); }, [section.id, quizCount, sq.length]);
+  const refresh = () => { const s = [...sq].sort(() => Math.random() - 0.5); setCurrent(s.slice(0, Math.min(quizCount, s.length))); };
+  return (
+    <article className="max-w-4xl mx-auto">
+      <div className="mb-6 pb-3 border-b-2 border-indigo-300">
+        <div className="text-sm text-slate-500">{unit.title} · {unit.duration}</div>
+        <h1 className="text-2xl md:text-3xl font-bold text-slate-800 mt-1">{section.title}</h1>
+      </div>
+      <div className="bg-white rounded-lg p-4 md:p-6 shadow-sm mb-6">
+        {section.content.map((b, i) => <ContentBlock key={i} block={b} sectionId={section.id} starred={starred} />)}
+      </div>
+      {sq.length > 0 && (
+        <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-lg p-4 md:p-6 shadow-sm">
+          <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
+            <h2 className="text-xl font-bold text-indigo-800">🎯 答題練習 ({sq.length} 題題庫)</h2>
+            <div className="flex items-center gap-2">
+              <select value={quizCount} onChange={e => setQuizCount(Number(e.target.value))} className="px-2 py-1 border rounded text-sm">
+                <option value={3}>3 題</option>
+                <option value={5}>5 題</option>
+                <option value={10}>10 題</option>
+                <option value={999}>全部</option>
+              </select>
+              <button onClick={refresh} className="px-3 py-1.5 bg-white text-indigo-700 border border-indigo-300 rounded text-sm hover:bg-indigo-50">🔄 換一批</button>
+            </div>
+          </div>
+          <div className="text-sm text-slate-600 mb-4">💡 選取筆記文字後會出現「標記」按鈕，可同時加入筆記</div>
+          {current.map(q => <QuizQuestion key={q.id} question={q} sectionId={section.id} onAnswer={onRecordAnswer} />)}
+        </div>
+      )}
+      {sq.length === 0 && (
+        <div className="bg-yellow-50 border border-yellow-200 rounded p-4 text-sm text-yellow-800">
+          ℹ️ 本章節目前尚未有題目。你可以編輯對應的 JSON 檔案加入題目。
+        </div>
+      )}
+    </article>
+  );
+}
+
+// ============================================================
+// 快速標記輸入 Modal
+// ============================================================
+function QuickNoteModal({ text, onSave, onCancel }) {
+  const [note, setNote] = useState('');
+  return (
+    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={onCancel}>
+      <div className="bg-white rounded-lg max-w-md w-full p-5" onClick={e => e.stopPropagation()}>
+        <div className="text-lg font-bold mb-2 text-slate-800">⭐ 標記重點</div>
+        <div className="bg-yellow-100 p-2 rounded text-sm mb-3 text-slate-900 max-h-32 overflow-y-auto">"{text}"</div>
+        <label className="block text-sm text-slate-600 mb-1">添加筆記（可選）：</label>
+        <textarea
+          value={note}
+          onChange={e => setNote(e.target.value)}
+          placeholder="例如：這是重點定義，2025 年常考..."
+          className="w-full p-2 border rounded text-sm resize-none focus:outline-none focus:ring-2 focus:ring-indigo-400"
+          rows={3}
+          autoFocus
+        />
+        <div className="flex gap-2 mt-3 justify-end">
+          <button onClick={onCancel} className="px-4 py-2 bg-slate-200 text-slate-700 rounded hover:bg-slate-300 text-sm">取消</button>
+          <button onClick={() => onSave('')} className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 text-sm">不加筆記</button>
+          <button onClick={() => onSave(note)} className="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 text-sm">儲存</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// StarredItem + StarredModal（已標記，含筆記編輯）
+// ============================================================
+function StarredItem({ star, onRemove, onUpdateNote, onNavigate }) {
+  const [editing, setEditing] = useState(false);
+  const [text, setText] = useState(star.note || '');
+  const info = findSection(star.section);
+  const label = info ? `${info.unit.title} · ${info.section.title}` : star.section;
+  const save = () => { onUpdateNote(star.id, text); setEditing(false); };
+  return (
+    <div className="border border-slate-200 rounded p-3 hover:bg-yellow-50/30">
+      <div className="text-xs text-indigo-600 mb-1 font-semibold">{label}</div>
+      <div className="bg-yellow-100 border-l-4 border-yellow-400 p-2 rounded mb-2 text-slate-900 text-sm">
+        "{star.text}"
+      </div>
+      {editing ? (
+        <div className="mb-2">
+          <textarea value={text} onChange={e => setText(e.target.value)}
+            placeholder="輸入筆記..."
+            className="w-full p-2 border rounded text-sm resize-none focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            rows={3} autoFocus />
+          <div className="flex gap-2 mt-2">
+            <button onClick={save} className="px-3 py-1 bg-green-500 text-white text-xs rounded hover:bg-green-600">✓ 儲存</button>
+            <button onClick={() => { setEditing(false); setText(star.note || ''); }} className="px-3 py-1 bg-slate-300 text-slate-700 text-xs rounded hover:bg-slate-400">取消</button>
+          </div>
+        </div>
+      ) : (
+        <div className="mb-2">
+          {star.note ? (
+            <div className="bg-blue-50 border-l-4 border-blue-400 p-2 rounded text-sm text-slate-800 whitespace-pre-wrap">
+              📝 {star.note}
+            </div>
+          ) : (
+            <div className="text-xs text-slate-400 italic py-1">尚未添加筆記</div>
+          )}
+        </div>
+      )}
+      <div className="flex gap-2 justify-between items-center flex-wrap">
+        <div className="text-xs text-slate-400">{star.timestamp}</div>
+        <div className="flex gap-1 flex-wrap">
+          {!editing && (
+            <button onClick={() => setEditing(true)} className="px-2 py-1 bg-blue-500 text-white text-xs rounded hover:bg-blue-600">
+              {star.note ? '✏️ 編輯筆記' : '➕ 新增筆記'}
+            </button>
+          )}
+          <button onClick={() => onNavigate(star.section)} className="px-2 py-1 bg-indigo-500 text-white text-xs rounded hover:bg-indigo-600">前往</button>
+          <button onClick={() => onRemove(star.id)} className="px-2 py-1 bg-red-500 text-white text-xs rounded hover:bg-red-600">刪除</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function StarredModal({ starred, onClose, onRemove, onUpdateNote, onNavigate }) {
+  const [filter, setFilter] = useState('all'); // all / withNote / noNote
+  const filtered = starred.filter(s => filter === 'all' ? true : filter === 'withNote' ? s.note : !s.note);
+  const withNoteCount = starred.filter(s => s.note).length;
+  return (
+    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={onClose}>
+      <div className="bg-white rounded-lg w-full max-w-3xl max-h-[90vh] flex flex-col" onClick={e => e.stopPropagation()}>
+        <div className="p-4 border-b flex items-center justify-between bg-gradient-to-r from-yellow-400 to-amber-500 text-white rounded-t-lg">
+          <div>
+            <h2 className="text-xl font-bold">⭐ 已標記內容 ({starred.length})</h2>
+            <div className="text-xs opacity-90">含筆記：{withNoteCount} · 未加筆記：{starred.length - withNoteCount}</div>
+          </div>
+          <button onClick={onClose} className="text-2xl hover:bg-white/10 w-8 h-8 rounded">×</button>
+        </div>
+        {starred.length > 0 && (
+          <div className="p-3 border-b bg-slate-50 flex gap-2 flex-wrap text-sm">
+            <button onClick={() => setFilter('all')} className={`px-3 py-1 rounded ${filter==='all'?'bg-indigo-600 text-white':'bg-white border'}`}>全部</button>
+            <button onClick={() => setFilter('withNote')} className={`px-3 py-1 rounded ${filter==='withNote'?'bg-indigo-600 text-white':'bg-white border'}`}>有筆記</button>
+            <button onClick={() => setFilter('noNote')} className={`px-3 py-1 rounded ${filter==='noNote'?'bg-indigo-600 text-white':'bg-white border'}`}>未加筆記</button>
+          </div>
+        )}
+        <div className="p-4 overflow-y-auto flex-1">
+          {starred.length === 0 ? (
+            <div className="text-center text-slate-500 py-12">
+              <div className="text-4xl mb-3">📌</div>
+              <div>尚未標記任何內容</div>
+              <div className="text-xs mt-2">選取筆記中的文字即可標記</div>
+            </div>
+          ) : filtered.length === 0 ? (
+            <div className="text-center text-slate-500 py-8">此條件下沒有標記</div>
+          ) : (
+            <div className="space-y-3">
+              {filtered.slice().reverse().map(s => (
+                <StarredItem key={s.id} star={s} onRemove={onRemove} onUpdateNote={onUpdateNote} onNavigate={onNavigate} />
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// 答題練習歷史
+// ============================================================
+function PracticeHistoryModal({ history, onClose, onClear }) {
+  const [filter, setFilter] = useState('all');
+  const grouped = useMemo(() => { const g = {}; history.forEach(h => { if (!g[h.sectionId]) g[h.sectionId] = []; g[h.sectionId].push(h); }); return g; }, [history]);
+  const sids = Object.keys(grouped);
+  const filtered = filter === 'all' ? sids : sids.filter(sid => { const i = findSection(sid); return i && i.unit.id === filter; });
+  const correct = history.filter(h => h.isCorrect).length;
+  const acc = history.length > 0 ? ((correct / history.length) * 100).toFixed(1) : 0;
+  return (
+    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={onClose}>
+      <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] flex flex-col" onClick={e => e.stopPropagation()}>
+        <div className="p-4 border-b bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-t-lg">
+          <div className="flex items-center justify-between">
+            <h2 className="text-xl font-bold">📝 答題練習記錄</h2>
+            <button onClick={onClose} className="text-2xl hover:bg-white/10 w-8 h-8 rounded">×</button>
+          </div>
+          <div className="mt-2 flex gap-4 text-sm flex-wrap">
+            <div>總題數：{history.length}</div><div>答對：{correct}</div><div>準確率：{acc}%</div>
+            {history.length > 0 && <button onClick={() => { if (confirm('確認清除所有練習記錄？')) onClear(); }} className="ml-auto px-2 py-0.5 bg-red-600 hover:bg-red-700 text-white text-xs rounded">清除全部</button>}
+          </div>
+        </div>
+        {history.length > 0 && (
+          <div className="p-3 border-b bg-slate-50">
+            <select value={filter} onChange={e => setFilter(e.target.value)} className="px-3 py-1 border rounded text-sm">
+              <option value="all">所有單元</option>
+              {curriculumData.map(u => <option key={u.id} value={u.id}>{u.title}</option>)}
+            </select>
+          </div>
+        )}
+        <div className="p-4 overflow-y-auto flex-1">
+          {history.length === 0 ? <div className="text-center text-slate-500 py-12">尚未作答任何題目</div> : filtered.length === 0 ? <div className="text-center text-slate-500 py-12">此單元未有答題記錄</div> : (
+            filtered.map(sid => {
+              const info = findSection(sid);
+              return (
+                <div key={sid} className="mb-6">
+                  <h3 className="font-bold text-indigo-700 mb-2 pb-1 border-b border-indigo-200">{info ? `${info.unit.title} · ${info.section.title}` : sid}</h3>
+                  {grouped[sid].slice().reverse().map(h => (
+                    <div key={h.id} className={`mb-3 p-3 rounded border-l-4 ${h.isCorrect ? 'border-green-400 bg-green-50' : 'border-red-400 bg-red-50'}`}>
+                      <div className="flex justify-between items-start mb-2">
+                        <div className="text-xs text-slate-500">{h.questionId} · {h.timestamp}</div>
+                        <div className={`text-sm font-bold ${h.isCorrect ? 'text-green-600' : 'text-red-600'}`}>{h.isCorrect ? '✓ 答對' : '✗ 答錯'}</div>
+                      </div>
+                      <div className="font-medium mb-2 text-slate-800">{h.question}</div>
+                      <div className="text-sm space-y-1 mb-2">
+                        {Object.entries(h.options).map(([k, v]) => <div key={k} className={`${k === h.correctAnswer ? 'text-green-700 font-bold' : k === h.userAnswer && k !== h.correctAnswer ? 'text-red-600 line-through' : 'text-slate-600'}`}>{k}. {v}{k === h.correctAnswer && ' ✓'}{k === h.userAnswer && k !== h.correctAnswer && ' (你的選擇)'}</div>)}
+                      </div>
+                      <div className="text-xs bg-white p-2 rounded border"><span className="font-semibold">解釋：</span>{h.explanation}</div>
+                    </div>
+                  ))}
+                </div>
+              );
+            })
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// 📋 模擬測驗：設定
+// ============================================================
+function TestSetupModal({ questionBank, onStart, onClose }) {
+  const [selected, setSelected] = useState(() => new Set(curriculumData.map(u => u.id)));
+  const [count, setCount] = useState(10);
+
+  const perUnit = useMemo(() => {
+    const m = {};
+    curriculumData.forEach(u => {
+      let total = 0;
+      u.sections.forEach(s => { total += (questionBank[s.id] || []).length; });
+      m[u.id] = total;
+    });
+    return m;
+  }, [questionBank]);
+
+  const available = useMemo(() => {
+    const qs = [];
+    curriculumData.forEach(u => {
+      if (!selected.has(u.id)) return;
+      u.sections.forEach(s => {
+        (questionBank[s.id] || []).forEach(q => qs.push({ ...q, sectionId: s.id, unitId: u.id }));
+      });
+    });
+    return qs;
+  }, [selected, questionBank]);
+
+  const maxQ = available.length;
+  const actualCount = Math.min(Math.max(1, count), maxQ);
+  const timeLimit = actualCount * 60;
+
+  const toggleUnit = (uid) => {
+    const n = new Set(selected);
+    if (n.has(uid)) n.delete(uid); else n.add(uid);
+    setSelected(n);
+  };
+
+  const start = () => {
+    if (maxQ === 0) { alert('請至少選擇一個有題目的單元'); return; }
+    const shuffled = [...available].sort(() => Math.random() - 0.5);
+    const picked = shuffled.slice(0, actualCount);
+    onStart({ questions: picked, timeLimit, units: Array.from(selected), startTime: Date.now() });
+  };
+
+  return (
+    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={onClose}>
+      <div className="bg-white rounded-lg w-full max-w-2xl max-h-[90vh] flex flex-col" onClick={e => e.stopPropagation()}>
+        <div className="p-4 border-b bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-t-lg flex justify-between items-center">
+          <h2 className="text-xl font-bold">📋 開始新測驗</h2>
+          <button onClick={onClose} className="text-2xl w-8 h-8 rounded hover:bg-white/10">×</button>
+        </div>
+        <div className="p-5 overflow-y-auto flex-1">
+          <div className="mb-4">
+            <h3 className="font-bold text-slate-700 mb-2">1️⃣ 選擇單元範圍</h3>
+            <div className="space-y-1">
+              {curriculumData.map(u => (
+                <label key={u.id} className={`flex items-center gap-2 p-2 rounded cursor-pointer border ${selected.has(u.id) ? 'bg-indigo-50 border-indigo-300' : 'bg-white border-slate-200'} ${perUnit[u.id] === 0 ? 'opacity-50' : ''}`}>
+                  <input type="checkbox" checked={selected.has(u.id)} onChange={() => toggleUnit(u.id)} disabled={perUnit[u.id] === 0} className="w-4 h-4"/>
+                  <div className="flex-1">
+                    <div className="font-semibold text-sm text-slate-800">{u.title}</div>
+                    <div className="text-xs text-slate-500">{u.subtitle} · 可用題目：{perUnit[u.id]}</div>
+                  </div>
+                </label>
+              ))}
+            </div>
+          </div>
+          <div className="mb-4">
+            <h3 className="font-bold text-slate-700 mb-2">2️⃣ 題目數量</h3>
+            <div className="flex items-center gap-3 flex-wrap">
+              <input type="number" min="1" max={maxQ || 1} value={count}
+                onChange={e => setCount(Number(e.target.value) || 1)}
+                className="w-24 px-2 py-1 border rounded"/>
+              <span className="text-sm text-slate-500">最多 {maxQ} 題可選</span>
+              <div className="flex gap-1">
+                {[5, 10, 20, 30].filter(n => n <= maxQ).map(n => (
+                  <button key={n} onClick={() => setCount(n)} className="px-2 py-1 bg-slate-100 hover:bg-slate-200 rounded text-xs">{n}</button>
+                ))}
+                {maxQ > 0 && <button onClick={() => setCount(maxQ)} className="px-2 py-1 bg-slate-100 hover:bg-slate-200 rounded text-xs">全部</button>}
+              </div>
+            </div>
+          </div>
+          <div className="p-3 bg-gradient-to-r from-yellow-50 to-amber-50 border-l-4 border-amber-400 rounded mb-4">
+            <div className="text-sm space-y-1">
+              <div>📝 實際題目數：<strong>{actualCount}</strong> 題</div>
+              <div>⏱️ 限時：<strong>{Math.floor(timeLimit/60)} 分鐘</strong>（每題 1 分鐘）</div>
+              <div>📚 範圍：<strong>{selected.size}</strong> 個單元</div>
+            </div>
+          </div>
+          <div className="text-xs text-slate-500 p-2 bg-slate-50 rounded">
+            ⚠️ 提示：測驗開始後會進入計時狀態，時間用盡將自動提交。你可以在測驗中切換題目並修改答案。
+          </div>
+        </div>
+        <div className="p-4 border-t flex gap-2 justify-end">
+          <button onClick={onClose} className="px-4 py-2 bg-slate-200 text-slate-700 rounded hover:bg-slate-300">取消</button>
+          <button onClick={start} disabled={maxQ === 0} className="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded hover:brightness-110 disabled:opacity-50 font-bold">🚀 開始測驗</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// 📋 模擬測驗：進行中
+// ============================================================
+function TestRunner({ test, onSubmit, onCancel }) {
+  const [curr, setCurr] = useState(0);
+  const [answers, setAnswers] = useState({});
+  const [timeLeft, setTimeLeft] = useState(test.timeLimit);
+  const [qTimes, setQTimes] = useState({});
+  const qStartRef = useRef(Date.now());
+  const submittedRef = useRef(false);
+
+  const finalize = () => {
+    if (submittedRef.current) return;
+    submittedRef.current = true;
+    const elapsed = (Date.now() - qStartRef.current) / 1000;
+    const finalTimes = { ...qTimes, [curr]: (qTimes[curr] || 0) + elapsed };
+    const totalTimeUsed = test.timeLimit - timeLeft;
+    const results = test.questions.map((q, idx) => ({
+      questionId: q.id, sectionId: q.sectionId, unitId: q.unitId,
+      question: q.question, options: q.options,
+      correctAnswer: q.answer, userAnswer: answers[q.id] || null,
+      isCorrect: answers[q.id] === q.answer,
+      timeSpent: Math.round(finalTimes[idx] || 0),
+      explanation: q.explanation, source: q.source || ''
+    }));
+    const score = results.filter(r => r.isCorrect).length;
+    const unitStats = {};
+    results.forEach(r => {
+      if (!unitStats[r.unitId]) unitStats[r.unitId] = { total: 0, correct: 0, timeSpent: 0 };
+      unitStats[r.unitId].total++;
+      if (r.isCorrect) unitStats[r.unitId].correct++;
+      unitStats[r.unitId].timeSpent += r.timeSpent;
+    });
+    onSubmit({
+      id: Date.now(),
+      timestamp: new Date().toLocaleString('zh-HK', { year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit' }),
+      timeLimit: test.timeLimit, timeUsed: Math.max(0, totalTimeUsed),
+      units: test.units, questions: results,
+      score, total: results.length, unitStats
+    });
+  };
+
+  useEffect(() => {
+    if (timeLeft <= 0) { finalize(); return; }
+    const t = setInterval(() => setTimeLeft(l => l - 1), 1000);
+    return () => clearInterval(t);
+  }, [timeLeft]);
+
+  const goto = (idx) => {
+    if (idx < 0 || idx >= test.questions.length || idx === curr) return;
+    const elapsed = (Date.now() - qStartRef.current) / 1000;
+    setQTimes(prev => ({ ...prev, [curr]: (prev[curr] || 0) + elapsed }));
+    qStartRef.current = Date.now();
+    setCurr(idx);
+  };
+
+  const pick = (letter) => {
+    setAnswers(prev => ({ ...prev, [test.questions[curr].id]: letter }));
+  };
+
+  const cancel = () => {
+    if (confirm('確認結束測驗？未提交的進度會完全遺失且不會儲存。')) onCancel();
+  };
+
+  const q = test.questions[curr];
+  const answered = Object.keys(answers).length;
+  const timeDanger = timeLeft < 60;
+
+  return (
+    <div className="fixed inset-0 bg-slate-900 z-50 flex flex-col">
+      {/* Header with timer */}
+      <div className="bg-gradient-to-r from-purple-700 to-pink-700 text-white p-3 shadow-lg flex items-center justify-between flex-wrap gap-2">
+        <div className="font-bold">📋 測驗進行中</div>
+        <div className={`flex items-center gap-3 font-mono text-lg font-bold ${timeDanger ? 'text-yellow-300 timer-pulse' : ''}`}>
+          <span>⏱️ {fmtTime(timeLeft)}</span>
+          <span className="text-sm font-normal">/ {fmtTime(test.timeLimit)}</span>
+        </div>
+        <button onClick={cancel} className="px-3 py-1 bg-red-600 hover:bg-red-700 text-white text-sm rounded">放棄測驗</button>
+      </div>
+      {/* Progress */}
+      <div className="bg-white border-b p-2 flex items-center gap-2 flex-wrap">
+        <div className="text-sm text-slate-600">已答：{answered}/{test.questions.length}</div>
+        <div className="flex-1 bg-slate-200 h-2 rounded overflow-hidden min-w-[120px]">
+          <div className="h-full bg-green-500 transition-all" style={{width: `${(answered/test.questions.length)*100}%`}}></div>
+        </div>
+      </div>
+      <div className="flex-1 flex flex-col md:flex-row overflow-hidden">
+        {/* Question grid sidebar */}
+        <div className="md:w-48 bg-slate-50 border-b md:border-b-0 md:border-r p-2 overflow-y-auto">
+          <div className="text-xs text-slate-600 mb-2 font-semibold">題目導覽</div>
+          <div className="grid grid-cols-10 md:grid-cols-5 gap-1">
+            {test.questions.map((tq, idx) => (
+              <button key={idx} onClick={() => goto(idx)}
+                className={`aspect-square text-xs font-bold rounded border transition
+                  ${idx === curr ? 'bg-indigo-600 text-white border-indigo-700' :
+                    answers[tq.id] ? 'bg-green-100 text-green-700 border-green-300' :
+                    'bg-white text-slate-500 border-slate-300 hover:bg-slate-100'}`}>
+                {idx + 1}
+              </button>
+            ))}
+          </div>
+        </div>
+        {/* Current question */}
+        <div className="flex-1 overflow-y-auto p-4 md:p-6 bg-white">
+          <div className="max-w-3xl mx-auto">
+            <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
+              <div className="text-sm text-indigo-600 font-bold">
+                第 {curr + 1} / {test.questions.length} 題
+              </div>
+              <div className="text-xs text-slate-500">
+                來源：{findUnit(q.unitId)?.title} · {q.id}
+              </div>
+            </div>
+            <div className="bg-slate-50 rounded-lg p-4 mb-4">
+              <p className="font-medium text-slate-800 whitespace-pre-wrap">{q.question}</p>
+            </div>
+            <div className="space-y-2 mb-6">
+              {Object.entries(q.options).map(([k, v]) => {
+                const sel = answers[q.id] === k;
+                return (
+                  <button key={k} onClick={() => pick(k)}
+                    className={`w-full text-left p-3 rounded border-2 transition
+                      ${sel ? 'bg-indigo-100 border-indigo-500 font-semibold' : 'bg-white border-slate-200 hover:border-indigo-300'}`}>
+                    <span className="font-bold mr-2">{k}.</span>{v}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Bottom navigation */}
+      <div className="bg-white border-t p-3 flex items-center justify-between gap-2">
+        <button onClick={() => goto(curr - 1)} disabled={curr === 0}
+          className="px-4 py-2 bg-slate-200 text-slate-700 rounded hover:bg-slate-300 disabled:opacity-40">← 上一題</button>
+        <button onClick={() => { if (confirm(`確認提交測驗？\n已答 ${answered}/${test.questions.length} 題。`)) finalize(); }}
+          className="px-6 py-2 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded font-bold hover:brightness-110">
+          ✓ 提交測驗
+        </button>
+        <button onClick={() => goto(curr + 1)} disabled={curr === test.questions.length - 1}
+          className="px-4 py-2 bg-slate-200 text-slate-700 rounded hover:bg-slate-300 disabled:opacity-40">下一題 →</button>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// 📋 模擬測驗：結果
+// ============================================================
+function TestResultModal({ result, onClose }) {
+  const [tab, setTab] = useState('overview');
+  const acc = result.total > 0 ? ((result.score / result.total) * 100).toFixed(1) : 0;
+  const avgPerQ = result.total > 0 ? (result.timeUsed / result.total).toFixed(1) : 0;
+
+  return (
+    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={onClose}>
+      <div className="bg-white rounded-lg w-full max-w-4xl max-h-[95vh] flex flex-col" onClick={e => e.stopPropagation()}>
+        <div className="p-4 border-b bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-t-lg">
+          <div className="flex justify-between items-start">
+            <div>
+              <h2 className="text-xl font-bold">📊 測驗結果</h2>
+              <div className="text-xs opacity-90 mt-1">{result.timestamp}</div>
+            </div>
+            <button onClick={onClose} className="text-2xl w-8 h-8 rounded hover:bg-white/10">×</button>
+          </div>
+          <div className="mt-3 grid grid-cols-2 md:grid-cols-4 gap-2 text-sm">
+            <div className="bg-white/20 rounded p-2"><div className="text-xs opacity-80">得分</div><div className="text-2xl font-bold">{result.score}/{result.total}</div></div>
+            <div className="bg-white/20 rounded p-2"><div className="text-xs opacity-80">準確率</div><div className="text-2xl font-bold">{acc}%</div></div>
+            <div className="bg-white/20 rounded p-2"><div className="text-xs opacity-80">用時</div><div className="text-lg font-bold">{fmtTime(result.timeUsed)}</div><div className="text-xs">/ {fmtTime(result.timeLimit)}</div></div>
+            <div className="bg-white/20 rounded p-2"><div className="text-xs opacity-80">平均每題</div><div className="text-lg font-bold">{avgPerQ} 秒</div></div>
+          </div>
+        </div>
+        <div className="border-b bg-slate-50 flex text-sm">
+          <button onClick={() => setTab('overview')} className={`flex-1 py-2 ${tab==='overview' ? 'bg-white border-b-2 border-indigo-500 font-bold' : 'text-slate-600'}`}>📊 單元分析</button>
+          <button onClick={() => setTab('questions')} className={`flex-1 py-2 ${tab==='questions' ? 'bg-white border-b-2 border-indigo-500 font-bold' : 'text-slate-600'}`}>📝 題目詳情</button>
+        </div>
+        <div className="flex-1 overflow-y-auto p-4">
+          {tab === 'overview' && (
+            <div>
+              <h3 className="font-bold mb-3 text-slate-700">各單元表現</h3>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm border-collapse">
+                  <thead>
+                    <tr className="bg-slate-100">
+                      <th className="border p-2 text-left">單元</th>
+                      <th className="border p-2">題數</th>
+                      <th className="border p-2">答對</th>
+                      <th className="border p-2">準確率</th>
+                      <th className="border p-2">耗時</th>
+                      <th className="border p-2">每題平均</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {Object.entries(result.unitStats).map(([uid, st]) => {
+                      const u = findUnit(uid);
+                      const a = st.total > 0 ? ((st.correct / st.total) * 100).toFixed(1) : 0;
+                      const avg = st.total > 0 ? (st.timeSpent / st.total).toFixed(1) : 0;
+                      const color = a >= 80 ? 'text-green-600' : a >= 60 ? 'text-yellow-600' : 'text-red-600';
+                      return (
+                        <tr key={uid} className="hover:bg-slate-50">
+                          <td className="border p-2 font-medium">{u?.title || uid}</td>
+                          <td className="border p-2 text-center">{st.total}</td>
+                          <td className="border p-2 text-center">{st.correct}</td>
+                          <td className={`border p-2 text-center font-bold ${color}`}>{a}%</td>
+                          <td className="border p-2 text-center">{fmtTime(st.timeSpent)}</td>
+                          <td className="border p-2 text-center">{avg} 秒</td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+              <div className="mt-4 p-3 bg-blue-50 border-l-4 border-blue-400 rounded">
+                <div className="text-sm font-bold text-blue-800 mb-1">💡 學習建議</div>
+                <div className="text-xs text-slate-700">
+                  {acc >= 80 ? '🎉 表現優秀！繼續保持，可挑戰更多題目。' :
+                   acc >= 60 ? '📚 表現不錯，建議針對準確率低的單元重點複習。' :
+                   '💪 需要加強！建議先回顧相關章節內容，再進行練習。'}
+                </div>
+              </div>
+            </div>
+          )}
+          {tab === 'questions' && (
+            <div className="space-y-3">
+              {result.questions.map((q, idx) => {
+                const u = findUnit(q.unitId);
+                return (
+                  <div key={idx} className={`p-3 rounded border-l-4 ${q.isCorrect ? 'border-green-400 bg-green-50' : q.userAnswer ? 'border-red-400 bg-red-50' : 'border-slate-400 bg-slate-50'}`}>
+                    <div className="flex justify-between items-start mb-2 flex-wrap gap-1">
+                      <div className="text-xs text-slate-500">
+                        第 {idx+1} 題 · {u?.title} · {q.questionId} · 耗時 {q.timeSpent} 秒
+                      </div>
+                      <div className={`text-sm font-bold ${q.isCorrect ? 'text-green-600' : q.userAnswer ? 'text-red-600' : 'text-slate-500'}`}>
+                        {q.isCorrect ? '✓ 答對' : q.userAnswer ? '✗ 答錯' : '○ 未作答'}
+                      </div>
+                    </div>
+                    <div className="font-medium mb-2 text-slate-800 whitespace-pre-wrap">{q.question}</div>
+                    <div className="text-sm space-y-1 mb-2">
+                      {Object.entries(q.options).map(([k, v]) => (
+                        <div key={k} className={
+                          k === q.correctAnswer ? 'text-green-700 font-bold' :
+                          k === q.userAnswer && k !== q.correctAnswer ? 'text-red-600 line-through' :
+                          'text-slate-600'
+                        }>
+                          {k}. {v}
+                          {k === q.correctAnswer && ' ✓ 正確答案'}
+                          {k === q.userAnswer && k !== q.correctAnswer && ' (你的選擇)'}
+                        </div>
+                      ))}
+                    </div>
+                    <div className="text-xs bg-white p-2 rounded border">
+                      <span className="font-semibold">解釋：</span>{q.explanation}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// 📋 模擬測驗：歷史
+// ============================================================
+function TestHistoryModal({ tests, onClose, onNewTest, onView, onDelete, onClearAll }) {
+  const sorted = [...tests].sort((a, b) => b.id - a.id);
+  const totalQuestions = tests.reduce((s, t) => s + t.total, 0);
+  const totalCorrect = tests.reduce((s, t) => s + t.score, 0);
+  const overallAcc = totalQuestions > 0 ? ((totalCorrect / totalQuestions) * 100).toFixed(1) : 0;
+
+  return (
+    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={onClose}>
+      <div className="bg-white rounded-lg w-full max-w-3xl max-h-[90vh] flex flex-col" onClick={e => e.stopPropagation()}>
+        <div className="p-4 border-b bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-t-lg">
+          <div className="flex justify-between items-center">
+            <h2 className="text-xl font-bold">📋 測驗記錄 ({tests.length})</h2>
+            <button onClick={onClose} className="text-2xl w-8 h-8 rounded hover:bg-white/10">×</button>
+          </div>
+          {tests.length > 0 && (
+            <div className="mt-2 text-xs opacity-90 flex gap-3 flex-wrap">
+              <span>總測驗次數：{tests.length}</span>
+              <span>總答題：{totalQuestions}</span>
+              <span>整體準確率：{overallAcc}%</span>
+            </div>
+          )}
+        </div>
+        <div className="p-3 border-b bg-slate-50 flex gap-2 flex-wrap justify-between items-center">
+          <button onClick={onNewTest} className="px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded font-bold hover:brightness-110">
+            ➕ 開立新測驗
+          </button>
+          {tests.length > 0 && (
+            <button onClick={() => { if (confirm('確認清除所有測驗記錄？')) onClearAll(); }} className="px-3 py-1 bg-red-500 hover:bg-red-600 text-white text-sm rounded">
+              清除全部
+            </button>
+          )}
+        </div>
+        <div className="flex-1 overflow-y-auto p-4">
+          {tests.length === 0 ? (
+            <div className="text-center text-slate-500 py-12">
+              <div className="text-4xl mb-3">📋</div>
+              <div>尚未進行任何測驗</div>
+              <div className="text-xs mt-2">點擊上方「開立新測驗」開始</div>
+            </div>
+          ) : (
+            <div className="space-y-2">
+              {sorted.map(t => {
+                const acc = t.total > 0 ? ((t.score / t.total) * 100).toFixed(1) : 0;
+                const color = acc >= 80 ? 'bg-green-50 border-green-400' : acc >= 60 ? 'bg-yellow-50 border-yellow-400' : 'bg-red-50 border-red-400';
+                const units = t.units.map(uid => findUnit(uid)?.title.split('：')[0] || uid).join('、');
+                return (
+                  <div key={t.id} className={`border-l-4 ${color} rounded p-3 hover:shadow-md transition`}>
+                    <div className="flex justify-between items-start mb-2 flex-wrap gap-2">
+                      <div>
+                        <div className="font-bold text-slate-800">{t.timestamp}</div>
+                        <div className="text-xs text-slate-600 mt-1">範圍：{units}</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-xl font-bold text-slate-800">{t.score}/{t.total}</div>
+                        <div className="text-sm text-slate-600">{acc}%</div>
+                      </div>
+                    </div>
+                    <div className="text-xs text-slate-500 flex gap-3 flex-wrap mb-2">
+                      <span>⏱️ {fmtTime(t.timeUsed)} / {fmtTime(t.timeLimit)}</span>
+                      <span>📊 {t.total} 題</span>
+                      <span>🎯 平均 {(t.timeUsed / t.total).toFixed(1)} 秒/題</span>
+                    </div>
+                    <div className="flex gap-2">
+                      <button onClick={() => onView(t)} className="px-3 py-1 bg-indigo-500 hover:bg-indigo-600 text-white text-xs rounded">📊 查看詳情</button>
+                      <button onClick={() => { if (confirm('確認刪除此測驗記錄？')) onDelete(t.id); }} className="px-3 py-1 bg-red-500 hover:bg-red-600 text-white text-xs rounded">🗑️ 刪除</button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// 備份選單（已更新：含三類資料）
+// ============================================================
+function BackupMenu({ starred, practice, tests, onImport, onClose }) {
+  const fileRef = useRef(null);
+  const exportData = () => {
+    const data = {
+      version: 2,
+      type: 'hkdse-ict-backup',
+      exported: new Date().toISOString(),
+      starred,
+      practiceHistory: practice,
+      testHistory: tests
+    };
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `hkdse-ict-backup-${new Date().toISOString().slice(0,10)}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+  const handleFile = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      try {
+        const data = JSON.parse(ev.target.result);
+        const s = migrateStarred(data.starred || []);
+        const p = data.practiceHistory || data.history || [];
+        const tt = data.testHistory || [];
+        if (confirm(`確認匯入？\n已標記：${s.length} 項\n答題練習記錄：${p.length} 項\n測驗記錄：${tt.length} 項\n\n⚠️ 將完全覆蓋目前的資料！`)) {
+          onImport(s, p, tt);
+          onClose();
+        }
+      } catch (err) { alert('無法讀取檔案：' + err.message); }
+    };
+    reader.readAsText(file);
+  };
+  return (
+    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={onClose}>
+      <div className="bg-white rounded-lg max-w-md w-full p-6" onClick={e => e.stopPropagation()}>
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-xl font-bold">💾 資料備份</h2>
+          <button onClick={onClose} className="text-2xl text-slate-400 hover:text-slate-700">×</button>
+        </div>
+        <div className="space-y-3">
+          <div className="p-3 bg-slate-50 rounded text-sm space-y-1">
+            <div>⭐ 已標記：<span className="font-bold">{starred.length}</span> 項</div>
+            <div>📝 答題練習記錄：<span className="font-bold">{practice.length}</span> 項</div>
+            <div>📋 測驗記錄：<span className="font-bold">{tests.length}</span> 項</div>
+          </div>
+          <button onClick={exportData} className="w-full px-4 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded">📥 匯出所有資料（單一 JSON）</button>
+          <button onClick={() => fileRef.current?.click()} className="w-full px-4 py-3 bg-green-600 hover:bg-green-700 text-white rounded">📤 匯入 JSON 備份</button>
+          <input type="file" ref={fileRef} accept=".json" onChange={handleFile} className="hidden"/>
+          <div className="text-xs text-slate-500 mt-2 p-2 bg-yellow-50 rounded border border-yellow-200">
+            💡 備份包含：已標記文字與筆記、答題練習記錄、測驗記錄。匯入時會完全覆蓋現有資料，請先匯出現有資料以免丟失。
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// 主 App
+// ============================================================
+function App() {
+  const [activeSection, setActiveSection] = useState('A1');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [showSidebar, setShowSidebar] = useState(true);
+  const [sidebarUserToggled, setSidebarUserToggled] = useState(false);
+
+  // 💾 持久化狀態
+  const [starred, setStarred] = useState(() => migrateStarred(storage.get(STORAGE_KEYS.STARRED, [])));
+  const [practice, setPractice] = useState(() => storage.get(STORAGE_KEYS.PRACTICE, []));
+  const [tests, setTests] = useState(() => storage.get(STORAGE_KEYS.TESTS, []));
+  const [settings, setSettings] = useState(() => storage.get(STORAGE_KEYS.SETTINGS, { fontSize: 'base' }));
+
+  useEffect(() => { storage.set(STORAGE_KEYS.STARRED, starred); }, [starred]);
+  useEffect(() => { storage.set(STORAGE_KEYS.PRACTICE, practice); }, [practice]);
+  useEffect(() => { storage.set(STORAGE_KEYS.TESTS, tests); }, [tests]);
+  useEffect(() => { storage.set(STORAGE_KEYS.SETTINGS, settings); }, [settings]);
+
+  // 題目庫
+  const [questionBank, setQuestionBank] = useState({});
+  const [loadingQ, setLoadingQ] = useState(true);
+  const [loadStatus, setLoadStatus] = useState({ loaded: 0, failed: [], total: QUESTION_FILES.length });
+
+  useEffect(() => {
+    let loaded = 0; const failed = [];
+    Promise.all(QUESTION_FILES.map(n =>
+      fetch(`./data/${n}.json`, { cache: 'no-store' })
+        .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+        .then(d => { loaded++; return d; })
+        .catch(err => { failed.push(n); return {}; })
+    )).then(rs => {
+      const merged = rs.reduce((a, o) => ({ ...a, ...o }), {});
+      setQuestionBank(merged);
+      setLoadStatus({ loaded, failed, total: QUESTION_FILES.length });
+      setLoadingQ(false);
+    });
+  }, []);
+
+  // 模態狀態
+  const [showStarred, setShowStarred] = useState(false);
+  const [showPractice, setShowPractice] = useState(false);
+  const [showTestHistory, setShowTestHistory] = useState(false);
+  const [showTestSetup, setShowTestSetup] = useState(false);
+  const [activeTest, setActiveTest] = useState(null);
+  const [viewingResult, setViewingResult] = useState(null);
+  const [showBackup, setShowBackup] = useState(false);
+
+  // 標記流程
+  const [selectedText, setSelectedText] = useState('');
+  const [selectionCoords, setSelectionCoords] = useState(null);
+  const [pendingStar, setPendingStar] = useState(null);
+
+  useEffect(() => { if (!sidebarUserToggled && window.innerWidth < 768) setShowSidebar(false); }, [sidebarUserToggled]);
+
+  useEffect(() => {
+    const h = () => {
+      const sel = window.getSelection();
+      const text = sel.toString().trim();
+      if (text.length > 3 && text.length < 300) {
+        try {
+          const r = sel.getRangeAt(0).getBoundingClientRect();
+          if (r.width > 0) {
+            setSelectedText(text);
+            setSelectionCoords({ top: Math.max(r.top + window.scrollY - 42, 10), left: r.left + r.width / 2 });
+          }
+        } catch {}
+      } else { setSelectedText(''); setSelectionCoords(null); }
+    };
+    document.addEventListener('mouseup', h);
+    document.addEventListener('touchend', h);
+    return () => { document.removeEventListener('mouseup', h); document.removeEventListener('touchend', h); };
+  }, []);
+
+  const openStarPrompt = () => {
+    setPendingStar({ text: selectedText, section: activeSection });
+    setSelectedText(''); setSelectionCoords(null);
+    window.getSelection().removeAllRanges();
+  };
+
+  const confirmStar = (note) => {
+    if (!pendingStar) return;
+    setStarred([...starred, {
+      id: Date.now(),
+      text: pendingStar.text,
+      section: pendingStar.section,
+      note: note || '',
+      timestamp: new Date().toLocaleString('zh-HK', { month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit' })
+    }]);
+    setPendingStar(null);
+  };
+
+  const removeStar = (id) => setStarred(starred.filter(s => s.id !== id));
+  const updateStarNote = (id, note) => setStarred(starred.map(s => s.id === id ? { ...s, note } : s));
+
+  const recordPractice = (sid, q, ua, ok) => setPractice([...practice, {
+    id: Date.now() + Math.random(), sectionId: sid, questionId: q.id,
+    question: q.question, options: q.options,
+    userAnswer: ua, correctAnswer: q.answer, explanation: q.explanation, isCorrect: ok,
+    timestamp: new Date().toLocaleString('zh-HK', { month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit' })
+  }]);
+
+  const importData = (s, p, t) => { setStarred(s); setPractice(p); setTests(t); };
+
+  // 測驗流程
+  const startTest = (config) => { setShowTestSetup(false); setActiveTest(config); };
+  const completeTest = (result) => {
+    setTests([...tests, result]);
+    setActiveTest(null);
+    setViewingResult(result);
+  };
+  const cancelTest = () => setActiveTest(null);
+  const deleteTest = (id) => setTests(tests.filter(t => t.id !== id));
+
+  // 搜尋
+  const searchResults = useMemo(() => {
+    if (!searchQuery.trim()) return [];
+    const results = []; const q = searchQuery.toLowerCase();
+    curriculumData.forEach(u => {
+      u.sections.forEach(s => {
+        if (s.title.toLowerCase().includes(q) || u.title.toLowerCase().includes(q))
+          results.push({ unitTitle: u.title, sectionTitle: s.title, sectionId: s.id, match: `📁 ${s.title}` });
+        s.content.forEach(b => {
+          const ts = [];
+          if (b.text) ts.push(b.text); if (b.items) ts.push(...b.items); if (b.title) ts.push(b.title);
+          if (b.headers) ts.push(...b.headers); if (b.rows) b.rows.forEach(r => ts.push(...r));
+          ts.forEach(t => {
+            if (t && t.toLowerCase().includes(q)) {
+              const i = t.toLowerCase().indexOf(q), st = Math.max(0, i - 15), e = Math.min(t.length, i + q.length + 25);
+              results.push({ unitTitle: u.title, sectionTitle: s.title, sectionId: s.id, match: (st > 0 ? '...' : '') + t.substring(st, e) + (e < t.length ? '...' : '') });
+            }
+          });
+        });
+      });
+    });
+    const seen = new Set();
+    return results.filter(r => { const k = r.sectionId + '|' + r.match; if (seen.has(k)) return false; seen.add(k); return true; }).slice(0, 50);
+  }, [searchQuery]);
+
+  const navigate = (sid) => {
+    setActiveSection(sid); setSearchQuery('');
+    setShowStarred(false); setShowPractice(false); setShowTestHistory(false);
+    if (window.innerWidth < 768) setShowSidebar(false);
+    setTimeout(() => { document.querySelector('main')?.scrollTo({ top: 0, behavior: 'smooth' }); }, 100);
+  };
+
+  const current = findSection(activeSection);
+  const totalSec = curriculumData.reduce((s, u) => s + u.sections.length, 0);
+  const answered = new Set(practice.map(h => h.sectionId)).size;
+  const pct = ((answered / totalSec) * 100).toFixed(0);
+  const totalQ = Object.values(questionBank).reduce((s, a) => s + a.length, 0);
+  const fc = { sm: 'text-sm', base: 'text-base', lg: 'text-lg' };
+
+  return (
+    <div className={`h-screen flex flex-col bg-slate-100 ${fc[settings.fontSize]}`}>
+      <header className="bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-700 text-white shadow-lg">
+        <div className="px-3 md:px-4 py-2 md:py-3 flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2 min-w-0">
+            <button onClick={() => { setShowSidebar(!showSidebar); setSidebarUserToggled(true); }} className="p-2 hover:bg-white/10 rounded">☰</button>
+            <div className="min-w-0">
+              <h1 className="text-sm md:text-lg font-bold truncate">📚 HKDSE ICT 2026 速讀溫習筆記</h1>
+              <div className="text-xs text-indigo-100 hidden md:block">題庫：{totalQ} 題</div>
+            </div>
+          </div>
+          <div className="flex items-center gap-1 md:gap-2 flex-shrink-0">
+            <div className="hidden md:flex items-center gap-1 bg-white/10 rounded px-2 py-1 text-xs">
+              {['sm','base','lg'].map(sz => <button key={sz} onClick={() => setSettings({...settings, fontSize: sz})} className={`px-1 ${settings.fontSize === sz ? 'font-bold underline' : ''}`}>{sz==='sm'?'小':sz==='base'?'中':'大'}</button>)}
+            </div>
+            <button onClick={() => setShowStarred(true)} className="px-2 md:px-3 py-1.5 bg-white/10 hover:bg-white/20 rounded text-xs md:text-sm flex items-center gap-1">
+              <span>⭐</span><span className="hidden sm:inline">已標記</span>
+              {starred.length > 0 && <span className="bg-yellow-400 text-black px-1.5 rounded-full text-xs font-bold">{starred.length}</span>}
+            </button>
+            <button onClick={() => setShowPractice(true)} className="px-2 md:px-3 py-1.5 bg-white/10 hover:bg-white/20 rounded text-xs md:text-sm flex items-center gap-1">
+              <span>📝</span><span className="hidden sm:inline">答題練習</span>
+              {practice.length > 0 && <span className="bg-green-400 text-black px-1.5 rounded-full text-xs font-bold">{practice.length}</span>}
+            </button>
+            <button onClick={() => setShowTestHistory(true)} className="px-2 md:px-3 py-1.5 bg-white/10 hover:bg-white/20 rounded text-xs md:text-sm flex items-center gap-1">
+              <span>📋</span><span className="hidden sm:inline">測驗</span>
+              {tests.length > 0 && <span className="bg-pink-400 text-black px-1.5 rounded-full text-xs font-bold">{tests.length}</span>}
+            </button>
+            <button onClick={() => setShowBackup(true)} className="px-2 md:px-3 py-1.5 bg-white/10 hover:bg-white/20 rounded text-xs md:text-sm" title="匯出/匯入備份">💾</button>
+          </div>
+        </div>
+        <div className="bg-yellow-100 text-yellow-900 px-3 py-1 text-[11px] md:text-xs border-t border-yellow-200">⚠️ 此筆記為 AI 整合及生成，內容只供參考，請保持求證精神以其他方式求證，切勿完全相信 AI 所生成的內容。</div>
+      </header>
+
+      {!loadingQ && loadStatus.failed.length > 0 && (
+        <div className="bg-orange-100 border-b border-orange-300 text-orange-800 px-4 py-2 text-xs">
+          ⚠️ 部分題庫檔案載入失敗：{loadStatus.failed.map(f => `${f}.json`).join(', ')}。
+        </div>
+      )}
+
+      <SearchBar value={searchQuery} onChange={setSearchQuery} results={searchResults} onNavigate={navigate} />
+      <div className="px-4 py-2 bg-white border-b text-xs text-slate-600 flex items-center gap-3">
+        <span>📊 溫習進度：{answered}/{totalSec} ({pct}%)</span>
+        <div className="flex-1 bg-slate-200 h-2 rounded-full overflow-hidden"><div className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 transition-all" style={{width: pct + '%'}}></div></div>
+      </div>
+
+      <div className="flex flex-1 overflow-hidden">
+        <Sidebar visible={showSidebar} data={curriculumData} activeSection={activeSection} onSelect={navigate} onClose={() => { setShowSidebar(false); setSidebarUserToggled(true); }} questionBank={questionBank} />
+        <main className="flex-1 overflow-y-auto p-3 md:p-6">
+          {loadingQ ? (
+            <div className="max-w-2xl mx-auto text-center py-16">
+              <div className="inline-block animate-spin rounded-full h-16 w-16 border-4 border-indigo-200 border-t-indigo-600"></div>
+              <div className="mt-4 text-slate-600 font-medium">📥 載入題庫中...</div>
+            </div>
+          ) : current ? (
+            <SectionContent unit={current.unit} section={current.section} onRecordAnswer={recordPractice} questionBank={questionBank} starred={starred} />
+          ) : null}
+          {!loadingQ && (
+            <div className="max-w-4xl mx-auto mt-6 p-4 bg-slate-50 border border-slate-200 rounded text-xs text-slate-500 text-center">
+              💾 你的「已標記」、「答題練習」與「測驗」記錄會自動儲存於瀏覽器 localStorage。建議定期匯出備份。<br/>
+              📝 題庫已從 data/*.json 載入，共 {totalQ} 題。<br/>
+              🖍️ 選取筆記文字即可標記並加入筆記，有筆記的標記處會顯示 📝 圖示。
+            </div>
+          )}
+        </main>
+      </div>
+
+      {/* 標記按鈕 */}
+      {selectedText && selectionCoords && (
+        <div style={{ position: 'fixed', top: Math.min(selectionCoords.top, window.innerHeight - 80) + 'px', left: Math.max(60, Math.min(selectionCoords.left, window.innerWidth - 80)) + 'px', transform: 'translateX(-50%)' }} className="z-50">
+          <button onClick={openStarPrompt} className="bg-yellow-400 hover:bg-yellow-500 text-black px-3 py-2 rounded-lg shadow-xl font-bold text-sm border-2 border-yellow-600 fade-in">
+            ⭐ 標記並加筆記
+          </button>
+        </div>
+      )}
+
+      {/* Modals */}
+      {pendingStar && <QuickNoteModal text={pendingStar.text} onSave={confirmStar} onCancel={() => setPendingStar(null)} />}
+      {showStarred && <StarredModal starred={starred} onClose={() => setShowStarred(false)} onRemove={removeStar} onUpdateNote={updateStarNote} onNavigate={navigate} />}
+      {showPractice && <PracticeHistoryModal history={practice} onClose={() => setShowPractice(false)} onClear={() => setPractice([])} />}
+      {showTestHistory && <TestHistoryModal tests={tests} onClose={() => setShowTestHistory(false)} onNewTest={() => { setShowTestHistory(false); setShowTestSetup(true); }} onView={(t) => { setShowTestHistory(false); setViewingResult(t); }} onDelete={deleteTest} onClearAll={() => setTests([])} />}
+      {showTestSetup && <TestSetupModal questionBank={questionBank} onStart={startTest} onClose={() => setShowTestSetup(false)} />}
+      {activeTest && <TestRunner test={activeTest} onSubmit={completeTest} onCancel={cancelTest} />}
+      {viewingResult && <TestResultModal result={viewingResult} onClose={() => { setViewingResult(null); setShowTestHistory(true); }} />}
+      {showBackup && <BackupMenu starred={starred} practice={practice} tests={tests} onImport={importData} onClose={() => setShowBackup(false)} />}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
