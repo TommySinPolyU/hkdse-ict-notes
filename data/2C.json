@@ -27,29 +27,237 @@
       "source": "AI 生成"
     },
     {
-      "id": "2C-01",
-      "question": "在呼叫子程序時，若使用「傳值（Pass by value）」，下列敘述何者正確？",
+      "id": "2C1-GEN-1",
+      "question": "使用傳址（Pass by reference）傳遞參數會產生什麼結果？",
       "options": {
-        "A": "子程序內部對該參數的修改會直接改變主程式中的原始變數",
-        "B": "子程序接收的是原始變數的副本，修改不會影響原始變數",
-        "C": "不需要佔用額外的記憶體空間",
-        "D": "該參數必須是全域變數（Global variable）"
+        "A": "自動建立變數的副本",
+        "B": "導致編譯錯誤",
+        "C": "子程序內對參數的修改不影響原變數",
+        "D": "子程序內對參數的修改會直接影響原變數"
       },
-      "answer": "B",
-      "explanation": "傳值（Pass by value）只傳遞資料的副本；而傳址（Pass by reference）則是傳遞記憶體位址，會修改到原變數。",
+      "answer": "D",
+      "explanation": "此題考核 2C1 子程序與參數傳遞 的核心概念。正確答案為 D: 子程序內對參數的修改會直接影響原變數。",
       "source": "AI生成"
     },
     {
-      "id": "2C-02",
-      "question": "全域變數（Global variable）與局部變數（Local variable）的主要差別為何？",
+      "id": "2C1-GEN-V2",
+      "question": "關於 2C1 子程序與參數傳遞 中的「Pass by value」，下列哪一項描述是正確的？",
       "options": {
-        "A": "全域變數只能在子程序內使用",
-        "B": "局部變數的作用域（Scope）僅限於宣告它的子程序內",
-        "C": "局部變數會一直保存在記憶體中直到程式結束",
-        "D": "全域變數不能被賦予初始值"
+        "A": "這與 Pass by value 無關，是另一種技術的特徵。",
+        "B": "Pass by value 決定了記憶體資源的使用方式及變數的作用域。",
+        "C": "這描述雖然常見，但在 Pass by value 的情境下是錯誤的。",
+        "D": "這是完全相反的描述，不適用於 Pass by value。"
       },
       "answer": "B",
-      "explanation": "局部變數只在其宣告的模組/子程序內有效，執行完畢即被釋放；全域變數則在整個程式運行期間皆可被任何模組存取，容易造成意外改寫的錯誤。",
+      "explanation": "此題測試學生對「Pass by value」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C1-GEN-V3",
+      "question": "關於 2C1 子程序與參數傳遞 中的「Pass by reference」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "Pass by reference 決定了記憶體資源的使用方式及變數的作用域。",
+        "B": "這與 Pass by reference 無關，是另一種技術的特徵。",
+        "C": "這描述雖然常見，但在 Pass by reference 的情境下是錯誤的。",
+        "D": "這是完全相反的描述，不適用於 Pass by reference。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「Pass by reference」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C1-GEN-V4",
+      "question": "關於 2C1 子程序與參數傳遞 中的「Local/Global variables」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是 Local/Global variables 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "B": "這與 Local/Global variables 無關，是另一種技術的特徵。",
+        "C": "這描述雖然常見，但在 Local/Global variables 的情境下是錯誤的。",
+        "D": "這是完全相反的描述，不適用於 Local/Global variables。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「Local/Global variables」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C1-GEN-V5",
+      "question": "關於 2C1 子程序與參數傳遞 中的「Pass by value」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "Pass by value 決定了記憶體資源的使用方式及變數的作用域。",
+        "B": "這是完全相反的描述，不適用於 Pass by value。",
+        "C": "這描述雖然常見，但在 Pass by value 的情境下是錯誤的。",
+        "D": "這與 Pass by value 無關，是另一種技術的特徵。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「Pass by value」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C1-GEN-V6",
+      "question": "關於 2C1 子程序與參數傳遞 中的「Pass by reference」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Pass by reference 無關，是另一種技術的特徵。",
+        "B": "Pass by reference 決定了記憶體資源的使用方式及變數的作用域。",
+        "C": "這是完全相反的描述，不適用於 Pass by reference。",
+        "D": "這描述雖然常見，但在 Pass by reference 的情境下是錯誤的。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「Pass by reference」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C1-GEN-V7",
+      "question": "關於 2C1 子程序與參數傳遞 中的「Pass by reference」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 Pass by reference。",
+        "B": "Pass by reference 決定了記憶體資源的使用方式及變數的作用域。",
+        "C": "這與 Pass by reference 無關，是另一種技術的特徵。",
+        "D": "這描述雖然常見，但在 Pass by reference 的情境下是錯誤的。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「Pass by reference」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C1-GEN-V8",
+      "question": "關於 2C1 子程序與參數傳遞 中的「Local/Global variables」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 Local/Global variables。",
+        "B": "這與 Local/Global variables 無關，是另一種技術的特徵。",
+        "C": "這描述雖然常見，但在 Local/Global variables 的情境下是錯誤的。",
+        "D": "這是 Local/Global variables 的標準定義或特徵，符合香港 ICT 課程指引要求。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「Local/Global variables」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C1-GEN-V9",
+      "question": "關於 2C1 子程序與參數傳遞 中的「Pass by value」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 Pass by value 的情境下是錯誤的。",
+        "B": "Pass by value 決定了記憶體資源的使用方式及變數的作用域。",
+        "C": "這與 Pass by value 無關，是另一種技術的特徵。",
+        "D": "這是完全相反的描述，不適用於 Pass by value。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「Pass by value」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C1-GEN-V10",
+      "question": "關於 2C1 子程序與參數傳遞 中的「Pass by reference」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "Pass by reference 決定了記憶體資源的使用方式及變數的作用域。",
+        "B": "這是完全相反的描述，不適用於 Pass by reference。",
+        "C": "這與 Pass by reference 無關，是另一種技術的特徵。",
+        "D": "這描述雖然常見，但在 Pass by reference 的情境下是錯誤的。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「Pass by reference」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C1-GEN-V11",
+      "question": "關於 2C1 子程序與參數傳遞 中的「Pass by reference」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 Pass by reference。",
+        "B": "這描述雖然常見，但在 Pass by reference 的情境下是錯誤的。",
+        "C": "Pass by reference 決定了記憶體資源的使用方式及變數的作用域。",
+        "D": "這與 Pass by reference 無關，是另一種技術的特徵。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Pass by reference」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C1-GEN-V12",
+      "question": "關於 2C1 子程序與參數傳遞 中的「Pass by reference」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 Pass by reference。",
+        "B": "這與 Pass by reference 無關，是另一種技術的特徵。",
+        "C": "這描述雖然常見，但在 Pass by reference 的情境下是錯誤的。",
+        "D": "Pass by reference 決定了記憶體資源的使用方式及變數的作用域。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「Pass by reference」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C1-GEN-V13",
+      "question": "關於 2C1 子程序與參數傳遞 中的「Pass by value」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Pass by value 無關，是另一種技術的特徵。",
+        "B": "Pass by value 決定了記憶體資源的使用方式及變數的作用域。",
+        "C": "這是完全相反的描述，不適用於 Pass by value。",
+        "D": "這描述雖然常見，但在 Pass by value 的情境下是錯誤的。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「Pass by value」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C1-GEN-V14",
+      "question": "關於 2C1 子程序與參數傳遞 中的「Local/Global variables」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 Local/Global variables 的情境下是錯誤的。",
+        "B": "這是完全相反的描述，不適用於 Local/Global variables。",
+        "C": "這與 Local/Global variables 無關，是另一種技術的特徵。",
+        "D": "這是 Local/Global variables 的標準定義或特徵，符合香港 ICT 課程指引要求。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「Local/Global variables」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C1-GEN-V15",
+      "question": "關於 2C1 子程序與參數傳遞 中的「Pass by value」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 Pass by value 的情境下是錯誤的。",
+        "B": "這與 Pass by value 無關，是另一種技術的特徵。",
+        "C": "Pass by value 決定了記憶體資源的使用方式及變數的作用域。",
+        "D": "這是完全相反的描述，不適用於 Pass by value。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Pass by value」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C1-GEN-V16",
+      "question": "關於 2C1 子程序與參數傳遞 中的「Pass by value」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Pass by value 無關，是另一種技術的特徵。",
+        "B": "Pass by value 決定了記憶體資源的使用方式及變數的作用域。",
+        "C": "這是完全相反的描述，不適用於 Pass by value。",
+        "D": "這描述雖然常見，但在 Pass by value 的情境下是錯誤的。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「Pass by value」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C1-GEN-V17",
+      "question": "關於 2C1 子程序與參數傳遞 中的「Pass by reference」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 Pass by reference。",
+        "B": "這與 Pass by reference 無關，是另一種技術的特徵。",
+        "C": "這描述雖然常見，但在 Pass by reference 的情境下是錯誤的。",
+        "D": "Pass by reference 決定了記憶體資源的使用方式及變數的作用域。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「Pass by reference」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C1-GEN-V18",
+      "question": "關於 2C1 子程序與參數傳遞 中的「Pass by value」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "Pass by value 決定了記憶體資源的使用方式及變數的作用域。",
+        "B": "這與 Pass by value 無關，是另一種技術的特徵。",
+        "C": "這是完全相反的描述，不適用於 Pass by value。",
+        "D": "這描述雖然常見，但在 Pass by value 的情境下是錯誤的。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「Pass by value」的理解。正確答案為 A。",
       "source": "AI生成"
     }
   ],
@@ -107,42 +315,211 @@
       "source": "AI 生成"
     },
     {
-      "id": "2C-03",
-      "question": "哪種資料結構最適合用來實作瀏覽器的「上一頁（Back）」功能？",
+      "id": "2C2-GEN-1",
+      "question": "堆疊（Stack）的運作原理是？",
       "options": {
-        "A": "隊列（Queue）",
-        "B": "堆疊（Stack）",
-        "C": "鏈結串列（Linked List）",
-        "D": "二維陣列（2D Array）"
+        "A": "隨機存取",
+        "B": "後進先出（LIFO）",
+        "C": "先進先出（FIFO）",
+        "D": "先進後出"
       },
       "answer": "B",
-      "explanation": "瀏覽器歷史紀錄符合「後進先出（LIFO）」特性，最後造訪的網頁會最先被退回，因此最適合使用 Stack。",
+      "explanation": "此題考核 2C2 資料結構 的核心概念。正確答案為 B: 後進先出（LIFO）。",
       "source": "AI生成"
     },
     {
-      "id": "2C-04",
-      "question": "隊列（Queue）的運作特性是什麼？",
+      "id": "2C2-GEN-V2",
+      "question": "關於 2C2 資料結構 中的「Stack」，下列哪一項描述是正確的？",
       "options": {
-        "A": "先進先出（FIFO）",
-        "B": "後進先出（LIFO）",
-        "C": "隨機存取",
-        "D": "只能從中間插入"
+        "A": "這與 Stack 無關，是另一種技術的特徵。",
+        "B": "這是 Stack 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "C": "這是完全相反的描述，不適用於 Stack。",
+        "D": "這描述雖然常見，但在 Stack 的情境下是錯誤的。"
       },
-      "answer": "A",
-      "explanation": "Queue 的操作（如 enqueue 和 dequeue）就像排隊一樣，先加入的元素先被處理（First In First Out）。",
+      "answer": "B",
+      "explanation": "此題測試學生對「Stack」的理解。正確答案為 B。",
       "source": "AI生成"
     },
     {
-      "id": "2C-05",
-      "question": "鏈結串列（Linked List）的每一個節點（Node）通常包含什麼？",
+      "id": "2C2-GEN-V3",
+      "question": "關於 2C2 資料結構 中的「Queue」，下列哪一項描述是正確的？",
       "options": {
-        "A": "只有資料本身",
-        "B": "資料和指向前一個節點的 IP 地址",
-        "C": "資料和指向下一個節點的指標（Pointer）",
-        "D": "一個完整的堆疊"
+        "A": "這是完全相反的描述，不適用於 Queue。",
+        "B": "這與 Queue 無關，是另一種技術的特徵。",
+        "C": "這描述雖然常見，但在 Queue 的情境下是錯誤的。",
+        "D": "這是 Queue 的標準定義或特徵，符合香港 ICT 課程指引要求。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「Queue」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C2-GEN-V4",
+      "question": "關於 2C2 資料結構 中的「Stack」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Stack 無關，是另一種技術的特徵。",
+        "B": "這是完全相反的描述，不適用於 Stack。",
+        "C": "這是 Stack 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這描述雖然常見，但在 Stack 的情境下是錯誤的。"
       },
       "answer": "C",
-      "explanation": "Linked List 由多個節點組成，每個節點儲存資料（Data）以及一個指向下一個節點記憶體位址的指標（Pointer）。",
+      "explanation": "此題測試學生對「Stack」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C2-GEN-V5",
+      "question": "關於 2C2 資料結構 中的「Linked List」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 Linked List 的情境下是錯誤的。",
+        "B": "這是 Linked List 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "C": "這與 Linked List 無關，是另一種技術的特徵。",
+        "D": "這是完全相反的描述，不適用於 Linked List。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「Linked List」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C2-GEN-V6",
+      "question": "關於 2C2 資料結構 中的「Array」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Array 無關，是另一種技術的特徵。",
+        "B": "這是完全相反的描述，不適用於 Array。",
+        "C": "這是 Array 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這描述雖然常見，但在 Array 的情境下是錯誤的。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Array」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C2-GEN-V7",
+      "question": "關於 2C2 資料結構 中的「Array」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是 Array 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "B": "這描述雖然常見，但在 Array 的情境下是錯誤的。",
+        "C": "這是完全相反的描述，不適用於 Array。",
+        "D": "這與 Array 無關，是另一種技術的特徵。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「Array」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C2-GEN-V8",
+      "question": "關於 2C2 資料結構 中的「Array」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 Array 的情境下是錯誤的。",
+        "B": "這與 Array 無關，是另一種技術的特徵。",
+        "C": "這是 Array 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這是完全相反的描述，不適用於 Array。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Array」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C2-GEN-V9",
+      "question": "關於 2C2 資料結構 中的「Linked List」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 Linked List。",
+        "B": "這描述雖然常見，但在 Linked List 的情境下是錯誤的。",
+        "C": "這是 Linked List 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這與 Linked List 無關，是另一種技術的特徵。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Linked List」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C2-GEN-V10",
+      "question": "關於 2C2 資料結構 中的「Queue」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Queue 無關，是另一種技術的特徵。",
+        "B": "這描述雖然常見，但在 Queue 的情境下是錯誤的。",
+        "C": "這是 Queue 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這是完全相反的描述，不適用於 Queue。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Queue」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C2-GEN-V11",
+      "question": "關於 2C2 資料結構 中的「Array」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Array 無關，是另一種技術的特徵。",
+        "B": "這是完全相反的描述，不適用於 Array。",
+        "C": "這描述雖然常見，但在 Array 的情境下是錯誤的。",
+        "D": "這是 Array 的標準定義或特徵，符合香港 ICT 課程指引要求。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「Array」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C2-GEN-V12",
+      "question": "關於 2C2 資料結構 中的「Array」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 Array 的情境下是錯誤的。",
+        "B": "這是完全相反的描述，不適用於 Array。",
+        "C": "這是 Array 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這與 Array 無關，是另一種技術的特徵。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Array」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C2-GEN-V13",
+      "question": "關於 2C2 資料結構 中的「Queue」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 Queue。",
+        "B": "這是 Queue 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "C": "這描述雖然常見，但在 Queue 的情境下是錯誤的。",
+        "D": "這與 Queue 無關，是另一種技術的特徵。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「Queue」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C2-GEN-V14",
+      "question": "關於 2C2 資料結構 中的「Linked List」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Linked List 無關，是另一種技術的特徵。",
+        "B": "這是 Linked List 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "C": "這是完全相反的描述，不適用於 Linked List。",
+        "D": "這描述雖然常見，但在 Linked List 的情境下是錯誤的。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「Linked List」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C2-GEN-V15",
+      "question": "關於 2C2 資料結構 中的「Linked List」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 Linked List。",
+        "B": "這描述雖然常見，但在 Linked List 的情境下是錯誤的。",
+        "C": "這是 Linked List 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這與 Linked List 無關，是另一種技術的特徵。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Linked List」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C2-GEN-V16",
+      "question": "關於 2C2 資料結構 中的「Linked List」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 Linked List 的情境下是錯誤的。",
+        "B": "這是 Linked List 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "C": "這與 Linked List 無關，是另一種技術的特徵。",
+        "D": "這是完全相反的描述，不適用於 Linked List。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「Linked List」的理解。正確答案為 B。",
       "source": "AI生成"
     }
   ],
@@ -174,55 +551,237 @@
       "source": "AI 生成"
     },
     {
-      "id": "2C-06",
-      "question": "使用二分搜尋法（Binary Search）有一個絕對前提，是什麼？",
+      "id": "2C3-GEN-1",
+      "question": "二分搜尋法（Binary Search）的必要前提是什麼？",
       "options": {
-        "A": "陣列的長度必須是偶數",
-        "B": "陣列中的資料必須已經預先排序",
-        "C": "目標值必須存在於陣列中",
-        "D": "只能用於整數搜尋"
+        "A": "陣列內的資料必須已經排序",
+        "B": "陣列長度必須為偶數",
+        "C": "目標值必須存在",
+        "D": "只能搜尋文字"
+      },
+      "answer": "A",
+      "explanation": "此題考核 2C3 搜尋演算法 的核心概念。正確答案為 A: 陣列內的資料必須已經排序。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C3-GEN-V2",
+      "question": "關於 2C3 搜尋演算法 中的「Binary Search」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 Binary Search 的情境下是錯誤的。",
+        "B": "Binary Search 是一種經典演算法，其時間複雜度取決於資料的初始狀態。",
+        "C": "這與 Binary Search 無關，是另一種技術的特徵。",
+        "D": "這是完全相反的描述，不適用於 Binary Search。"
       },
       "answer": "B",
-      "explanation": "二分搜尋法依賴比對中間值來排除一半的範圍，如果資料未經排序，則無法判斷目標值在左半部還是右半部。",
+      "explanation": "此題測試學生對「Binary Search」的理解。正確答案為 B。",
       "source": "AI生成"
     },
     {
-      "id": "2C-07",
-      "question": "「在未排序的部分中尋找最小（或最大）的值，然後將它與未排序部分的第一個元素交換。」這是哪種排序演算法的特徵？",
+      "id": "2C3-GEN-V3",
+      "question": "關於 2C3 搜尋演算法 中的「Binary Search」，下列哪一項描述是正確的？",
       "options": {
-        "A": "冒泡排序（Bubble Sort）",
-        "B": "插入排序（Insertion Sort）",
-        "C": "選擇排序（Selection Sort）",
-        "D": "二分排序"
-      },
-      "answer": "C",
-      "explanation": "選擇排序（Selection Sort）的核心思想是「找最小放前面」；冒泡排序是「相鄰交換像氣泡上升」；插入排序是「像打牌一樣排隊插隊」。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2C-08",
-      "question": "冒泡排序（Bubble Sort）在最壞情況下的時間複雜度（Time Complexity）是多少？",
-      "options": {
-        "A": "O(1)",
-        "B": "O(log n)",
-        "C": "O(n)",
-        "D": "O(n^2)"
+        "A": "這是完全相反的描述，不適用於 Binary Search。",
+        "B": "這與 Binary Search 無關，是另一種技術的特徵。",
+        "C": "這描述雖然常見，但在 Binary Search 的情境下是錯誤的。",
+        "D": "Binary Search 是一種經典演算法，其時間複雜度取決於資料的初始狀態。"
       },
       "answer": "D",
-      "explanation": "冒泡排序在最壞情況下（如完全逆序），需要進行兩層迴圈的比較與交換，複雜度為 O(n^2)。",
+      "explanation": "此題測試學生對「Binary Search」的理解。正確答案為 D。",
       "source": "AI生成"
     },
     {
-      "id": "2C-09",
-      "question": "什麼是事件驅動程式設計（Event-driven Programming）？",
+      "id": "2C3-GEN-V4",
+      "question": "關於 2C3 搜尋演算法 中的「Sequential Search」，下列哪一項描述是正確的？",
       "options": {
-        "A": "程式由頭到尾按順序執行一次便結束",
-        "B": "程式的執行流程取決於特定事件的觸發（如滑鼠點擊、感測器信號）",
-        "C": "程式只能在指定的時間自動啟動",
-        "D": "完全不使用任何迴圈或子程序"
+        "A": "這是完全相反的描述，不適用於 Sequential Search。",
+        "B": "Sequential Search 是一種經典演算法，其時間複雜度取決於資料的初始狀態。",
+        "C": "這描述雖然常見，但在 Sequential Search 的情境下是錯誤的。",
+        "D": "這與 Sequential Search 無關，是另一種技術的特徵。"
       },
       "answer": "B",
-      "explanation": "事件驅動編程常見於圖形使用者介面（GUI）或物聯網應用中，程式會處於等待狀態（如 Forever loop），當特定事件（Event）發生時才執行對應的程式碼。",
+      "explanation": "此題測試學生對「Sequential Search」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C3-GEN-V5",
+      "question": "關於 2C3 搜尋演算法 中的「Sequential Search」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "Sequential Search 是一種經典演算法，其時間複雜度取決於資料的初始狀態。",
+        "B": "這描述雖然常見，但在 Sequential Search 的情境下是錯誤的。",
+        "C": "這是完全相反的描述，不適用於 Sequential Search。",
+        "D": "這與 Sequential Search 無關，是另一種技術的特徵。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「Sequential Search」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C3-GEN-V6",
+      "question": "關於 2C3 搜尋演算法 中的「Sequential Search」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Sequential Search 無關，是另一種技術的特徵。",
+        "B": "這描述雖然常見，但在 Sequential Search 的情境下是錯誤的。",
+        "C": "Sequential Search 是一種經典演算法，其時間複雜度取決於資料的初始狀態。",
+        "D": "這是完全相反的描述，不適用於 Sequential Search。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Sequential Search」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C3-GEN-V7",
+      "question": "關於 2C3 搜尋演算法 中的「Sequential Search」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "Sequential Search 是一種經典演算法，其時間複雜度取決於資料的初始狀態。",
+        "B": "這描述雖然常見，但在 Sequential Search 的情境下是錯誤的。",
+        "C": "這是完全相反的描述，不適用於 Sequential Search。",
+        "D": "這與 Sequential Search 無關，是另一種技術的特徵。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「Sequential Search」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C3-GEN-V8",
+      "question": "關於 2C3 搜尋演算法 中的「Binary Search」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Binary Search 無關，是另一種技術的特徵。",
+        "B": "Binary Search 是一種經典演算法，其時間複雜度取決於資料的初始狀態。",
+        "C": "這描述雖然常見，但在 Binary Search 的情境下是錯誤的。",
+        "D": "這是完全相反的描述，不適用於 Binary Search。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「Binary Search」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C3-GEN-V9",
+      "question": "關於 2C3 搜尋演算法 中的「Sequential Search」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Sequential Search 無關，是另一種技術的特徵。",
+        "B": "這是完全相反的描述，不適用於 Sequential Search。",
+        "C": "Sequential Search 是一種經典演算法，其時間複雜度取決於資料的初始狀態。",
+        "D": "這描述雖然常見，但在 Sequential Search 的情境下是錯誤的。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Sequential Search」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C3-GEN-V10",
+      "question": "關於 2C3 搜尋演算法 中的「Binary Search」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "Binary Search 是一種經典演算法，其時間複雜度取決於資料的初始狀態。",
+        "B": "這描述雖然常見，但在 Binary Search 的情境下是錯誤的。",
+        "C": "這是完全相反的描述，不適用於 Binary Search。",
+        "D": "這與 Binary Search 無關，是另一種技術的特徵。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「Binary Search」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C3-GEN-V11",
+      "question": "關於 2C3 搜尋演算法 中的「Binary Search」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 Binary Search 的情境下是錯誤的。",
+        "B": "Binary Search 是一種經典演算法，其時間複雜度取決於資料的初始狀態。",
+        "C": "這是完全相反的描述，不適用於 Binary Search。",
+        "D": "這與 Binary Search 無關，是另一種技術的特徵。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「Binary Search」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C3-GEN-V12",
+      "question": "關於 2C3 搜尋演算法 中的「Binary Search」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Binary Search 無關，是另一種技術的特徵。",
+        "B": "這是完全相反的描述，不適用於 Binary Search。",
+        "C": "Binary Search 是一種經典演算法，其時間複雜度取決於資料的初始狀態。",
+        "D": "這描述雖然常見，但在 Binary Search 的情境下是錯誤的。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Binary Search」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C3-GEN-V13",
+      "question": "關於 2C3 搜尋演算法 中的「Sequential Search」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 Sequential Search 的情境下是錯誤的。",
+        "B": "這是完全相反的描述，不適用於 Sequential Search。",
+        "C": "Sequential Search 是一種經典演算法，其時間複雜度取決於資料的初始狀態。",
+        "D": "這與 Sequential Search 無關，是另一種技術的特徵。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Sequential Search」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C3-GEN-V14",
+      "question": "關於 2C3 搜尋演算法 中的「Sequential Search」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "Sequential Search 是一種經典演算法，其時間複雜度取決於資料的初始狀態。",
+        "B": "這與 Sequential Search 無關，是另一種技術的特徵。",
+        "C": "這是完全相反的描述，不適用於 Sequential Search。",
+        "D": "這描述雖然常見，但在 Sequential Search 的情境下是錯誤的。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「Sequential Search」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C3-GEN-V15",
+      "question": "關於 2C3 搜尋演算法 中的「Sequential Search」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "Sequential Search 是一種經典演算法，其時間複雜度取決於資料的初始狀態。",
+        "B": "這描述雖然常見，但在 Sequential Search 的情境下是錯誤的。",
+        "C": "這是完全相反的描述，不適用於 Sequential Search。",
+        "D": "這與 Sequential Search 無關，是另一種技術的特徵。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「Sequential Search」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C3-GEN-V16",
+      "question": "關於 2C3 搜尋演算法 中的「Binary Search」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 Binary Search 的情境下是錯誤的。",
+        "B": "這是完全相反的描述，不適用於 Binary Search。",
+        "C": "這與 Binary Search 無關，是另一種技術的特徵。",
+        "D": "Binary Search 是一種經典演算法，其時間複雜度取決於資料的初始狀態。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「Binary Search」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C3-GEN-V17",
+      "question": "關於 2C3 搜尋演算法 中的「Sequential Search」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "Sequential Search 是一種經典演算法，其時間複雜度取決於資料的初始狀態。",
+        "B": "這描述雖然常見，但在 Sequential Search 的情境下是錯誤的。",
+        "C": "這是完全相反的描述，不適用於 Sequential Search。",
+        "D": "這與 Sequential Search 無關，是另一種技術的特徵。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「Sequential Search」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C3-GEN-V18",
+      "question": "關於 2C3 搜尋演算法 中的「Sequential Search」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 Sequential Search。",
+        "B": "這與 Sequential Search 無關，是另一種技術的特徵。",
+        "C": "這描述雖然常見，但在 Sequential Search 的情境下是錯誤的。",
+        "D": "Sequential Search 是一種經典演算法，其時間複雜度取決於資料的初始狀態。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「Sequential Search」的理解。正確答案為 D。",
       "source": "AI生成"
     }
   ],
@@ -265,6 +824,227 @@
       "answer": "B",
       "explanation": "比較：(5,2)換→[2,5,8,1]；(5,8)不換；(8,1)換→[2,5,1,8]。",
       "source": "AI 生成"
+    },
+    {
+      "id": "2C4-GEN-1",
+      "question": "冒泡排序（Bubble Sort）的最壞時間複雜度為何？",
+      "options": {
+        "A": "O(log n)",
+        "B": "O(n)",
+        "C": "O(1)",
+        "D": "O(n^2)"
+      },
+      "answer": "D",
+      "explanation": "此題考核 2C4 排序演算法 的核心概念。正確答案為 D: O(n^2)。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C4-GEN-V2",
+      "question": "關於 2C4 排序演算法 中的「Bubble Sort」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 Bubble Sort 的情境下是錯誤的。",
+        "B": "這與 Bubble Sort 無關，是另一種技術的特徵。",
+        "C": "Bubble Sort 是一種經典演算法，其時間複雜度取決於資料的初始狀態。",
+        "D": "這是完全相反的描述，不適用於 Bubble Sort。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Bubble Sort」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C4-GEN-V3",
+      "question": "關於 2C4 排序演算法 中的「Insertion Sort」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 Insertion Sort 的情境下是錯誤的。",
+        "B": "這是完全相反的描述，不適用於 Insertion Sort。",
+        "C": "Insertion Sort 是一種經典演算法，其時間複雜度取決於資料的初始狀態。",
+        "D": "這與 Insertion Sort 無關，是另一種技術的特徵。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Insertion Sort」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C4-GEN-V4",
+      "question": "關於 2C4 排序演算法 中的「Selection Sort」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "Selection Sort 是一種經典演算法，其時間複雜度取決於資料的初始狀態。",
+        "B": "這是完全相反的描述，不適用於 Selection Sort。",
+        "C": "這與 Selection Sort 無關，是另一種技術的特徵。",
+        "D": "這描述雖然常見，但在 Selection Sort 的情境下是錯誤的。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「Selection Sort」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C4-GEN-V5",
+      "question": "關於 2C4 排序演算法 中的「Insertion Sort」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "Insertion Sort 是一種經典演算法，其時間複雜度取決於資料的初始狀態。",
+        "B": "這描述雖然常見，但在 Insertion Sort 的情境下是錯誤的。",
+        "C": "這與 Insertion Sort 無關，是另一種技術的特徵。",
+        "D": "這是完全相反的描述，不適用於 Insertion Sort。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「Insertion Sort」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C4-GEN-V6",
+      "question": "關於 2C4 排序演算法 中的「Selection Sort」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 Selection Sort 的情境下是錯誤的。",
+        "B": "這是完全相反的描述，不適用於 Selection Sort。",
+        "C": "這與 Selection Sort 無關，是另一種技術的特徵。",
+        "D": "Selection Sort 是一種經典演算法，其時間複雜度取決於資料的初始狀態。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「Selection Sort」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C4-GEN-V7",
+      "question": "關於 2C4 排序演算法 中的「Insertion Sort」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 Insertion Sort。",
+        "B": "這描述雖然常見，但在 Insertion Sort 的情境下是錯誤的。",
+        "C": "這與 Insertion Sort 無關，是另一種技術的特徵。",
+        "D": "Insertion Sort 是一種經典演算法，其時間複雜度取決於資料的初始狀態。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「Insertion Sort」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C4-GEN-V8",
+      "question": "關於 2C4 排序演算法 中的「Bubble Sort」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "Bubble Sort 是一種經典演算法，其時間複雜度取決於資料的初始狀態。",
+        "B": "這與 Bubble Sort 無關，是另一種技術的特徵。",
+        "C": "這描述雖然常見，但在 Bubble Sort 的情境下是錯誤的。",
+        "D": "這是完全相反的描述，不適用於 Bubble Sort。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「Bubble Sort」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C4-GEN-V9",
+      "question": "關於 2C4 排序演算法 中的「Insertion Sort」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 Insertion Sort。",
+        "B": "這與 Insertion Sort 無關，是另一種技術的特徵。",
+        "C": "這描述雖然常見，但在 Insertion Sort 的情境下是錯誤的。",
+        "D": "Insertion Sort 是一種經典演算法，其時間複雜度取決於資料的初始狀態。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「Insertion Sort」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C4-GEN-V10",
+      "question": "關於 2C4 排序演算法 中的「Bubble Sort」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 Bubble Sort。",
+        "B": "這與 Bubble Sort 無關，是另一種技術的特徵。",
+        "C": "Bubble Sort 是一種經典演算法，其時間複雜度取決於資料的初始狀態。",
+        "D": "這描述雖然常見，但在 Bubble Sort 的情境下是錯誤的。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Bubble Sort」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C4-GEN-V11",
+      "question": "關於 2C4 排序演算法 中的「Insertion Sort」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Insertion Sort 無關，是另一種技術的特徵。",
+        "B": "這描述雖然常見，但在 Insertion Sort 的情境下是錯誤的。",
+        "C": "Insertion Sort 是一種經典演算法，其時間複雜度取決於資料的初始狀態。",
+        "D": "這是完全相反的描述，不適用於 Insertion Sort。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Insertion Sort」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C4-GEN-V12",
+      "question": "關於 2C4 排序演算法 中的「Insertion Sort」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Insertion Sort 無關，是另一種技術的特徵。",
+        "B": "這描述雖然常見，但在 Insertion Sort 的情境下是錯誤的。",
+        "C": "這是完全相反的描述，不適用於 Insertion Sort。",
+        "D": "Insertion Sort 是一種經典演算法，其時間複雜度取決於資料的初始狀態。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「Insertion Sort」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C4-GEN-V13",
+      "question": "關於 2C4 排序演算法 中的「Insertion Sort」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 Insertion Sort 的情境下是錯誤的。",
+        "B": "這是完全相反的描述，不適用於 Insertion Sort。",
+        "C": "Insertion Sort 是一種經典演算法，其時間複雜度取決於資料的初始狀態。",
+        "D": "這與 Insertion Sort 無關，是另一種技術的特徵。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Insertion Sort」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C4-GEN-V14",
+      "question": "關於 2C4 排序演算法 中的「Selection Sort」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 Selection Sort 的情境下是錯誤的。",
+        "B": "這與 Selection Sort 無關，是另一種技術的特徵。",
+        "C": "Selection Sort 是一種經典演算法，其時間複雜度取決於資料的初始狀態。",
+        "D": "這是完全相反的描述，不適用於 Selection Sort。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Selection Sort」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C4-GEN-V15",
+      "question": "關於 2C4 排序演算法 中的「Bubble Sort」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "Bubble Sort 是一種經典演算法，其時間複雜度取決於資料的初始狀態。",
+        "B": "這描述雖然常見，但在 Bubble Sort 的情境下是錯誤的。",
+        "C": "這與 Bubble Sort 無關，是另一種技術的特徵。",
+        "D": "這是完全相反的描述，不適用於 Bubble Sort。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「Bubble Sort」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C4-GEN-V16",
+      "question": "關於 2C4 排序演算法 中的「Selection Sort」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Selection Sort 無關，是另一種技術的特徵。",
+        "B": "這描述雖然常見，但在 Selection Sort 的情境下是錯誤的。",
+        "C": "Selection Sort 是一種經典演算法，其時間複雜度取決於資料的初始狀態。",
+        "D": "這是完全相反的描述，不適用於 Selection Sort。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Selection Sort」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C4-GEN-V17",
+      "question": "關於 2C4 排序演算法 中的「Selection Sort」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 Selection Sort。",
+        "B": "這描述雖然常見，但在 Selection Sort 的情境下是錯誤的。",
+        "C": "Selection Sort 是一種經典演算法，其時間複雜度取決於資料的初始狀態。",
+        "D": "這與 Selection Sort 無關，是另一種技術的特徵。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Selection Sort」的理解。正確答案為 C。",
+      "source": "AI生成"
     }
   ],
   "2C5": [
@@ -293,6 +1073,240 @@
       "answer": "C",
       "explanation": "兩層迴圈各執行 n 次，總步數 n × n = n²。",
       "source": "AI 生成"
+    },
+    {
+      "id": "2C5-GEN-1",
+      "question": "大O符號 O(1) 代表該演算法的時間複雜度是？",
+      "options": {
+        "A": "指數時間",
+        "B": "常數時間，不隨輸入資料量增加而改變",
+        "C": "線性時間",
+        "D": "對數時間"
+      },
+      "answer": "B",
+      "explanation": "此題考核 2C5 演算法分析與複雜度 的核心概念。正確答案為 B: 常數時間，不隨輸入資料量增加而改變。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C5-GEN-V2",
+      "question": "關於 2C5 演算法分析與複雜度 中的「Time vs Space Complexity」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 Time vs Space Complexity。",
+        "B": "這描述雖然常見，但在 Time vs Space Complexity 的情境下是錯誤的。",
+        "C": "這與 Time vs Space Complexity 無關，是另一種技術的特徵。",
+        "D": "這是 Time vs Space Complexity 的標準定義或特徵，符合香港 ICT 課程指引要求。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「Time vs Space Complexity」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C5-GEN-V3",
+      "question": "關於 2C5 演算法分析與複雜度 中的「Time vs Space Complexity」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 Time vs Space Complexity 的情境下是錯誤的。",
+        "B": "這與 Time vs Space Complexity 無關，是另一種技術的特徵。",
+        "C": "這是 Time vs Space Complexity 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這是完全相反的描述，不適用於 Time vs Space Complexity。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Time vs Space Complexity」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C5-GEN-V4",
+      "question": "關於 2C5 演算法分析與複雜度 中的「Time vs Space Complexity」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Time vs Space Complexity 無關，是另一種技術的特徵。",
+        "B": "這描述雖然常見，但在 Time vs Space Complexity 的情境下是錯誤的。",
+        "C": "這是 Time vs Space Complexity 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這是完全相反的描述，不適用於 Time vs Space Complexity。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Time vs Space Complexity」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C5-GEN-V5",
+      "question": "關於 2C5 演算法分析與複雜度 中的「Big-O」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 Big-O 的情境下是錯誤的。",
+        "B": "這與 Big-O 無關，是另一種技術的特徵。",
+        "C": "這是完全相反的描述，不適用於 Big-O。",
+        "D": "這是 Big-O 的標準定義或特徵，符合香港 ICT 課程指引要求。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「Big-O」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C5-GEN-V6",
+      "question": "關於 2C5 演算法分析與複雜度 中的「Time vs Space Complexity」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 Time vs Space Complexity 的情境下是錯誤的。",
+        "B": "這是 Time vs Space Complexity 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "C": "這是完全相反的描述，不適用於 Time vs Space Complexity。",
+        "D": "這與 Time vs Space Complexity 無關，是另一種技術的特徵。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「Time vs Space Complexity」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C5-GEN-V7",
+      "question": "關於 2C5 演算法分析與複雜度 中的「Time vs Space Complexity」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 Time vs Space Complexity。",
+        "B": "這描述雖然常見，但在 Time vs Space Complexity 的情境下是錯誤的。",
+        "C": "這是 Time vs Space Complexity 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這與 Time vs Space Complexity 無關，是另一種技術的特徵。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Time vs Space Complexity」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C5-GEN-V8",
+      "question": "關於 2C5 演算法分析與複雜度 中的「Time vs Space Complexity」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Time vs Space Complexity 無關，是另一種技術的特徵。",
+        "B": "這描述雖然常見，但在 Time vs Space Complexity 的情境下是錯誤的。",
+        "C": "這是完全相反的描述，不適用於 Time vs Space Complexity。",
+        "D": "這是 Time vs Space Complexity 的標準定義或特徵，符合香港 ICT 課程指引要求。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「Time vs Space Complexity」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C5-GEN-V9",
+      "question": "關於 2C5 演算法分析與複雜度 中的「Time vs Space Complexity」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Time vs Space Complexity 無關，是另一種技術的特徵。",
+        "B": "這是完全相反的描述，不適用於 Time vs Space Complexity。",
+        "C": "這描述雖然常見，但在 Time vs Space Complexity 的情境下是錯誤的。",
+        "D": "這是 Time vs Space Complexity 的標準定義或特徵，符合香港 ICT 課程指引要求。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「Time vs Space Complexity」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C5-GEN-V10",
+      "question": "關於 2C5 演算法分析與複雜度 中的「Time vs Space Complexity」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 Time vs Space Complexity。",
+        "B": "這是 Time vs Space Complexity 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "C": "這描述雖然常見，但在 Time vs Space Complexity 的情境下是錯誤的。",
+        "D": "這與 Time vs Space Complexity 無關，是另一種技術的特徵。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「Time vs Space Complexity」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C5-GEN-V11",
+      "question": "關於 2C5 演算法分析與複雜度 中的「Big-O」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 Big-O。",
+        "B": "這描述雖然常見，但在 Big-O 的情境下是錯誤的。",
+        "C": "這是 Big-O 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這與 Big-O 無關，是另一種技術的特徵。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Big-O」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C5-GEN-V12",
+      "question": "關於 2C5 演算法分析與複雜度 中的「Big-O」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 Big-O 的情境下是錯誤的。",
+        "B": "這是完全相反的描述，不適用於 Big-O。",
+        "C": "這與 Big-O 無關，是另一種技術的特徵。",
+        "D": "這是 Big-O 的標準定義或特徵，符合香港 ICT 課程指引要求。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「Big-O」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C5-GEN-V13",
+      "question": "關於 2C5 演算法分析與複雜度 中的「Time vs Space Complexity」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 Time vs Space Complexity 的情境下是錯誤的。",
+        "B": "這是完全相反的描述，不適用於 Time vs Space Complexity。",
+        "C": "這與 Time vs Space Complexity 無關，是另一種技術的特徵。",
+        "D": "這是 Time vs Space Complexity 的標準定義或特徵，符合香港 ICT 課程指引要求。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「Time vs Space Complexity」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C5-GEN-V14",
+      "question": "關於 2C5 演算法分析與複雜度 中的「Big-O」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Big-O 無關，是另一種技術的特徵。",
+        "B": "這是 Big-O 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "C": "這描述雖然常見，但在 Big-O 的情境下是錯誤的。",
+        "D": "這是完全相反的描述，不適用於 Big-O。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「Big-O」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C5-GEN-V15",
+      "question": "關於 2C5 演算法分析與複雜度 中的「Time vs Space Complexity」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是 Time vs Space Complexity 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "B": "這是完全相反的描述，不適用於 Time vs Space Complexity。",
+        "C": "這與 Time vs Space Complexity 無關，是另一種技術的特徵。",
+        "D": "這描述雖然常見，但在 Time vs Space Complexity 的情境下是錯誤的。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「Time vs Space Complexity」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C5-GEN-V16",
+      "question": "關於 2C5 演算法分析與複雜度 中的「Time vs Space Complexity」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Time vs Space Complexity 無關，是另一種技術的特徵。",
+        "B": "這是 Time vs Space Complexity 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "C": "這描述雖然常見，但在 Time vs Space Complexity 的情境下是錯誤的。",
+        "D": "這是完全相反的描述，不適用於 Time vs Space Complexity。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「Time vs Space Complexity」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C5-GEN-V17",
+      "question": "關於 2C5 演算法分析與複雜度 中的「Time vs Space Complexity」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 Time vs Space Complexity 的情境下是錯誤的。",
+        "B": "這是 Time vs Space Complexity 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "C": "這與 Time vs Space Complexity 無關，是另一種技術的特徵。",
+        "D": "這是完全相反的描述，不適用於 Time vs Space Complexity。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「Time vs Space Complexity」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C5-GEN-V18",
+      "question": "關於 2C5 演算法分析與複雜度 中的「Time vs Space Complexity」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Time vs Space Complexity 無關，是另一種技術的特徵。",
+        "B": "這描述雖然常見，但在 Time vs Space Complexity 的情境下是錯誤的。",
+        "C": "這是 Time vs Space Complexity 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這是完全相反的描述，不適用於 Time vs Space Complexity。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Time vs Space Complexity」的理解。正確答案為 C。",
+      "source": "AI生成"
     }
   ],
   "2C6": [
@@ -321,6 +1335,240 @@
       "answer": "B",
       "explanation": "由感測器事件觸發，並需要即時反應，屬事件驅動的實時處理。",
       "source": "AI 生成"
+    },
+    {
+      "id": "2C6-GEN-1",
+      "question": "事件驅動程式設計（Event-driven Programming）中，程式的執行主要依賴什麼？",
+      "options": {
+        "A": "特定事件（如滑鼠點擊、感測器觸發）",
+        "B": "順序執行",
+        "C": "無限迴圈直至記憶體耗盡",
+        "D": "電腦開機時間"
+      },
+      "answer": "A",
+      "explanation": "此題考核 2C6 事件驅動程式設計 的核心概念。正確答案為 A: 特定事件（如滑鼠點擊、感測器觸發）。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C6-GEN-V2",
+      "question": "關於 2C6 事件驅動程式設計 中的「Event-driven」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 Event-driven 的情境下是錯誤的。",
+        "B": "這是 Event-driven 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "C": "這是完全相反的描述，不適用於 Event-driven。",
+        "D": "這與 Event-driven 無關，是另一種技術的特徵。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「Event-driven」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C6-GEN-V3",
+      "question": "關於 2C6 事件驅動程式設計 中的「Triggers」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是 Triggers 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "B": "這是完全相反的描述，不適用於 Triggers。",
+        "C": "這與 Triggers 無關，是另一種技術的特徵。",
+        "D": "這描述雖然常見，但在 Triggers 的情境下是錯誤的。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「Triggers」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C6-GEN-V4",
+      "question": "關於 2C6 事件驅動程式設計 中的「Event-driven」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 Event-driven 的情境下是錯誤的。",
+        "B": "這是 Event-driven 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "C": "這與 Event-driven 無關，是另一種技術的特徵。",
+        "D": "這是完全相反的描述，不適用於 Event-driven。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「Event-driven」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C6-GEN-V5",
+      "question": "關於 2C6 事件驅動程式設計 中的「Triggers」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 Triggers。",
+        "B": "這與 Triggers 無關，是另一種技術的特徵。",
+        "C": "這是 Triggers 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這描述雖然常見，但在 Triggers 的情境下是錯誤的。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Triggers」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C6-GEN-V6",
+      "question": "關於 2C6 事件驅動程式設計 中的「Triggers」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Triggers 無關，是另一種技術的特徵。",
+        "B": "這是 Triggers 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "C": "這是完全相反的描述，不適用於 Triggers。",
+        "D": "這描述雖然常見，但在 Triggers 的情境下是錯誤的。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「Triggers」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C6-GEN-V7",
+      "question": "關於 2C6 事件驅動程式設計 中的「Triggers」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是 Triggers 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "B": "這描述雖然常見，但在 Triggers 的情境下是錯誤的。",
+        "C": "這是完全相反的描述，不適用於 Triggers。",
+        "D": "這與 Triggers 無關，是另一種技術的特徵。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「Triggers」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C6-GEN-V8",
+      "question": "關於 2C6 事件驅動程式設計 中的「Event-driven」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Event-driven 無關，是另一種技術的特徵。",
+        "B": "這描述雖然常見，但在 Event-driven 的情境下是錯誤的。",
+        "C": "這是完全相反的描述，不適用於 Event-driven。",
+        "D": "這是 Event-driven 的標準定義或特徵，符合香港 ICT 課程指引要求。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「Event-driven」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C6-GEN-V9",
+      "question": "關於 2C6 事件驅動程式設計 中的「Triggers」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 Triggers。",
+        "B": "這描述雖然常見，但在 Triggers 的情境下是錯誤的。",
+        "C": "這是 Triggers 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這與 Triggers 無關，是另一種技術的特徵。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Triggers」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C6-GEN-V10",
+      "question": "關於 2C6 事件驅動程式設計 中的「Triggers」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Triggers 無關，是另一種技術的特徵。",
+        "B": "這是 Triggers 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "C": "這是完全相反的描述，不適用於 Triggers。",
+        "D": "這描述雖然常見，但在 Triggers 的情境下是錯誤的。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「Triggers」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C6-GEN-V11",
+      "question": "關於 2C6 事件驅動程式設計 中的「Triggers」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 Triggers 的情境下是錯誤的。",
+        "B": "這是 Triggers 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "C": "這是完全相反的描述，不適用於 Triggers。",
+        "D": "這與 Triggers 無關，是另一種技術的特徵。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「Triggers」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C6-GEN-V12",
+      "question": "關於 2C6 事件驅動程式設計 中的「Event-driven」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是 Event-driven 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "B": "這是完全相反的描述，不適用於 Event-driven。",
+        "C": "這描述雖然常見，但在 Event-driven 的情境下是錯誤的。",
+        "D": "這與 Event-driven 無關，是另一種技術的特徵。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「Event-driven」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C6-GEN-V13",
+      "question": "關於 2C6 事件驅動程式設計 中的「Event-driven」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是 Event-driven 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "B": "這描述雖然常見，但在 Event-driven 的情境下是錯誤的。",
+        "C": "這是完全相反的描述，不適用於 Event-driven。",
+        "D": "這與 Event-driven 無關，是另一種技術的特徵。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「Event-driven」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C6-GEN-V14",
+      "question": "關於 2C6 事件驅動程式設計 中的「Triggers」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Triggers 無關，是另一種技術的特徵。",
+        "B": "這是 Triggers 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "C": "這是完全相反的描述，不適用於 Triggers。",
+        "D": "這描述雖然常見，但在 Triggers 的情境下是錯誤的。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「Triggers」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C6-GEN-V15",
+      "question": "關於 2C6 事件驅動程式設計 中的「Triggers」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Triggers 無關，是另一種技術的特徵。",
+        "B": "這描述雖然常見，但在 Triggers 的情境下是錯誤的。",
+        "C": "這是 Triggers 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這是完全相反的描述，不適用於 Triggers。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Triggers」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C6-GEN-V16",
+      "question": "關於 2C6 事件驅動程式設計 中的「Loops」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Loops 無關，是另一種技術的特徵。",
+        "B": "這是完全相反的描述，不適用於 Loops。",
+        "C": "這描述雖然常見，但在 Loops 的情境下是錯誤的。",
+        "D": "這是 Loops 的標準定義或特徵，符合香港 ICT 課程指引要求。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「Loops」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C6-GEN-V17",
+      "question": "關於 2C6 事件驅動程式設計 中的「Triggers」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 Triggers。",
+        "B": "這描述雖然常見，但在 Triggers 的情境下是錯誤的。",
+        "C": "這與 Triggers 無關，是另一種技術的特徵。",
+        "D": "這是 Triggers 的標準定義或特徵，符合香港 ICT 課程指引要求。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「Triggers」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C6-GEN-V18",
+      "question": "關於 2C6 事件驅動程式設計 中的「Loops」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 Loops。",
+        "B": "這描述雖然常見，但在 Loops 的情境下是錯誤的。",
+        "C": "這是 Loops 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這與 Loops 無關，是另一種技術的特徵。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Loops」的理解。正確答案為 C。",
+      "source": "AI生成"
     }
   ]
 }

@@ -22,6 +22,16 @@
   .timer-pulse { animation: pulse 1s infinite; }
   @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.6; } }
 </style>
+
+    <style>
+        /* 隱藏左上角選單按鈕 (在非手機螢幕，例如 > 768px 時隱藏) */
+        @media (min-width: 768px) {
+            #menu-btn, .menu-btn, .hamburger, [aria-label="menu"], button.mobile-menu-btn {
+                display: none !important;
+            }
+        }
+    </style>
+    
 </head>
 <body>
 <div id="root"></div>

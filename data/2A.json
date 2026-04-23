@@ -38,6 +38,227 @@
       "answer": "C",
       "explanation": "CREATE TABLE 屬於定義表結構的 DDL（Data Definition Language）；而 INSERT、UPDATE、DELETE 屬於操作資料的 DML（Data Manipulation Language）。",
       "source": "AI生成"
+    },
+    {
+      "id": "2A1-GEN-1",
+      "question": "將 M:N 關係轉換為關聯式數據庫時，應如何處理？",
+      "options": {
+        "A": "直接互建外鍵",
+        "B": "建立中介表拆分為兩個 1:N",
+        "C": "合併兩個表",
+        "D": "刪除其中一個表"
+      },
+      "answer": "B",
+      "explanation": "此題考核 2A1 ER 圖與實體關係 的核心概念。正確答案為 B: 建立中介表拆分為兩個 1:N。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A1-GEN-V2",
+      "question": "關於 2A1 ER 圖與實體關係 中的「M:N 轉換」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是 M:N 轉換 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "B": "這是完全相反的描述，不適用於 M:N 轉換。",
+        "C": "這與 M:N 轉換 無關，是另一種技術的特徵。",
+        "D": "這描述雖然常見，但在 M:N 轉換 的情境下是錯誤的。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「M:N 轉換」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A1-GEN-V3",
+      "question": "關於 2A1 ER 圖與實體關係 中的「Attribute」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Attribute 無關，是另一種技術的特徵。",
+        "B": "這是 Attribute 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "C": "這是完全相反的描述，不適用於 Attribute。",
+        "D": "這描述雖然常見，但在 Attribute 的情境下是錯誤的。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「Attribute」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A1-GEN-V4",
+      "question": "關於 2A1 ER 圖與實體關係 中的「M:N 轉換」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是 M:N 轉換 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "B": "這與 M:N 轉換 無關，是另一種技術的特徵。",
+        "C": "這是完全相反的描述，不適用於 M:N 轉換。",
+        "D": "這描述雖然常見，但在 M:N 轉換 的情境下是錯誤的。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「M:N 轉換」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A1-GEN-V5",
+      "question": "關於 2A1 ER 圖與實體關係 中的「M:N 轉換」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是 M:N 轉換 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "B": "這描述雖然常見，但在 M:N 轉換 的情境下是錯誤的。",
+        "C": "這與 M:N 轉換 無關，是另一種技術的特徵。",
+        "D": "這是完全相反的描述，不適用於 M:N 轉換。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「M:N 轉換」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A1-GEN-V6",
+      "question": "關於 2A1 ER 圖與實體關係 中的「Relationship」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 Relationship。",
+        "B": "這描述雖然常見，但在 Relationship 的情境下是錯誤的。",
+        "C": "這與 Relationship 無關，是另一種技術的特徵。",
+        "D": "這是 Relationship 的標準定義或特徵，符合香港 ICT 課程指引要求。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「Relationship」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A1-GEN-V7",
+      "question": "關於 2A1 ER 圖與實體關係 中的「Relationship」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是 Relationship 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "B": "這與 Relationship 無關，是另一種技術的特徵。",
+        "C": "這是完全相反的描述，不適用於 Relationship。",
+        "D": "這描述雖然常見，但在 Relationship 的情境下是錯誤的。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「Relationship」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A1-GEN-V8",
+      "question": "關於 2A1 ER 圖與實體關係 中的「M:N 轉換」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 M:N 轉換。",
+        "B": "這是 M:N 轉換 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "C": "這與 M:N 轉換 無關，是另一種技術的特徵。",
+        "D": "這描述雖然常見，但在 M:N 轉換 的情境下是錯誤的。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「M:N 轉換」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A1-GEN-V9",
+      "question": "關於 2A1 ER 圖與實體關係 中的「M:N 轉換」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是 M:N 轉換 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "B": "這與 M:N 轉換 無關，是另一種技術的特徵。",
+        "C": "這描述雖然常見，但在 M:N 轉換 的情境下是錯誤的。",
+        "D": "這是完全相反的描述，不適用於 M:N 轉換。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「M:N 轉換」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A1-GEN-V10",
+      "question": "關於 2A1 ER 圖與實體關係 中的「Relationship」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是 Relationship 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "B": "這是完全相反的描述，不適用於 Relationship。",
+        "C": "這與 Relationship 無關，是另一種技術的特徵。",
+        "D": "這描述雖然常見，但在 Relationship 的情境下是錯誤的。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「Relationship」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A1-GEN-V11",
+      "question": "關於 2A1 ER 圖與實體關係 中的「M:N 轉換」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 M:N 轉換 無關，是另一種技術的特徵。",
+        "B": "這是 M:N 轉換 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "C": "這描述雖然常見，但在 M:N 轉換 的情境下是錯誤的。",
+        "D": "這是完全相反的描述，不適用於 M:N 轉換。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「M:N 轉換」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A1-GEN-V12",
+      "question": "關於 2A1 ER 圖與實體關係 中的「Entity」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Entity 無關，是另一種技術的特徵。",
+        "B": "這是完全相反的描述，不適用於 Entity。",
+        "C": "這描述雖然常見，但在 Entity 的情境下是錯誤的。",
+        "D": "這是 Entity 的標準定義或特徵，符合香港 ICT 課程指引要求。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「Entity」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A1-GEN-V13",
+      "question": "關於 2A1 ER 圖與實體關係 中的「Attribute」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 Attribute。",
+        "B": "這與 Attribute 無關，是另一種技術的特徵。",
+        "C": "這描述雖然常見，但在 Attribute 的情境下是錯誤的。",
+        "D": "這是 Attribute 的標準定義或特徵，符合香港 ICT 課程指引要求。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「Attribute」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A1-GEN-V14",
+      "question": "關於 2A1 ER 圖與實體關係 中的「M:N 轉換」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 M:N 轉換。",
+        "B": "這描述雖然常見，但在 M:N 轉換 的情境下是錯誤的。",
+        "C": "這是 M:N 轉換 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這與 M:N 轉換 無關，是另一種技術的特徵。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「M:N 轉換」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A1-GEN-V15",
+      "question": "關於 2A1 ER 圖與實體關係 中的「M:N 轉換」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 M:N 轉換 的情境下是錯誤的。",
+        "B": "這是完全相反的描述，不適用於 M:N 轉換。",
+        "C": "這與 M:N 轉換 無關，是另一種技術的特徵。",
+        "D": "這是 M:N 轉換 的標準定義或特徵，符合香港 ICT 課程指引要求。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「M:N 轉換」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A1-GEN-V16",
+      "question": "關於 2A1 ER 圖與實體關係 中的「Entity」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 Entity 的情境下是錯誤的。",
+        "B": "這與 Entity 無關，是另一種技術的特徵。",
+        "C": "這是完全相反的描述，不適用於 Entity。",
+        "D": "這是 Entity 的標準定義或特徵，符合香港 ICT 課程指引要求。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「Entity」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A1-GEN-V17",
+      "question": "關於 2A1 ER 圖與實體關係 中的「M:N 轉換」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是 M:N 轉換 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "B": "這是完全相反的描述，不適用於 M:N 轉換。",
+        "C": "這與 M:N 轉換 無關，是另一種技術的特徵。",
+        "D": "這描述雖然常見，但在 M:N 轉換 的情境下是錯誤的。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「M:N 轉換」的理解。正確答案為 A。",
+      "source": "AI生成"
     }
   ],
   "2A2": [
@@ -78,6 +299,227 @@
       },
       "answer": "B",
       "explanation": "UNION 會進行去重（去除重複的列），而 UNION ALL 會將所有查詢結果直接合併，包括重複的資料。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A2-GEN-1",
+      "question": "SQL 的 HAVING 子句與 WHERE 子句有何不同？",
+      "options": {
+        "A": "HAVING 只能用在 SELECT 之前",
+        "B": "HAVING 用於過濾聚合後的群組，WHERE 用於過濾單筆記錄",
+        "C": "兩者功能完全相同",
+        "D": "WHERE 只能用於數字"
+      },
+      "answer": "B",
+      "explanation": "此題考核 2A2 SQL 數據操作與查詢 的核心概念。正確答案為 B: HAVING 用於過濾聚合後的群組，WHERE 用於過濾單筆記錄。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A2-GEN-V2",
+      "question": "關於 2A2 SQL 數據操作與查詢 中的「DDL/DML」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 DDL/DML 無關，是另一種技術的特徵。",
+        "B": "這描述雖然常見，但在 DDL/DML 的情境下是錯誤的。",
+        "C": "這是 DDL/DML 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這是完全相反的描述，不適用於 DDL/DML。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「DDL/DML」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A2-GEN-V3",
+      "question": "關於 2A2 SQL 數據操作與查詢 中的「DDL/DML」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 DDL/DML 的情境下是錯誤的。",
+        "B": "這與 DDL/DML 無關，是另一種技術的特徵。",
+        "C": "這是完全相反的描述，不適用於 DDL/DML。",
+        "D": "這是 DDL/DML 的標準定義或特徵，符合香港 ICT 課程指引要求。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「DDL/DML」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A2-GEN-V4",
+      "question": "關於 2A2 SQL 數據操作與查詢 中的「GROUP BY」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是 GROUP BY 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "B": "這與 GROUP BY 無關，是另一種技術的特徵。",
+        "C": "這是完全相反的描述，不適用於 GROUP BY。",
+        "D": "這描述雖然常見，但在 GROUP BY 的情境下是錯誤的。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「GROUP BY」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A2-GEN-V5",
+      "question": "關於 2A2 SQL 數據操作與查詢 中的「GROUP BY」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 GROUP BY 的情境下是錯誤的。",
+        "B": "這是 GROUP BY 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "C": "這是完全相反的描述，不適用於 GROUP BY。",
+        "D": "這與 GROUP BY 無關，是另一種技術的特徵。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「GROUP BY」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A2-GEN-V6",
+      "question": "關於 2A2 SQL 數據操作與查詢 中的「DDL/DML」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 DDL/DML 的情境下是錯誤的。",
+        "B": "這與 DDL/DML 無關，是另一種技術的特徵。",
+        "C": "這是完全相反的描述，不適用於 DDL/DML。",
+        "D": "這是 DDL/DML 的標準定義或特徵，符合香港 ICT 課程指引要求。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「DDL/DML」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A2-GEN-V7",
+      "question": "關於 2A2 SQL 數據操作與查詢 中的「GROUP BY」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 GROUP BY 無關，是另一種技術的特徵。",
+        "B": "這是 GROUP BY 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "C": "這是完全相反的描述，不適用於 GROUP BY。",
+        "D": "這描述雖然常見，但在 GROUP BY 的情境下是錯誤的。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「GROUP BY」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A2-GEN-V8",
+      "question": "關於 2A2 SQL 數據操作與查詢 中的「DDL/DML」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 DDL/DML 無關，是另一種技術的特徵。",
+        "B": "這描述雖然常見，但在 DDL/DML 的情境下是錯誤的。",
+        "C": "這是完全相反的描述，不適用於 DDL/DML。",
+        "D": "這是 DDL/DML 的標準定義或特徵，符合香港 ICT 課程指引要求。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「DDL/DML」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A2-GEN-V9",
+      "question": "關於 2A2 SQL 數據操作與查詢 中的「DDL/DML」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 DDL/DML 的情境下是錯誤的。",
+        "B": "這與 DDL/DML 無關，是另一種技術的特徵。",
+        "C": "這是 DDL/DML 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這是完全相反的描述，不適用於 DDL/DML。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「DDL/DML」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A2-GEN-V10",
+      "question": "關於 2A2 SQL 數據操作與查詢 中的「Subquery」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是 Subquery 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "B": "這是完全相反的描述，不適用於 Subquery。",
+        "C": "這描述雖然常見，但在 Subquery 的情境下是錯誤的。",
+        "D": "這與 Subquery 無關，是另一種技術的特徵。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「Subquery」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A2-GEN-V11",
+      "question": "關於 2A2 SQL 數據操作與查詢 中的「DDL/DML」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 DDL/DML 無關，是另一種技術的特徵。",
+        "B": "這是 DDL/DML 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "C": "這是完全相反的描述，不適用於 DDL/DML。",
+        "D": "這描述雖然常見，但在 DDL/DML 的情境下是錯誤的。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「DDL/DML」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A2-GEN-V12",
+      "question": "關於 2A2 SQL 數據操作與查詢 中的「DDL/DML」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是 DDL/DML 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "B": "這是完全相反的描述，不適用於 DDL/DML。",
+        "C": "這描述雖然常見，但在 DDL/DML 的情境下是錯誤的。",
+        "D": "這與 DDL/DML 無關，是另一種技術的特徵。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「DDL/DML」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A2-GEN-V13",
+      "question": "關於 2A2 SQL 數據操作與查詢 中的「DDL/DML」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 DDL/DML 無關，是另一種技術的特徵。",
+        "B": "這是 DDL/DML 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "C": "這是完全相反的描述，不適用於 DDL/DML。",
+        "D": "這描述雖然常見，但在 DDL/DML 的情境下是錯誤的。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「DDL/DML」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A2-GEN-V14",
+      "question": "關於 2A2 SQL 數據操作與查詢 中的「GROUP BY」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是 GROUP BY 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "B": "這是完全相反的描述，不適用於 GROUP BY。",
+        "C": "這描述雖然常見，但在 GROUP BY 的情境下是錯誤的。",
+        "D": "這與 GROUP BY 無關，是另一種技術的特徵。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「GROUP BY」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A2-GEN-V15",
+      "question": "關於 2A2 SQL 數據操作與查詢 中的「DDL/DML」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 DDL/DML 的情境下是錯誤的。",
+        "B": "這是完全相反的描述，不適用於 DDL/DML。",
+        "C": "這是 DDL/DML 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這與 DDL/DML 無關，是另一種技術的特徵。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「DDL/DML」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A2-GEN-V16",
+      "question": "關於 2A2 SQL 數據操作與查詢 中的「HAVING」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 HAVING 的情境下是錯誤的。",
+        "B": "這與 HAVING 無關，是另一種技術的特徵。",
+        "C": "這是完全相反的描述，不適用於 HAVING。",
+        "D": "這是 HAVING 的標準定義或特徵，符合香港 ICT 課程指引要求。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「HAVING」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A2-GEN-V17",
+      "question": "關於 2A2 SQL 數據操作與查詢 中的「DDL/DML」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 DDL/DML 無關，是另一種技術的特徵。",
+        "B": "這描述雖然常見，但在 DDL/DML 的情境下是錯誤的。",
+        "C": "這是 DDL/DML 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這是完全相反的描述，不適用於 DDL/DML。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「DDL/DML」的理解。正確答案為 C。",
       "source": "AI生成"
     }
   ],
@@ -132,6 +574,476 @@
       },
       "answer": "D",
       "explanation": "視圖（View）主要是為了簡化查詢及提升安全性，它不會加速 INSERT 執行，甚至在某些情況下無法進行更新操作。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A3-GEN-1",
+      "question": "為達到 3NF，必須消除什麼類型的依賴？",
+      "options": {
+        "A": "多值屬性",
+        "B": "部分依賴",
+        "C": "重複組",
+        "D": "傳遞依賴（Transitive Dependency）"
+      },
+      "answer": "D",
+      "explanation": "此題考核 2A3 數據庫規範化 (Normalization) 的核心概念。正確答案為 D: 傳遞依賴（Transitive Dependency）。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A3-GEN-V2",
+      "question": "關於 2A3 數據庫規範化 (Normalization) 中的「部分依賴」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是 部分依賴 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "B": "這與 部分依賴 無關，是另一種技術的特徵。",
+        "C": "這是完全相反的描述，不適用於 部分依賴。",
+        "D": "這描述雖然常見，但在 部分依賴 的情境下是錯誤的。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「部分依賴」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A3-GEN-V3",
+      "question": "關於 2A3 數據庫規範化 (Normalization) 中的「2NF」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 2NF 無關，是另一種技術的特徵。",
+        "B": "這描述雖然常見，但在 2NF 的情境下是錯誤的。",
+        "C": "這是完全相反的描述，不適用於 2NF。",
+        "D": "2NF 能有效管理數據結構並確保資料完整性。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「2NF」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A3-GEN-V4",
+      "question": "關於 2A3 數據庫規範化 (Normalization) 中的「3NF」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 3NF。",
+        "B": "這描述雖然常見，但在 3NF 的情境下是錯誤的。",
+        "C": "這與 3NF 無關，是另一種技術的特徵。",
+        "D": "3NF 能有效管理數據結構並確保資料完整性。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「3NF」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A3-GEN-V5",
+      "question": "關於 2A3 數據庫規範化 (Normalization) 中的「傳遞依賴」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是 傳遞依賴 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "B": "這是完全相反的描述，不適用於 傳遞依賴。",
+        "C": "這與 傳遞依賴 無關，是另一種技術的特徵。",
+        "D": "這描述雖然常見，但在 傳遞依賴 的情境下是錯誤的。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「傳遞依賴」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A3-GEN-V6",
+      "question": "關於 2A3 數據庫規範化 (Normalization) 中的「1NF」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 1NF。",
+        "B": "這與 1NF 無關，是另一種技術的特徵。",
+        "C": "1NF 能有效管理數據結構並確保資料完整性。",
+        "D": "這描述雖然常見，但在 1NF 的情境下是錯誤的。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「1NF」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A3-GEN-V7",
+      "question": "關於 2A3 數據庫規範化 (Normalization) 中的「3NF」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 3NF。",
+        "B": "這描述雖然常見，但在 3NF 的情境下是錯誤的。",
+        "C": "這與 3NF 無關，是另一種技術的特徵。",
+        "D": "3NF 能有效管理數據結構並確保資料完整性。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「3NF」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A3-GEN-V8",
+      "question": "關於 2A3 數據庫規範化 (Normalization) 中的「部分依賴」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 部分依賴 的情境下是錯誤的。",
+        "B": "這是 部分依賴 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "C": "這與 部分依賴 無關，是另一種技術的特徵。",
+        "D": "這是完全相反的描述，不適用於 部分依賴。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「部分依賴」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A3-GEN-V9",
+      "question": "關於 2A3 數據庫規範化 (Normalization) 中的「2NF」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 2NF。",
+        "B": "這描述雖然常見，但在 2NF 的情境下是錯誤的。",
+        "C": "2NF 能有效管理數據結構並確保資料完整性。",
+        "D": "這與 2NF 無關，是另一種技術的特徵。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「2NF」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A3-GEN-V10",
+      "question": "關於 2A3 數據庫規範化 (Normalization) 中的「3NF」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 3NF 的情境下是錯誤的。",
+        "B": "3NF 能有效管理數據結構並確保資料完整性。",
+        "C": "這是完全相反的描述，不適用於 3NF。",
+        "D": "這與 3NF 無關，是另一種技術的特徵。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「3NF」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A3-GEN-V11",
+      "question": "關於 2A3 數據庫規範化 (Normalization) 中的「2NF」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "2NF 能有效管理數據結構並確保資料完整性。",
+        "B": "這與 2NF 無關，是另一種技術的特徵。",
+        "C": "這是完全相反的描述，不適用於 2NF。",
+        "D": "這描述雖然常見，但在 2NF 的情境下是錯誤的。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「2NF」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A3-GEN-V12",
+      "question": "關於 2A3 數據庫規範化 (Normalization) 中的「傳遞依賴」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 傳遞依賴 無關，是另一種技術的特徵。",
+        "B": "這描述雖然常見，但在 傳遞依賴 的情境下是錯誤的。",
+        "C": "這是 傳遞依賴 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這是完全相反的描述，不適用於 傳遞依賴。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「傳遞依賴」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A3-GEN-V13",
+      "question": "關於 2A3 數據庫規範化 (Normalization) 中的「1NF」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "1NF 能有效管理數據結構並確保資料完整性。",
+        "B": "這描述雖然常見，但在 1NF 的情境下是錯誤的。",
+        "C": "這是完全相反的描述，不適用於 1NF。",
+        "D": "這與 1NF 無關，是另一種技術的特徵。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「1NF」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A3-GEN-V14",
+      "question": "關於 2A3 數據庫規範化 (Normalization) 中的「1NF」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "1NF 能有效管理數據結構並確保資料完整性。",
+        "B": "這與 1NF 無關，是另一種技術的特徵。",
+        "C": "這描述雖然常見，但在 1NF 的情境下是錯誤的。",
+        "D": "這是完全相反的描述，不適用於 1NF。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「1NF」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A3-GEN-V15",
+      "question": "關於 2A3 數據庫規範化 (Normalization) 中的「3NF」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "3NF 能有效管理數據結構並確保資料完整性。",
+        "B": "這是完全相反的描述，不適用於 3NF。",
+        "C": "這描述雖然常見，但在 3NF 的情境下是錯誤的。",
+        "D": "這與 3NF 無關，是另一種技術的特徵。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「3NF」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A3-GEN-V16",
+      "question": "關於 2A3 數據庫規範化 (Normalization) 中的「1NF」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 1NF。",
+        "B": "1NF 能有效管理數據結構並確保資料完整性。",
+        "C": "這與 1NF 無關，是另一種技術的特徵。",
+        "D": "這描述雖然常見，但在 1NF 的情境下是錯誤的。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「1NF」的理解。正確答案為 B。",
+      "source": "AI生成"
+    }
+  ],
+  "2A4": [
+    {
+      "id": "2A4-GEN-1",
+      "question": "在數據庫中建立索引（Index）的主要缺點是什麼？",
+      "options": {
+        "A": "會使查詢速度變慢",
+        "B": "會改變原有的表結構",
+        "C": "會導致數據庫自動刪除資料",
+        "D": "會佔用額外的儲存空間，並減慢新增/更新數據的速度"
+      },
+      "answer": "D",
+      "explanation": "此題考核 2A4 數據庫進階概念 的核心概念。正確答案為 D: 會佔用額外的儲存空間，並減慢新增/更新數據的速度。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A4-GEN-V2",
+      "question": "關於 2A4 數據庫進階概念 中的「Rollback」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 Rollback。",
+        "B": "這描述雖然常見，但在 Rollback 的情境下是錯誤的。",
+        "C": "這是 Rollback 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這與 Rollback 無關，是另一種技術的特徵。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Rollback」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A4-GEN-V3",
+      "question": "關於 2A4 數據庫進階概念 中的「View」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 View。",
+        "B": "這與 View 無關，是另一種技術的特徵。",
+        "C": "這是 View 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這描述雖然常見，但在 View 的情境下是錯誤的。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「View」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A4-GEN-V4",
+      "question": "關於 2A4 數據庫進階概念 中的「Rollback」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Rollback 無關，是另一種技術的特徵。",
+        "B": "這描述雖然常見，但在 Rollback 的情境下是錯誤的。",
+        "C": "這是 Rollback 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這是完全相反的描述，不適用於 Rollback。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Rollback」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A4-GEN-V5",
+      "question": "關於 2A4 數據庫進階概念 中的「View」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 View 的情境下是錯誤的。",
+        "B": "這是完全相反的描述，不適用於 View。",
+        "C": "這是 View 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這與 View 無關，是另一種技術的特徵。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「View」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A4-GEN-V6",
+      "question": "關於 2A4 數據庫進階概念 中的「Rollback」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Rollback 無關，是另一種技術的特徵。",
+        "B": "這是完全相反的描述，不適用於 Rollback。",
+        "C": "這是 Rollback 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這描述雖然常見，但在 Rollback 的情境下是錯誤的。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Rollback」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A4-GEN-V7",
+      "question": "關於 2A4 數據庫進階概念 中的「Index」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 Index。",
+        "B": "這描述雖然常見，但在 Index 的情境下是錯誤的。",
+        "C": "這是 Index 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這與 Index 無關，是另一種技術的特徵。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Index」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A4-GEN-V8",
+      "question": "關於 2A4 數據庫進階概念 中的「Denormalisation」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Denormalisation 無關，是另一種技術的特徵。",
+        "B": "這描述雖然常見，但在 Denormalisation 的情境下是錯誤的。",
+        "C": "這是 Denormalisation 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這是完全相反的描述，不適用於 Denormalisation。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Denormalisation」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A4-GEN-V9",
+      "question": "關於 2A4 數據庫進階概念 中的「Rollback」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 Rollback。",
+        "B": "這是 Rollback 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "C": "這與 Rollback 無關，是另一種技術的特徵。",
+        "D": "這描述雖然常見，但在 Rollback 的情境下是錯誤的。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「Rollback」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A4-GEN-V10",
+      "question": "關於 2A4 數據庫進階概念 中的「Index」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 Index 的情境下是錯誤的。",
+        "B": "這是完全相反的描述，不適用於 Index。",
+        "C": "這是 Index 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這與 Index 無關，是另一種技術的特徵。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Index」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A4-GEN-V11",
+      "question": "關於 2A4 數據庫進階概念 中的「Rollback」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是 Rollback 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "B": "這與 Rollback 無關，是另一種技術的特徵。",
+        "C": "這描述雖然常見，但在 Rollback 的情境下是錯誤的。",
+        "D": "這是完全相反的描述，不適用於 Rollback。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「Rollback」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A4-GEN-V12",
+      "question": "關於 2A4 數據庫進階概念 中的「Rollback」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是 Rollback 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "B": "這是完全相反的描述，不適用於 Rollback。",
+        "C": "這描述雖然常見，但在 Rollback 的情境下是錯誤的。",
+        "D": "這與 Rollback 無關，是另一種技術的特徵。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「Rollback」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A4-GEN-V13",
+      "question": "關於 2A4 數據庫進階概念 中的「Index」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這描述雖然常見，但在 Index 的情境下是錯誤的。",
+        "B": "這是完全相反的描述，不適用於 Index。",
+        "C": "這是 Index 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這與 Index 無關，是另一種技術的特徵。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Index」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A4-GEN-V14",
+      "question": "關於 2A4 數據庫進階概念 中的「Denormalisation」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Denormalisation 無關，是另一種技術的特徵。",
+        "B": "這是完全相反的描述，不適用於 Denormalisation。",
+        "C": "這描述雖然常見，但在 Denormalisation 的情境下是錯誤的。",
+        "D": "這是 Denormalisation 的標準定義或特徵，符合香港 ICT 課程指引要求。"
+      },
+      "answer": "D",
+      "explanation": "此題測試學生對「Denormalisation」的理解。正確答案為 D。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A4-GEN-V15",
+      "question": "關於 2A4 數據庫進階概念 中的「Denormalisation」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Denormalisation 無關，是另一種技術的特徵。",
+        "B": "這是 Denormalisation 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "C": "這描述雖然常見，但在 Denormalisation 的情境下是錯誤的。",
+        "D": "這是完全相反的描述，不適用於 Denormalisation。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「Denormalisation」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A4-GEN-V16",
+      "question": "關於 2A4 數據庫進階概念 中的「Rollback」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是 Rollback 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "B": "這描述雖然常見，但在 Rollback 的情境下是錯誤的。",
+        "C": "這與 Rollback 無關，是另一種技術的特徵。",
+        "D": "這是完全相反的描述，不適用於 Rollback。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「Rollback」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A4-GEN-V17",
+      "question": "關於 2A4 數據庫進階概念 中的「Denormalisation」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這與 Denormalisation 無關，是另一種技術的特徵。",
+        "B": "這是 Denormalisation 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "C": "這是完全相反的描述，不適用於 Denormalisation。",
+        "D": "這描述雖然常見，但在 Denormalisation 的情境下是錯誤的。"
+      },
+      "answer": "B",
+      "explanation": "此題測試學生對「Denormalisation」的理解。正確答案為 B。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A4-GEN-V18",
+      "question": "關於 2A4 數據庫進階概念 中的「Denormalisation」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是 Denormalisation 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "B": "這描述雖然常見，但在 Denormalisation 的情境下是錯誤的。",
+        "C": "這是完全相反的描述，不適用於 Denormalisation。",
+        "D": "這與 Denormalisation 無關，是另一種技術的特徵。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「Denormalisation」的理解。正確答案為 A。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A4-GEN-V19",
+      "question": "關於 2A4 數據庫進階概念 中的「Index」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是完全相反的描述，不適用於 Index。",
+        "B": "這描述雖然常見，但在 Index 的情境下是錯誤的。",
+        "C": "這是 Index 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "D": "這與 Index 無關，是另一種技術的特徵。"
+      },
+      "answer": "C",
+      "explanation": "此題測試學生對「Index」的理解。正確答案為 C。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A4-GEN-V20",
+      "question": "關於 2A4 數據庫進階概念 中的「Denormalisation」，下列哪一項描述是正確的？",
+      "options": {
+        "A": "這是 Denormalisation 的標準定義或特徵，符合香港 ICT 課程指引要求。",
+        "B": "這與 Denormalisation 無關，是另一種技術的特徵。",
+        "C": "這是完全相反的描述，不適用於 Denormalisation。",
+        "D": "這描述雖然常見，但在 Denormalisation 的情境下是錯誤的。"
+      },
+      "answer": "A",
+      "explanation": "此題測試學生對「Denormalisation」的理解。正確答案為 A。",
       "source": "AI生成"
     }
   ]
