@@ -22,16 +22,6 @@
   .timer-pulse { animation: pulse 1s infinite; }
   @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.6; } }
 </style>
-
-    <style>
-        /* 隱藏左上角選單按鈕 (在非手機螢幕，例如 > 768px 時隱藏) */
-        @media (min-width: 768px) {
-            #menu-btn, .menu-btn, .hamburger, [aria-label="menu"], button.mobile-menu-btn {
-                display: none !important;
-            }
-        }
-    </style>
-    
 </head>
 <body>
 <div id="root"></div>
@@ -482,6 +472,7 @@ function Sidebar({ visible, data, activeSection, onSelect, onClose, questionBank
       {visible && <div className="fixed inset-0 bg-black/30 z-30 md:hidden" onClick={onClose}></div>}
       <aside className={`${visible ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 fixed md:relative z-40 md:z-auto top-0 md:top-auto bottom-0 md:bottom-auto h-full md:h-auto w-72 bg-white border-r overflow-y-auto transition-transform duration-300`}>
         <div className="p-3 md:p-4">
+          <button onClick={() => onSelect('home')} className={`w-full text-left p-2 rounded-lg border mb-3 ${activeSection === 'home' ? 'bg-indigo-50 border-indigo-300 text-indigo-700' : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'}`}>🏠 首頁及操作說明</button>
           <div className="flex items-center justify-between mb-3">
             <h2 className="text-sm font-bold text-slate-700">📖 課程單元</h2>
             <button onClick={onClose} className="md:hidden text-slate-500 text-xl">×</button>
@@ -761,9 +752,15 @@ function StarredModal({ starred, onClose, onRemove, onUpdateNote, onNavigate }) 
 // ============================================================
 function PracticeHistoryModal({ history, onClose, onClear }) {
   const [filter, setFilter] = useState('all');
+  const [keyword, setKeyword] = useState('');
   const grouped = useMemo(() => { const g = {}; history.forEach(h => { if (!g[h.sectionId]) g[h.sectionId] = []; g[h.sectionId].push(h); }); return g; }, [history]);
   const sids = Object.keys(grouped);
-  const filtered = filter === 'all' ? sids : sids.filter(sid => { const i = findSection(sid); return i && i.unit.id === filter; });
+  const filtered = sids.filter(sid => {
+    const info = findSection(sid);
+    const passUnit = filter === 'all' ? true : (info && info.unit.id === filter);
+    const passKeyword = !keyword.trim() ? true : grouped[sid].some(h => (`${h.question} ${h.userAnswer || ''} ${h.correctAnswer || ''}`).toLowerCase().includes(keyword.toLowerCase()));
+    return passUnit && passKeyword;
+  });
   const correct = history.filter(h => h.isCorrect).length;
   const acc = history.length > 0 ? ((correct / history.length) * 100).toFixed(1) : 0;
   return (
@@ -780,25 +777,26 @@ function PracticeHistoryModal({ history, onClose, onClear }) {
           </div>
         </div>
         {history.length > 0 && (
-          <div className="p-3 border-b bg-slate-50">
-            <select value={filter} onChange={e => setFilter(e.target.value)} className="px-3 py-1 border rounded text-sm">
+          <div className="p-3 border-b bg-slate-50 flex flex-col md:flex-row gap-2 md:items-center">
+            <select value={filter} onChange={e => setFilter(e.target.value)} className="px-3 py-2 border rounded text-sm md:w-56">
               <option value="all">所有單元</option>
               {curriculumData.map(u => <option key={u.id} value={u.id}>{u.title}</option>)}
             </select>
+            <input value={keyword} onChange={e => setKeyword(e.target.value)} placeholder="搜尋題目、你的答案或正確答案" className="px-3 py-2 border rounded text-sm flex-1 md:max-w-md" />
           </div>
         )}
         <div className="p-4 overflow-y-auto flex-1">
-          {history.length === 0 ? <div className="text-center text-slate-500 py-12">尚未作答任何題目</div> : filtered.length === 0 ? <div className="text-center text-slate-500 py-12">此單元未有答題記錄</div> : (
+          {history.length === 0 ? <div className="text-center text-slate-500 py-12">尚未作答任何題目</div> : filtered.length === 0 ? <div className="text-center text-slate-500 py-12">沒有符合搜尋或篩選條件的單獨練習記錄</div> : (
             filtered.map(sid => {
               const info = findSection(sid);
               return (
                 <div key={sid} className="mb-6">
                   <h3 className="font-bold text-indigo-700 mb-2 pb-1 border-b border-indigo-200">{info ? `${info.unit.title} · ${info.section.title}` : sid}</h3>
-                  {grouped[sid].slice().reverse().map(h => (
+                  {grouped[sid].slice().reverse().filter(h => !keyword.trim() || (`${h.question} ${h.userAnswer || ''} ${h.correctAnswer || ''}`).toLowerCase().includes(keyword.toLowerCase())).map(h => (
                     <div key={h.id} className={`mb-3 p-3 rounded border-l-4 ${h.isCorrect ? 'border-green-400 bg-green-50' : 'border-red-400 bg-red-50'}`}>
-                      <div className="flex justify-between items-start mb-2">
+                      <div className="flex justify-between items-start mb-2 gap-2">
                         <div className="text-xs text-slate-500">{h.questionId} · {h.timestamp}</div>
-                        <div className={`text-sm font-bold ${h.isCorrect ? 'text-green-600' : 'text-red-600'}`}>{h.isCorrect ? '✓ 答對' : '✗ 答錯'}</div>
+                        <div className={`text-sm font-bold shrink-0 ${h.isCorrect ? 'text-green-600' : 'text-red-600'}`}>{h.isCorrect ? '✓ 答對' : '✗ 答錯'}</div>
                       </div>
                       <div className="font-medium mb-2 text-slate-800">{h.question}</div>
                       <div className="text-sm space-y-1 mb-2">
@@ -817,6 +815,9 @@ function PracticeHistoryModal({ history, onClose, onClear }) {
   );
 }
 
+// ============================================================
+// 📋 模擬測驗：設定
+// ============================================================
 // ============================================================
 // 📋 模擬測驗：設定
 // ============================================================
@@ -1332,7 +1333,7 @@ function BackupMenu({ starred, practice, tests, onImport, onClose }) {
 // 主 App
 // ============================================================
 function App() {
-  const [activeSection, setActiveSection] = useState('A1');
+  const [activeSection, setActiveSection] = useState('home');
   const [searchQuery, setSearchQuery] = useState('');
   const [showSidebar, setShowSidebar] = useState(true);
   const [sidebarUserToggled, setSidebarUserToggled] = useState(false);
@@ -1385,22 +1386,38 @@ function App() {
   useEffect(() => { if (!sidebarUserToggled && window.innerWidth < 768) setShowSidebar(false); }, [sidebarUserToggled]);
 
   useEffect(() => {
+    let timer = null;
     const h = () => {
-      const sel = window.getSelection();
-      const text = sel.toString().trim();
-      if (text.length > 3 && text.length < 300) {
-        try {
-          const r = sel.getRangeAt(0).getBoundingClientRect();
-          if (r.width > 0) {
-            setSelectedText(text);
-            setSelectionCoords({ top: Math.max(r.top + window.scrollY - 42, 10), left: r.left + r.width / 2 });
-          }
-        } catch {}
-      } else { setSelectedText(''); setSelectionCoords(null); }
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(() => {
+        const sel = window.getSelection();
+        if (!sel || sel.rangeCount === 0) { setSelectedText(''); setSelectionCoords(null); return; }
+        const text = sel.toString().trim();
+        if (text.length > 2 && text.length < 500) {
+          try {
+            const r = sel.getRangeAt(0).getBoundingClientRect();
+            if (r.width > 0 || r.height > 0) {
+              const isMobile = window.innerWidth < 768;
+              const top = isMobile ? (r.bottom + window.scrollY + 20) : Math.max(r.top + window.scrollY - 42, 10);
+              setSelectedText(text);
+              setSelectionCoords({ top, left: r.left + r.width / 2 });
+              return;
+            }
+          } catch {}
+        }
+        setSelectedText('');
+        setSelectionCoords(null);
+      }, 300);
     };
+    document.addEventListener('selectionchange', h);
     document.addEventListener('mouseup', h);
     document.addEventListener('touchend', h);
-    return () => { document.removeEventListener('mouseup', h); document.removeEventListener('touchend', h); };
+    return () => {
+      document.removeEventListener('selectionchange', h);
+      document.removeEventListener('mouseup', h);
+      document.removeEventListener('touchend', h);
+      if (timer) clearTimeout(timer);
+    };
   }, []);
 
   const openStarPrompt = () => {
@@ -1476,10 +1493,7 @@ function App() {
   };
 
   const current = findSection(activeSection);
-  const totalSec = curriculumData.reduce((s, u) => s + u.sections.length, 0);
-  const answered = new Set(practice.map(h => h.sectionId)).size;
-  const pct = ((answered / totalSec) * 100).toFixed(0);
-  const totalQ = Object.values(questionBank).reduce((s, a) => s + a.length, 0);
+    const totalQ = Object.values(questionBank).reduce((s, a) => s + a.length, 0);
   const fc = { sm: 'text-sm', base: 'text-base', lg: 'text-lg' };
 
   return (
@@ -1487,7 +1501,7 @@ function App() {
       <header className="bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-700 text-white shadow-lg">
         <div className="px-3 md:px-4 py-2 md:py-3 flex items-center justify-between gap-2">
           <div className="flex items-center gap-2 min-w-0">
-            <button onClick={() => { setShowSidebar(!showSidebar); setSidebarUserToggled(true); }} className="p-2 hover:bg-white/10 rounded">☰</button>
+            <button onClick={() => { setShowSidebar(!showSidebar); setSidebarUserToggled(true); }} className="p-2 hover:bg-white/10 rounded md:hidden" aria-label="切換選單">☰</button>
             <div className="min-w-0">
               <h1 className="text-sm md:text-lg font-bold truncate">📚 HKDSE ICT 2026 速讀溫習筆記</h1>
               <div className="text-xs text-indigo-100 hidden md:block">題庫：{totalQ} 題</div>
@@ -1522,10 +1536,7 @@ function App() {
       )}
 
       <SearchBar value={searchQuery} onChange={setSearchQuery} results={searchResults} onNavigate={navigate} />
-      <div className="px-4 py-2 bg-white border-b text-xs text-slate-600 flex items-center gap-3">
-        <span>📊 溫習進度：{answered}/{totalSec} ({pct}%)</span>
-        <div className="flex-1 bg-slate-200 h-2 rounded-full overflow-hidden"><div className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 transition-all" style={{width: pct + '%'}}></div></div>
-      </div>
+
 
       <div className="flex flex-1 overflow-hidden">
         <Sidebar visible={showSidebar} data={curriculumData} activeSection={activeSection} onSelect={navigate} onClose={() => { setShowSidebar(false); setSidebarUserToggled(true); }} questionBank={questionBank} />
@@ -1535,9 +1546,39 @@ function App() {
               <div className="inline-block animate-spin rounded-full h-16 w-16 border-4 border-indigo-200 border-t-indigo-600"></div>
               <div className="mt-4 text-slate-600 font-medium">📥 載入題庫中...</div>
             </div>
+          ) : activeSection === 'home' ? (
+            <div className="max-w-5xl mx-auto">
+              <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white rounded-2xl shadow-lg p-6 md:p-8 mb-6">
+                <h2 className="text-2xl md:text-3xl font-bold mb-3">🏠 HKDSE ICT 個人化溫習系統</h2>
+                <p className="text-sm md:text-base text-indigo-50 leading-relaxed">此系統整合筆記閱讀、文字標記、答題練習、模擬測驗，以及記錄匯入與匯出功能，方便你按單元追蹤學習進度。</p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                <div className="bg-white rounded-xl p-5 shadow border border-slate-200">
+                  <div className="text-lg font-bold mb-2">🖍️ 選取標記</div>
+                  <p className="text-slate-600 text-sm leading-6">在筆記內容中以滑鼠拖曳或在手機上長按選取文字，待浮動按鈕出現後按「加入標記」，即可儲存重點及個人備註。</p>
+                </div>
+                <div className="bg-white rounded-xl p-5 shadow border border-slate-200">
+                  <div className="text-lg font-bold mb-2">📝 答題練習</div>
+                  <p className="text-slate-600 text-sm leading-6">進入任何章節後可即時作答系統題目，提交後會顯示正確答案與解釋，並自動寫入答題記錄。</p>
+                </div>
+                <div className="bg-white rounded-xl p-5 shadow border border-slate-200">
+                  <div className="text-lg font-bold mb-2">📋 模擬測驗</div>
+                  <p className="text-slate-600 text-sm leading-6">你可以自選單元開立測驗，系統會計分、統計時間與單元表現，方便在考前進行針對性練習。</p>
+                </div>
+                <div className="bg-white rounded-xl p-5 shadow border border-slate-200">
+                  <div className="text-lg font-bold mb-2">💾 匯入與匯出記錄</div>
+                  <p className="text-slate-600 text-sm leading-6">右上角的備份功能可匯出已標記、答題及測驗記錄，也可在新裝置匯入，避免資料遺失。</p>
+                </div>
+              </div>
+              <div className="mt-6 text-center">
+                <button onClick={() => navigate('A1')} className="px-5 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-bold shadow">開始溫習單元 A</button>
+              </div>
+            </div>
           ) : current ? (
             <SectionContent unit={current.unit} section={current.section} onRecordAnswer={recordPractice} questionBank={questionBank} starred={starred} />
-          ) : null}
+          ) : (
+            <div className="max-w-3xl mx-auto text-center py-16 text-slate-500">找不到指定內容。</div>
+          )}
           {!loadingQ && (
             <div className="max-w-4xl mx-auto mt-6 p-4 bg-slate-50 border border-slate-200 rounded text-xs text-slate-500 text-center">
               💾 你的「已標記」、「答題練習」與「測驗」記錄會自動儲存於瀏覽器 localStorage。建議定期匯出備份。<br/>
