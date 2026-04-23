@@ -11,7 +11,7 @@
       },
       "answer": "B",
       "explanation": "DHCP 自動為設備分配 IP、子網遮罩、預設閘道、DNS 等資訊。",
-      "source": "AI 生成"
+      "source": "Claude AI"
     },
     {
       "id": "2B1-Q2",
@@ -24,7 +24,7 @@
       },
       "answer": "D",
       "explanation": "域名轉 IP 是 DNS 伺服器的工作；Proxy 主要功能是代理、快取、過濾。",
-      "source": "AI 生成"
+      "source": "Claude AI"
     },
     {
       "id": "2B1-Q3",
@@ -37,228 +37,7 @@
       },
       "answer": "B",
       "explanation": "DNS 將網域名稱轉換為 IP 地址，之後瀏覽器才連接到該 IP 的 Web Server。",
-      "source": "AI 生成"
-    },
-    {
-      "id": "2B1-GEN-1",
-      "question": "Proxy Server 的快取（Cache）功能有何好處？",
-      "options": {
-        "A": "將 IP 地址轉換為 MAC 地址",
-        "B": "減少頻寬消耗並加快網頁載入速度",
-        "C": "自動備份數據庫",
-        "D": "防止硬碟損壞"
-      },
-      "answer": "B",
-      "explanation": "此題考核 2B1 網絡服務 的核心概念。正確答案為 B: 減少頻寬消耗並加快網頁載入速度。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B1-GEN-V2",
-      "question": "關於 2B1 網絡服務 中的「DHCP」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是 DHCP 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "B": "這是完全相反的描述，不適用於 DHCP。",
-        "C": "這與 DHCP 無關，是另一種技術的特徵。",
-        "D": "這描述雖然常見，但在 DHCP 的情境下是錯誤的。"
-      },
-      "answer": "A",
-      "explanation": "此題測試學生對「DHCP」的理解。正確答案為 A。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B1-GEN-V3",
-      "question": "關於 2B1 網絡服務 中的「Web/DB Server」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是完全相反的描述，不適用於 Web/DB Server。",
-        "B": "這描述雖然常見，但在 Web/DB Server 的情境下是錯誤的。",
-        "C": "這與 Web/DB Server 無關，是另一種技術的特徵。",
-        "D": "Web/DB Server 能有效管理數據結構並確保資料完整性。"
-      },
-      "answer": "D",
-      "explanation": "此題測試學生對「Web/DB Server」的理解。正確答案為 D。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B1-GEN-V4",
-      "question": "關於 2B1 網絡服務 中的「Proxy」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這描述雖然常見，但在 Proxy 的情境下是錯誤的。",
-        "B": "這是完全相反的描述，不適用於 Proxy。",
-        "C": "這與 Proxy 無關，是另一種技術的特徵。",
-        "D": "這是 Proxy 的標準定義或特徵，符合香港 ICT 課程指引要求。"
-      },
-      "answer": "D",
-      "explanation": "此題測試學生對「Proxy」的理解。正確答案為 D。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B1-GEN-V5",
-      "question": "關於 2B1 網絡服務 中的「Web/DB Server」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這與 Web/DB Server 無關，是另一種技術的特徵。",
-        "B": "這是完全相反的描述，不適用於 Web/DB Server。",
-        "C": "Web/DB Server 能有效管理數據結構並確保資料完整性。",
-        "D": "這描述雖然常見，但在 Web/DB Server 的情境下是錯誤的。"
-      },
-      "answer": "C",
-      "explanation": "此題測試學生對「Web/DB Server」的理解。正確答案為 C。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B1-GEN-V6",
-      "question": "關於 2B1 網絡服務 中的「Proxy」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這描述雖然常見，但在 Proxy 的情境下是錯誤的。",
-        "B": "這與 Proxy 無關，是另一種技術的特徵。",
-        "C": "這是 Proxy 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "D": "這是完全相反的描述，不適用於 Proxy。"
-      },
-      "answer": "C",
-      "explanation": "此題測試學生對「Proxy」的理解。正確答案為 C。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B1-GEN-V7",
-      "question": "關於 2B1 網絡服務 中的「DHCP」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這描述雖然常見，但在 DHCP 的情境下是錯誤的。",
-        "B": "這是 DHCP 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "C": "這是完全相反的描述，不適用於 DHCP。",
-        "D": "這與 DHCP 無關，是另一種技術的特徵。"
-      },
-      "answer": "B",
-      "explanation": "此題測試學生對「DHCP」的理解。正確答案為 B。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B1-GEN-V8",
-      "question": "關於 2B1 網絡服務 中的「Proxy」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這與 Proxy 無關，是另一種技術的特徵。",
-        "B": "這是 Proxy 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "C": "這描述雖然常見，但在 Proxy 的情境下是錯誤的。",
-        "D": "這是完全相反的描述，不適用於 Proxy。"
-      },
-      "answer": "B",
-      "explanation": "此題測試學生對「Proxy」的理解。正確答案為 B。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B1-GEN-V9",
-      "question": "關於 2B1 網絡服務 中的「Web/DB Server」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這描述雖然常見，但在 Web/DB Server 的情境下是錯誤的。",
-        "B": "這與 Web/DB Server 無關，是另一種技術的特徵。",
-        "C": "這是完全相反的描述，不適用於 Web/DB Server。",
-        "D": "Web/DB Server 能有效管理數據結構並確保資料完整性。"
-      },
-      "answer": "D",
-      "explanation": "此題測試學生對「Web/DB Server」的理解。正確答案為 D。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B1-GEN-V10",
-      "question": "關於 2B1 網絡服務 中的「Web/DB Server」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "Web/DB Server 能有效管理數據結構並確保資料完整性。",
-        "B": "這與 Web/DB Server 無關，是另一種技術的特徵。",
-        "C": "這描述雖然常見，但在 Web/DB Server 的情境下是錯誤的。",
-        "D": "這是完全相反的描述，不適用於 Web/DB Server。"
-      },
-      "answer": "A",
-      "explanation": "此題測試學生對「Web/DB Server」的理解。正確答案為 A。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B1-GEN-V11",
-      "question": "關於 2B1 網絡服務 中的「DNS」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這與 DNS 無關，是另一種技術的特徵。",
-        "B": "這是 DNS 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "C": "這描述雖然常見，但在 DNS 的情境下是錯誤的。",
-        "D": "這是完全相反的描述，不適用於 DNS。"
-      },
-      "answer": "B",
-      "explanation": "此題測試學生對「DNS」的理解。正確答案為 B。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B1-GEN-V12",
-      "question": "關於 2B1 網絡服務 中的「Web/DB Server」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這與 Web/DB Server 無關，是另一種技術的特徵。",
-        "B": "這描述雖然常見，但在 Web/DB Server 的情境下是錯誤的。",
-        "C": "這是完全相反的描述，不適用於 Web/DB Server。",
-        "D": "Web/DB Server 能有效管理數據結構並確保資料完整性。"
-      },
-      "answer": "D",
-      "explanation": "此題測試學生對「Web/DB Server」的理解。正確答案為 D。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B1-GEN-V13",
-      "question": "關於 2B1 網絡服務 中的「DNS」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是完全相反的描述，不適用於 DNS。",
-        "B": "這描述雖然常見，但在 DNS 的情境下是錯誤的。",
-        "C": "這是 DNS 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "D": "這與 DNS 無關，是另一種技術的特徵。"
-      },
-      "answer": "C",
-      "explanation": "此題測試學生對「DNS」的理解。正確答案為 C。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B1-GEN-V14",
-      "question": "關於 2B1 網絡服務 中的「Web/DB Server」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "Web/DB Server 能有效管理數據結構並確保資料完整性。",
-        "B": "這是完全相反的描述，不適用於 Web/DB Server。",
-        "C": "這與 Web/DB Server 無關，是另一種技術的特徵。",
-        "D": "這描述雖然常見，但在 Web/DB Server 的情境下是錯誤的。"
-      },
-      "answer": "A",
-      "explanation": "此題測試學生對「Web/DB Server」的理解。正確答案為 A。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B1-GEN-V15",
-      "question": "關於 2B1 網絡服務 中的「Web/DB Server」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是完全相反的描述，不適用於 Web/DB Server。",
-        "B": "這描述雖然常見，但在 Web/DB Server 的情境下是錯誤的。",
-        "C": "Web/DB Server 能有效管理數據結構並確保資料完整性。",
-        "D": "這與 Web/DB Server 無關，是另一種技術的特徵。"
-      },
-      "answer": "C",
-      "explanation": "此題測試學生對「Web/DB Server」的理解。正確答案為 C。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B1-GEN-V16",
-      "question": "關於 2B1 網絡服務 中的「DHCP」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這與 DHCP 無關，是另一種技術的特徵。",
-        "B": "這是 DHCP 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "C": "這描述雖然常見，但在 DHCP 的情境下是錯誤的。",
-        "D": "這是完全相反的描述，不適用於 DHCP。"
-      },
-      "answer": "B",
-      "explanation": "此題測試學生對「DHCP」的理解。正確答案為 B。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B1-GEN-V17",
-      "question": "關於 2B1 網絡服務 中的「DHCP」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是完全相反的描述，不適用於 DHCP。",
-        "B": "這與 DHCP 無關，是另一種技術的特徵。",
-        "C": "這描述雖然常見，但在 DHCP 的情境下是錯誤的。",
-        "D": "這是 DHCP 的標準定義或特徵，符合香港 ICT 課程指引要求。"
-      },
-      "answer": "D",
-      "explanation": "此題測試學生對「DHCP」的理解。正確答案為 D。",
-      "source": "AI生成"
+      "source": "Claude AI"
     }
   ],
   "2B2": [
@@ -273,7 +52,7 @@
       },
       "answer": "A",
       "explanation": "GET 附在 URL，會被瀏覽器歷史記錄/書籤留下；POST 在 HTTP Body 較隱密。",
-      "source": "AI 生成"
+      "source": "Claude AI"
     },
     {
       "id": "2B2-Q2",
@@ -286,7 +65,7 @@
       },
       "answer": "C",
       "explanation": "200 OK；404 Not Found；500 Internal Server Error；401 Unauthorized。",
-      "source": "AI 生成"
+      "source": "Claude AI"
     },
     {
       "id": "2B2-GEN-1",
@@ -299,228 +78,7 @@
       },
       "answer": "B",
       "explanation": "此題考核 2B2 HTTP 與通訊協定 的核心概念。正確答案為 B: 傳輸敏感數據時較為安全，且無長度限制。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B2-GEN-V2",
-      "question": "關於 2B2 HTTP 與通訊協定 中的「GET vs POST」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這描述雖然常見，但在 GET vs POST 的情境下是錯誤的。",
-        "B": "這是完全相反的描述，不適用於 GET vs POST。",
-        "C": "這是 GET vs POST 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "D": "這與 GET vs POST 無關，是另一種技術的特徵。"
-      },
-      "answer": "C",
-      "explanation": "此題測試學生對「GET vs POST」的理解。正確答案為 C。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B2-GEN-V3",
-      "question": "關於 2B2 HTTP 與通訊協定 中的「Client-Server」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是完全相反的描述，不適用於 Client-Server。",
-        "B": "這描述雖然常見，但在 Client-Server 的情境下是錯誤的。",
-        "C": "這是 Client-Server 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "D": "這與 Client-Server 無關，是另一種技術的特徵。"
-      },
-      "answer": "C",
-      "explanation": "此題測試學生對「Client-Server」的理解。正確答案為 C。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B2-GEN-V4",
-      "question": "關於 2B2 HTTP 與通訊協定 中的「GET vs POST」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是 GET vs POST 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "B": "這描述雖然常見，但在 GET vs POST 的情境下是錯誤的。",
-        "C": "這與 GET vs POST 無關，是另一種技術的特徵。",
-        "D": "這是完全相反的描述，不適用於 GET vs POST。"
-      },
-      "answer": "A",
-      "explanation": "此題測試學生對「GET vs POST」的理解。正確答案為 A。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B2-GEN-V5",
-      "question": "關於 2B2 HTTP 與通訊協定 中的「Client-Server」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這與 Client-Server 無關，是另一種技術的特徵。",
-        "B": "這是完全相反的描述，不適用於 Client-Server。",
-        "C": "這描述雖然常見，但在 Client-Server 的情境下是錯誤的。",
-        "D": "這是 Client-Server 的標準定義或特徵，符合香港 ICT 課程指引要求。"
-      },
-      "answer": "D",
-      "explanation": "此題測試學生對「Client-Server」的理解。正確答案為 D。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B2-GEN-V6",
-      "question": "關於 2B2 HTTP 與通訊協定 中的「GET vs POST」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這與 GET vs POST 無關，是另一種技術的特徵。",
-        "B": "這是完全相反的描述，不適用於 GET vs POST。",
-        "C": "這描述雖然常見，但在 GET vs POST 的情境下是錯誤的。",
-        "D": "這是 GET vs POST 的標準定義或特徵，符合香港 ICT 課程指引要求。"
-      },
-      "answer": "D",
-      "explanation": "此題測試學生對「GET vs POST」的理解。正確答案為 D。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B2-GEN-V7",
-      "question": "關於 2B2 HTTP 與通訊協定 中的「Client-Server」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這描述雖然常見，但在 Client-Server 的情境下是錯誤的。",
-        "B": "這是完全相反的描述，不適用於 Client-Server。",
-        "C": "這是 Client-Server 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "D": "這與 Client-Server 無關，是另一種技術的特徵。"
-      },
-      "answer": "C",
-      "explanation": "此題測試學生對「Client-Server」的理解。正確答案為 C。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B2-GEN-V8",
-      "question": "關於 2B2 HTTP 與通訊協定 中的「GET vs POST」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這與 GET vs POST 無關，是另一種技術的特徵。",
-        "B": "這是完全相反的描述，不適用於 GET vs POST。",
-        "C": "這是 GET vs POST 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "D": "這描述雖然常見，但在 GET vs POST 的情境下是錯誤的。"
-      },
-      "answer": "C",
-      "explanation": "此題測試學生對「GET vs POST」的理解。正確答案為 C。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B2-GEN-V9",
-      "question": "關於 2B2 HTTP 與通訊協定 中的「Client-Server」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這與 Client-Server 無關，是另一種技術的特徵。",
-        "B": "這是完全相反的描述，不適用於 Client-Server。",
-        "C": "這描述雖然常見，但在 Client-Server 的情境下是錯誤的。",
-        "D": "這是 Client-Server 的標準定義或特徵，符合香港 ICT 課程指引要求。"
-      },
-      "answer": "D",
-      "explanation": "此題測試學生對「Client-Server」的理解。正確答案為 D。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B2-GEN-V10",
-      "question": "關於 2B2 HTTP 與通訊協定 中的「Client-Server」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是完全相反的描述，不適用於 Client-Server。",
-        "B": "這描述雖然常見，但在 Client-Server 的情境下是錯誤的。",
-        "C": "這與 Client-Server 無關，是另一種技術的特徵。",
-        "D": "這是 Client-Server 的標準定義或特徵，符合香港 ICT 課程指引要求。"
-      },
-      "answer": "D",
-      "explanation": "此題測試學生對「Client-Server」的理解。正確答案為 D。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B2-GEN-V11",
-      "question": "關於 2B2 HTTP 與通訊協定 中的「GET vs POST」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這與 GET vs POST 無關，是另一種技術的特徵。",
-        "B": "這是完全相反的描述，不適用於 GET vs POST。",
-        "C": "這描述雖然常見，但在 GET vs POST 的情境下是錯誤的。",
-        "D": "這是 GET vs POST 的標準定義或特徵，符合香港 ICT 課程指引要求。"
-      },
-      "answer": "D",
-      "explanation": "此題測試學生對「GET vs POST」的理解。正確答案為 D。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B2-GEN-V12",
-      "question": "關於 2B2 HTTP 與通訊協定 中的「GET vs POST」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是完全相反的描述，不適用於 GET vs POST。",
-        "B": "這描述雖然常見，但在 GET vs POST 的情境下是錯誤的。",
-        "C": "這與 GET vs POST 無關，是另一種技術的特徵。",
-        "D": "這是 GET vs POST 的標準定義或特徵，符合香港 ICT 課程指引要求。"
-      },
-      "answer": "D",
-      "explanation": "此題測試學生對「GET vs POST」的理解。正確答案為 D。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B2-GEN-V13",
-      "question": "關於 2B2 HTTP 與通訊協定 中的「Client-Server」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是 Client-Server 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "B": "這描述雖然常見，但在 Client-Server 的情境下是錯誤的。",
-        "C": "這是完全相反的描述，不適用於 Client-Server。",
-        "D": "這與 Client-Server 無關，是另一種技術的特徵。"
-      },
-      "answer": "A",
-      "explanation": "此題測試學生對「Client-Server」的理解。正確答案為 A。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B2-GEN-V14",
-      "question": "關於 2B2 HTTP 與通訊協定 中的「Client-Server」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是 Client-Server 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "B": "這與 Client-Server 無關，是另一種技術的特徵。",
-        "C": "這描述雖然常見，但在 Client-Server 的情境下是錯誤的。",
-        "D": "這是完全相反的描述，不適用於 Client-Server。"
-      },
-      "answer": "A",
-      "explanation": "此題測試學生對「Client-Server」的理解。正確答案為 A。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B2-GEN-V15",
-      "question": "關於 2B2 HTTP 與通訊協定 中的「Client-Server」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這描述雖然常見，但在 Client-Server 的情境下是錯誤的。",
-        "B": "這與 Client-Server 無關，是另一種技術的特徵。",
-        "C": "這是完全相反的描述，不適用於 Client-Server。",
-        "D": "這是 Client-Server 的標準定義或特徵，符合香港 ICT 課程指引要求。"
-      },
-      "answer": "D",
-      "explanation": "此題測試學生對「Client-Server」的理解。正確答案為 D。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B2-GEN-V16",
-      "question": "關於 2B2 HTTP 與通訊協定 中的「Client-Server」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這描述雖然常見，但在 Client-Server 的情境下是錯誤的。",
-        "B": "這是 Client-Server 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "C": "這是完全相反的描述，不適用於 Client-Server。",
-        "D": "這與 Client-Server 無關，是另一種技術的特徵。"
-      },
-      "answer": "B",
-      "explanation": "此題測試學生對「Client-Server」的理解。正確答案為 B。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B2-GEN-V17",
-      "question": "關於 2B2 HTTP 與通訊協定 中的「GET vs POST」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是 GET vs POST 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "B": "這描述雖然常見，但在 GET vs POST 的情境下是錯誤的。",
-        "C": "這與 GET vs POST 無關，是另一種技術的特徵。",
-        "D": "這是完全相反的描述，不適用於 GET vs POST。"
-      },
-      "answer": "A",
-      "explanation": "此題測試學生對「GET vs POST」的理解。正確答案為 A。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B2-GEN-V18",
-      "question": "關於 2B2 HTTP 與通訊協定 中的「Client-Server」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這與 Client-Server 無關，是另一種技術的特徵。",
-        "B": "這是完全相反的描述，不適用於 Client-Server。",
-        "C": "這描述雖然常見，但在 Client-Server 的情境下是錯誤的。",
-        "D": "這是 Client-Server 的標準定義或特徵，符合香港 ICT 課程指引要求。"
-      },
-      "answer": "D",
-      "explanation": "此題測試學生對「Client-Server」的理解。正確答案為 D。",
-      "source": "AI生成"
+      "source": "Claude AI"
     }
   ],
   "2B3": [
@@ -535,7 +93,7 @@
       },
       "answer": "B",
       "explanation": "公共下載只應允許讀取，避免誤刪或惡意修改。",
-      "source": "AI 生成"
+      "source": "Claude AI"
     },
     {
       "id": "2B3-Q2",
@@ -548,7 +106,7 @@
       },
       "answer": "B",
       "explanation": "執行檔需要讀取和執行權限，但不應給 W 以防被修改或感染。",
-      "source": "AI 生成"
+      "source": "Claude AI"
     },
     {
       "id": "2B3-GEN-1",
@@ -561,228 +119,7 @@
       },
       "answer": "A",
       "explanation": "此題考核 2B3 網頁設計基礎 (HTML/CSS) 的核心概念。正確答案為 A: 方便多個網頁共用樣式，易於維護。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B3-GEN-V2",
-      "question": "關於 2B3 網頁設計基礎 (HTML/CSS) 中的「Internal vs External CSS」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這與 Internal vs External CSS 無關，是另一種技術的特徵。",
-        "B": "Internal vs External CSS 是構建現代動態網頁應用的重要元素。",
-        "C": "這描述雖然常見，但在 Internal vs External CSS 的情境下是錯誤的。",
-        "D": "這是完全相反的描述，不適用於 Internal vs External CSS。"
-      },
-      "answer": "B",
-      "explanation": "此題測試學生對「Internal vs External CSS」的理解。正確答案為 B。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B3-GEN-V3",
-      "question": "關於 2B3 網頁設計基礎 (HTML/CSS) 中的「HTML 語法」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "HTML 語法 是構建現代動態網頁應用的重要元素。",
-        "B": "這與 HTML 語法 無關，是另一種技術的特徵。",
-        "C": "這描述雖然常見，但在 HTML 語法 的情境下是錯誤的。",
-        "D": "這是完全相反的描述，不適用於 HTML 語法。"
-      },
-      "answer": "A",
-      "explanation": "此題測試學生對「HTML 語法」的理解。正確答案為 A。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B3-GEN-V4",
-      "question": "關於 2B3 網頁設計基礎 (HTML/CSS) 中的「Internal vs External CSS」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "Internal vs External CSS 是構建現代動態網頁應用的重要元素。",
-        "B": "這是完全相反的描述，不適用於 Internal vs External CSS。",
-        "C": "這與 Internal vs External CSS 無關，是另一種技術的特徵。",
-        "D": "這描述雖然常見，但在 Internal vs External CSS 的情境下是錯誤的。"
-      },
-      "answer": "A",
-      "explanation": "此題測試學生對「Internal vs External CSS」的理解。正確答案為 A。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B3-GEN-V5",
-      "question": "關於 2B3 網頁設計基礎 (HTML/CSS) 中的「HTML 語法」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是完全相反的描述，不適用於 HTML 語法。",
-        "B": "這描述雖然常見，但在 HTML 語法 的情境下是錯誤的。",
-        "C": "這與 HTML 語法 無關，是另一種技術的特徵。",
-        "D": "HTML 語法 是構建現代動態網頁應用的重要元素。"
-      },
-      "answer": "D",
-      "explanation": "此題測試學生對「HTML 語法」的理解。正確答案為 D。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B3-GEN-V6",
-      "question": "關於 2B3 網頁設計基礎 (HTML/CSS) 中的「HTML 語法」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "HTML 語法 是構建現代動態網頁應用的重要元素。",
-        "B": "這與 HTML 語法 無關，是另一種技術的特徵。",
-        "C": "這是完全相反的描述，不適用於 HTML 語法。",
-        "D": "這描述雖然常見，但在 HTML 語法 的情境下是錯誤的。"
-      },
-      "answer": "A",
-      "explanation": "此題測試學生對「HTML 語法」的理解。正確答案為 A。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B3-GEN-V7",
-      "question": "關於 2B3 網頁設計基礎 (HTML/CSS) 中的「Internal vs External CSS」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這描述雖然常見，但在 Internal vs External CSS 的情境下是錯誤的。",
-        "B": "這與 Internal vs External CSS 無關，是另一種技術的特徵。",
-        "C": "Internal vs External CSS 是構建現代動態網頁應用的重要元素。",
-        "D": "這是完全相反的描述，不適用於 Internal vs External CSS。"
-      },
-      "answer": "C",
-      "explanation": "此題測試學生對「Internal vs External CSS」的理解。正確答案為 C。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B3-GEN-V8",
-      "question": "關於 2B3 網頁設計基礎 (HTML/CSS) 中的「Internal vs External CSS」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這與 Internal vs External CSS 無關，是另一種技術的特徵。",
-        "B": "Internal vs External CSS 是構建現代動態網頁應用的重要元素。",
-        "C": "這描述雖然常見，但在 Internal vs External CSS 的情境下是錯誤的。",
-        "D": "這是完全相反的描述，不適用於 Internal vs External CSS。"
-      },
-      "answer": "B",
-      "explanation": "此題測試學生對「Internal vs External CSS」的理解。正確答案為 B。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B3-GEN-V9",
-      "question": "關於 2B3 網頁設計基礎 (HTML/CSS) 中的「Internal vs External CSS」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這與 Internal vs External CSS 無關，是另一種技術的特徵。",
-        "B": "這是完全相反的描述，不適用於 Internal vs External CSS。",
-        "C": "這描述雖然常見，但在 Internal vs External CSS 的情境下是錯誤的。",
-        "D": "Internal vs External CSS 是構建現代動態網頁應用的重要元素。"
-      },
-      "answer": "D",
-      "explanation": "此題測試學生對「Internal vs External CSS」的理解。正確答案為 D。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B3-GEN-V10",
-      "question": "關於 2B3 網頁設計基礎 (HTML/CSS) 中的「HTML 語法」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是完全相反的描述，不適用於 HTML 語法。",
-        "B": "這描述雖然常見，但在 HTML 語法 的情境下是錯誤的。",
-        "C": "HTML 語法 是構建現代動態網頁應用的重要元素。",
-        "D": "這與 HTML 語法 無關，是另一種技術的特徵。"
-      },
-      "answer": "C",
-      "explanation": "此題測試學生對「HTML 語法」的理解。正確答案為 C。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B3-GEN-V11",
-      "question": "關於 2B3 網頁設計基礎 (HTML/CSS) 中的「HTML 語法」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這描述雖然常見，但在 HTML 語法 的情境下是錯誤的。",
-        "B": "這與 HTML 語法 無關，是另一種技術的特徵。",
-        "C": "這是完全相反的描述，不適用於 HTML 語法。",
-        "D": "HTML 語法 是構建現代動態網頁應用的重要元素。"
-      },
-      "answer": "D",
-      "explanation": "此題測試學生對「HTML 語法」的理解。正確答案為 D。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B3-GEN-V12",
-      "question": "關於 2B3 網頁設計基礎 (HTML/CSS) 中的「Internal vs External CSS」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是完全相反的描述，不適用於 Internal vs External CSS。",
-        "B": "這與 Internal vs External CSS 無關，是另一種技術的特徵。",
-        "C": "這描述雖然常見，但在 Internal vs External CSS 的情境下是錯誤的。",
-        "D": "Internal vs External CSS 是構建現代動態網頁應用的重要元素。"
-      },
-      "answer": "D",
-      "explanation": "此題測試學生對「Internal vs External CSS」的理解。正確答案為 D。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B3-GEN-V13",
-      "question": "關於 2B3 網頁設計基礎 (HTML/CSS) 中的「Internal vs External CSS」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "Internal vs External CSS 是構建現代動態網頁應用的重要元素。",
-        "B": "這描述雖然常見，但在 Internal vs External CSS 的情境下是錯誤的。",
-        "C": "這是完全相反的描述，不適用於 Internal vs External CSS。",
-        "D": "這與 Internal vs External CSS 無關，是另一種技術的特徵。"
-      },
-      "answer": "A",
-      "explanation": "此題測試學生對「Internal vs External CSS」的理解。正確答案為 A。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B3-GEN-V14",
-      "question": "關於 2B3 網頁設計基礎 (HTML/CSS) 中的「HTML 語法」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這與 HTML 語法 無關，是另一種技術的特徵。",
-        "B": "這描述雖然常見，但在 HTML 語法 的情境下是錯誤的。",
-        "C": "HTML 語法 是構建現代動態網頁應用的重要元素。",
-        "D": "這是完全相反的描述，不適用於 HTML 語法。"
-      },
-      "answer": "C",
-      "explanation": "此題測試學生對「HTML 語法」的理解。正確答案為 C。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B3-GEN-V15",
-      "question": "關於 2B3 網頁設計基礎 (HTML/CSS) 中的「HTML 語法」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "HTML 語法 是構建現代動態網頁應用的重要元素。",
-        "B": "這與 HTML 語法 無關，是另一種技術的特徵。",
-        "C": "這是完全相反的描述，不適用於 HTML 語法。",
-        "D": "這描述雖然常見，但在 HTML 語法 的情境下是錯誤的。"
-      },
-      "answer": "A",
-      "explanation": "此題測試學生對「HTML 語法」的理解。正確答案為 A。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B3-GEN-V16",
-      "question": "關於 2B3 網頁設計基礎 (HTML/CSS) 中的「HTML 語法」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "HTML 語法 是構建現代動態網頁應用的重要元素。",
-        "B": "這是完全相反的描述，不適用於 HTML 語法。",
-        "C": "這描述雖然常見，但在 HTML 語法 的情境下是錯誤的。",
-        "D": "這與 HTML 語法 無關，是另一種技術的特徵。"
-      },
-      "answer": "A",
-      "explanation": "此題測試學生對「HTML 語法」的理解。正確答案為 A。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B3-GEN-V17",
-      "question": "關於 2B3 網頁設計基礎 (HTML/CSS) 中的「Internal vs External CSS」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這與 Internal vs External CSS 無關，是另一種技術的特徵。",
-        "B": "這是完全相反的描述，不適用於 Internal vs External CSS。",
-        "C": "Internal vs External CSS 是構建現代動態網頁應用的重要元素。",
-        "D": "這描述雖然常見，但在 Internal vs External CSS 的情境下是錯誤的。"
-      },
-      "answer": "C",
-      "explanation": "此題測試學生對「Internal vs External CSS」的理解。正確答案為 C。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B3-GEN-V18",
-      "question": "關於 2B3 網頁設計基礎 (HTML/CSS) 中的「Internal vs External CSS」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這描述雖然常見，但在 Internal vs External CSS 的情境下是錯誤的。",
-        "B": "Internal vs External CSS 是構建現代動態網頁應用的重要元素。",
-        "C": "這是完全相反的描述，不適用於 Internal vs External CSS。",
-        "D": "這與 Internal vs External CSS 無關，是另一種技術的特徵。"
-      },
-      "answer": "B",
-      "explanation": "此題測試學生對「Internal vs External CSS」的理解。正確答案為 B。",
-      "source": "AI生成"
+      "source": "Claude AI"
     }
   ],
   "2B4": [
@@ -797,7 +134,7 @@
       },
       "answer": "B",
       "explanation": "External CSS 獨立檔案可跨頁共用、集中維護；瀏覽器還可快取以加速後續載入。",
-      "source": "AI 生成"
+      "source": "Claude AI"
     },
     {
       "id": "2B4-Q2",
@@ -810,7 +147,7 @@
       },
       "answer": "B",
       "explanation": "Server-side 程式原始碼不會發送到客戶端，可安全處理帳號密碼與資料庫查詢。",
-      "source": "AI 生成"
+      "source": "Claude AI"
     },
     {
       "id": "2B4-Q3",
@@ -823,7 +160,7 @@
       },
       "answer": "A",
       "explanation": "客戶端適合做輕量、即時互動；涉及安全或資料庫的驗證必須在伺服器端進行。",
-      "source": "AI 生成"
+      "source": "Claude AI"
     },
     {
       "id": "2B4-GEN-1",
@@ -836,215 +173,7 @@
       },
       "answer": "D",
       "explanation": "此題考核 2B4 伺服器端與客戶端編程 的核心概念。正確答案為 D: JavaScript。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B4-GEN-V2",
-      "question": "關於 2B4 伺服器端與客戶端編程 中的「JavaScript」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是完全相反的描述，不適用於 JavaScript。",
-        "B": "這是 JavaScript 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "C": "這與 JavaScript 無關，是另一種技術的特徵。",
-        "D": "這描述雖然常見，但在 JavaScript 的情境下是錯誤的。"
-      },
-      "answer": "B",
-      "explanation": "此題測試學生對「JavaScript」的理解。正確答案為 B。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B4-GEN-V3",
-      "question": "關於 2B4 伺服器端與客戶端編程 中的「PHP」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "PHP 是構建現代動態網頁應用的重要元素。",
-        "B": "這是完全相反的描述，不適用於 PHP。",
-        "C": "這與 PHP 無關，是另一種技術的特徵。",
-        "D": "這描述雖然常見，但在 PHP 的情境下是錯誤的。"
-      },
-      "answer": "A",
-      "explanation": "此題測試學生對「PHP」的理解。正確答案為 A。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B4-GEN-V4",
-      "question": "關於 2B4 伺服器端與客戶端編程 中的「JavaScript」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是 JavaScript 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "B": "這描述雖然常見，但在 JavaScript 的情境下是錯誤的。",
-        "C": "這與 JavaScript 無關，是另一種技術的特徵。",
-        "D": "這是完全相反的描述，不適用於 JavaScript。"
-      },
-      "answer": "A",
-      "explanation": "此題測試學生對「JavaScript」的理解。正確答案為 A。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B4-GEN-V5",
-      "question": "關於 2B4 伺服器端與客戶端編程 中的「JavaScript」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這與 JavaScript 無關，是另一種技術的特徵。",
-        "B": "這是完全相反的描述，不適用於 JavaScript。",
-        "C": "這是 JavaScript 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "D": "這描述雖然常見，但在 JavaScript 的情境下是錯誤的。"
-      },
-      "answer": "C",
-      "explanation": "此題測試學生對「JavaScript」的理解。正確答案為 C。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B4-GEN-V6",
-      "question": "關於 2B4 伺服器端與客戶端編程 中的「PHP」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是完全相反的描述，不適用於 PHP。",
-        "B": "PHP 是構建現代動態網頁應用的重要元素。",
-        "C": "這與 PHP 無關，是另一種技術的特徵。",
-        "D": "這描述雖然常見，但在 PHP 的情境下是錯誤的。"
-      },
-      "answer": "B",
-      "explanation": "此題測試學生對「PHP」的理解。正確答案為 B。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B4-GEN-V7",
-      "question": "關於 2B4 伺服器端與客戶端編程 中的「PHP」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "PHP 是構建現代動態網頁應用的重要元素。",
-        "B": "這是完全相反的描述，不適用於 PHP。",
-        "C": "這描述雖然常見，但在 PHP 的情境下是錯誤的。",
-        "D": "這與 PHP 無關，是另一種技術的特徵。"
-      },
-      "answer": "A",
-      "explanation": "此題測試學生對「PHP」的理解。正確答案為 A。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B4-GEN-V8",
-      "question": "關於 2B4 伺服器端與客戶端編程 中的「JavaScript」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這描述雖然常見，但在 JavaScript 的情境下是錯誤的。",
-        "B": "這是 JavaScript 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "C": "這與 JavaScript 無關，是另一種技術的特徵。",
-        "D": "這是完全相反的描述，不適用於 JavaScript。"
-      },
-      "answer": "B",
-      "explanation": "此題測試學生對「JavaScript」的理解。正確答案為 B。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B4-GEN-V9",
-      "question": "關於 2B4 伺服器端與客戶端編程 中的「PHP」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "PHP 是構建現代動態網頁應用的重要元素。",
-        "B": "這描述雖然常見，但在 PHP 的情境下是錯誤的。",
-        "C": "這與 PHP 無關，是另一種技術的特徵。",
-        "D": "這是完全相反的描述，不適用於 PHP。"
-      },
-      "answer": "A",
-      "explanation": "此題測試學生對「PHP」的理解。正確答案為 A。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B4-GEN-V10",
-      "question": "關於 2B4 伺服器端與客戶端編程 中的「PHP」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是完全相反的描述，不適用於 PHP。",
-        "B": "這與 PHP 無關，是另一種技術的特徵。",
-        "C": "PHP 是構建現代動態網頁應用的重要元素。",
-        "D": "這描述雖然常見，但在 PHP 的情境下是錯誤的。"
-      },
-      "answer": "C",
-      "explanation": "此題測試學生對「PHP」的理解。正確答案為 C。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B4-GEN-V11",
-      "question": "關於 2B4 伺服器端與客戶端編程 中的「PHP」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這描述雖然常見，但在 PHP 的情境下是錯誤的。",
-        "B": "這是完全相反的描述，不適用於 PHP。",
-        "C": "PHP 是構建現代動態網頁應用的重要元素。",
-        "D": "這與 PHP 無關，是另一種技術的特徵。"
-      },
-      "answer": "C",
-      "explanation": "此題測試學生對「PHP」的理解。正確答案為 C。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B4-GEN-V12",
-      "question": "關於 2B4 伺服器端與客戶端編程 中的「JavaScript」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這與 JavaScript 無關，是另一種技術的特徵。",
-        "B": "這是完全相反的描述，不適用於 JavaScript。",
-        "C": "這描述雖然常見，但在 JavaScript 的情境下是錯誤的。",
-        "D": "這是 JavaScript 的標準定義或特徵，符合香港 ICT 課程指引要求。"
-      },
-      "answer": "D",
-      "explanation": "此題測試學生對「JavaScript」的理解。正確答案為 D。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B4-GEN-V13",
-      "question": "關於 2B4 伺服器端與客戶端編程 中的「PHP」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這與 PHP 無關，是另一種技術的特徵。",
-        "B": "PHP 是構建現代動態網頁應用的重要元素。",
-        "C": "這描述雖然常見，但在 PHP 的情境下是錯誤的。",
-        "D": "這是完全相反的描述，不適用於 PHP。"
-      },
-      "answer": "B",
-      "explanation": "此題測試學生對「PHP」的理解。正確答案為 B。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B4-GEN-V14",
-      "question": "關於 2B4 伺服器端與客戶端編程 中的「PHP」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是完全相反的描述，不適用於 PHP。",
-        "B": "這與 PHP 無關，是另一種技術的特徵。",
-        "C": "PHP 是構建現代動態網頁應用的重要元素。",
-        "D": "這描述雖然常見，但在 PHP 的情境下是錯誤的。"
-      },
-      "answer": "C",
-      "explanation": "此題測試學生對「PHP」的理解。正確答案為 C。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B4-GEN-V15",
-      "question": "關於 2B4 伺服器端與客戶端編程 中的「PHP」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這描述雖然常見，但在 PHP 的情境下是錯誤的。",
-        "B": "這與 PHP 無關，是另一種技術的特徵。",
-        "C": "PHP 是構建現代動態網頁應用的重要元素。",
-        "D": "這是完全相反的描述，不適用於 PHP。"
-      },
-      "answer": "C",
-      "explanation": "此題測試學生對「PHP」的理解。正確答案為 C。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B4-GEN-V16",
-      "question": "關於 2B4 伺服器端與客戶端編程 中的「JavaScript」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這與 JavaScript 無關，是另一種技術的特徵。",
-        "B": "這是完全相反的描述，不適用於 JavaScript。",
-        "C": "這是 JavaScript 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "D": "這描述雖然常見，但在 JavaScript 的情境下是錯誤的。"
-      },
-      "answer": "C",
-      "explanation": "此題測試學生對「JavaScript」的理解。正確答案為 C。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B4-GEN-V17",
-      "question": "關於 2B4 伺服器端與客戶端編程 中的「PHP」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是完全相反的描述，不適用於 PHP。",
-        "B": "PHP 是構建現代動態網頁應用的重要元素。",
-        "C": "這與 PHP 無關，是另一種技術的特徵。",
-        "D": "這描述雖然常見，但在 PHP 的情境下是錯誤的。"
-      },
-      "answer": "B",
-      "explanation": "此題測試學生對「PHP」的理解。正確答案為 B。",
-      "source": "AI生成"
+      "source": "Claude AI"
     }
   ],
   "2B5": [
@@ -1059,7 +188,7 @@
       },
       "answer": "C",
       "explanation": "Length Check 驗證字元數；若還檢查字母+數字組合則屬 Format Check。",
-      "source": "AI 生成"
+      "source": "Claude AI"
     },
     {
       "id": "2B5-Q2",
@@ -1072,7 +201,7 @@
       },
       "answer": "B",
       "explanation": "Fixed Value Check 檢查輸入是否符合預設清單（如 M/F、地區代號等）。",
-      "source": "AI 生成"
+      "source": "Claude AI"
     },
     {
       "id": "2B5-GEN-1",
@@ -1085,228 +214,7 @@
       },
       "answer": "D",
       "explanation": "此題考核 2B5 數據驗證 的核心概念。正確答案為 D: 長度檢查（Length Check）。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B5-GEN-V2",
-      "question": "關於 2B5 數據驗證 中的「Range」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這描述雖然常見，但在 Range 的情境下是錯誤的。",
-        "B": "這是 Range 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "C": "這與 Range 無關，是另一種技術的特徵。",
-        "D": "這是完全相反的描述，不適用於 Range。"
-      },
-      "answer": "B",
-      "explanation": "此題測試學生對「Range」的理解。正確答案為 B。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B5-GEN-V3",
-      "question": "關於 2B5 數據驗證 中的「Length Check」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是完全相反的描述，不適用於 Length Check。",
-        "B": "這是 Length Check 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "C": "這與 Length Check 無關，是另一種技術的特徵。",
-        "D": "這描述雖然常見，但在 Length Check 的情境下是錯誤的。"
-      },
-      "answer": "B",
-      "explanation": "此題測試學生對「Length Check」的理解。正確答案為 B。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B5-GEN-V4",
-      "question": "關於 2B5 數據驗證 中的「Range」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這與 Range 無關，是另一種技術的特徵。",
-        "B": "這是 Range 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "C": "這是完全相反的描述，不適用於 Range。",
-        "D": "這描述雖然常見，但在 Range 的情境下是錯誤的。"
-      },
-      "answer": "B",
-      "explanation": "此題測試學生對「Range」的理解。正確答案為 B。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B5-GEN-V5",
-      "question": "關於 2B5 數據驗證 中的「Range」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是完全相反的描述，不適用於 Range。",
-        "B": "這描述雖然常見，但在 Range 的情境下是錯誤的。",
-        "C": "這是 Range 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "D": "這與 Range 無關，是另一種技術的特徵。"
-      },
-      "answer": "C",
-      "explanation": "此題測試學生對「Range」的理解。正確答案為 C。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B5-GEN-V6",
-      "question": "關於 2B5 數據驗證 中的「Length Check」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是完全相反的描述，不適用於 Length Check。",
-        "B": "這與 Length Check 無關，是另一種技術的特徵。",
-        "C": "這描述雖然常見，但在 Length Check 的情境下是錯誤的。",
-        "D": "這是 Length Check 的標準定義或特徵，符合香港 ICT 課程指引要求。"
-      },
-      "answer": "D",
-      "explanation": "此題測試學生對「Length Check」的理解。正確答案為 D。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B5-GEN-V7",
-      "question": "關於 2B5 數據驗證 中的「Length Check」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是 Length Check 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "B": "這與 Length Check 無關，是另一種技術的特徵。",
-        "C": "這描述雖然常見，但在 Length Check 的情境下是錯誤的。",
-        "D": "這是完全相反的描述，不適用於 Length Check。"
-      },
-      "answer": "A",
-      "explanation": "此題測試學生對「Length Check」的理解。正確答案為 A。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B5-GEN-V8",
-      "question": "關於 2B5 數據驗證 中的「Presence」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這與 Presence 無關，是另一種技術的特徵。",
-        "B": "這是 Presence 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "C": "這是完全相反的描述，不適用於 Presence。",
-        "D": "這描述雖然常見，但在 Presence 的情境下是錯誤的。"
-      },
-      "answer": "B",
-      "explanation": "此題測試學生對「Presence」的理解。正確答案為 B。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B5-GEN-V9",
-      "question": "關於 2B5 數據驗證 中的「Format」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是完全相反的描述，不適用於 Format。",
-        "B": "這描述雖然常見，但在 Format 的情境下是錯誤的。",
-        "C": "這是 Format 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "D": "這與 Format 無關，是另一種技術的特徵。"
-      },
-      "answer": "C",
-      "explanation": "此題測試學生對「Format」的理解。正確答案為 C。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B5-GEN-V10",
-      "question": "關於 2B5 數據驗證 中的「Format」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這描述雖然常見，但在 Format 的情境下是錯誤的。",
-        "B": "這是完全相反的描述，不適用於 Format。",
-        "C": "這與 Format 無關，是另一種技術的特徵。",
-        "D": "這是 Format 的標準定義或特徵，符合香港 ICT 課程指引要求。"
-      },
-      "answer": "D",
-      "explanation": "此題測試學生對「Format」的理解。正確答案為 D。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B5-GEN-V11",
-      "question": "關於 2B5 數據驗證 中的「Length Check」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是完全相反的描述，不適用於 Length Check。",
-        "B": "這是 Length Check 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "C": "這描述雖然常見，但在 Length Check 的情境下是錯誤的。",
-        "D": "這與 Length Check 無關，是另一種技術的特徵。"
-      },
-      "answer": "B",
-      "explanation": "此題測試學生對「Length Check」的理解。正確答案為 B。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B5-GEN-V12",
-      "question": "關於 2B5 數據驗證 中的「Format」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是 Format 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "B": "這是完全相反的描述，不適用於 Format。",
-        "C": "這描述雖然常見，但在 Format 的情境下是錯誤的。",
-        "D": "這與 Format 無關，是另一種技術的特徵。"
-      },
-      "answer": "A",
-      "explanation": "此題測試學生對「Format」的理解。正確答案為 A。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B5-GEN-V13",
-      "question": "關於 2B5 數據驗證 中的「Presence」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這描述雖然常見，但在 Presence 的情境下是錯誤的。",
-        "B": "這是完全相反的描述，不適用於 Presence。",
-        "C": "這與 Presence 無關，是另一種技術的特徵。",
-        "D": "這是 Presence 的標準定義或特徵，符合香港 ICT 課程指引要求。"
-      },
-      "answer": "D",
-      "explanation": "此題測試學生對「Presence」的理解。正確答案為 D。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B5-GEN-V14",
-      "question": "關於 2B5 數據驗證 中的「Length Check」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這與 Length Check 無關，是另一種技術的特徵。",
-        "B": "這是 Length Check 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "C": "這描述雖然常見，但在 Length Check 的情境下是錯誤的。",
-        "D": "這是完全相反的描述，不適用於 Length Check。"
-      },
-      "answer": "B",
-      "explanation": "此題測試學生對「Length Check」的理解。正確答案為 B。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B5-GEN-V15",
-      "question": "關於 2B5 數據驗證 中的「Range」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這描述雖然常見，但在 Range 的情境下是錯誤的。",
-        "B": "這與 Range 無關，是另一種技術的特徵。",
-        "C": "這是 Range 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "D": "這是完全相反的描述，不適用於 Range。"
-      },
-      "answer": "C",
-      "explanation": "此題測試學生對「Range」的理解。正確答案為 C。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B5-GEN-V16",
-      "question": "關於 2B5 數據驗證 中的「Range」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是完全相反的描述，不適用於 Range。",
-        "B": "這與 Range 無關，是另一種技術的特徵。",
-        "C": "這描述雖然常見，但在 Range 的情境下是錯誤的。",
-        "D": "這是 Range 的標準定義或特徵，符合香港 ICT 課程指引要求。"
-      },
-      "answer": "D",
-      "explanation": "此題測試學生對「Range」的理解。正確答案為 D。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B5-GEN-V17",
-      "question": "關於 2B5 數據驗證 中的「Length Check」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這與 Length Check 無關，是另一種技術的特徵。",
-        "B": "這是完全相反的描述，不適用於 Length Check。",
-        "C": "這描述雖然常見，但在 Length Check 的情境下是錯誤的。",
-        "D": "這是 Length Check 的標準定義或特徵，符合香港 ICT 課程指引要求。"
-      },
-      "answer": "D",
-      "explanation": "此題測試學生對「Length Check」的理解。正確答案為 D。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B5-GEN-V18",
-      "question": "關於 2B5 數據驗證 中的「Presence」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這與 Presence 無關，是另一種技術的特徵。",
-        "B": "這是 Presence 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "C": "這是完全相反的描述，不適用於 Presence。",
-        "D": "這描述雖然常見，但在 Presence 的情境下是錯誤的。"
-      },
-      "answer": "B",
-      "explanation": "此題測試學生對「Presence」的理解。正確答案為 B。",
-      "source": "AI生成"
+      "source": "Claude AI"
     }
   ],
   "2B6": [
@@ -1321,7 +229,7 @@
       },
       "answer": "B",
       "explanation": "參數化查詢將使用者輸入視為純資料，不會被解釋為 SQL 指令。",
-      "source": "AI 生成"
+      "source": "Claude AI"
     },
     {
       "id": "2B6-Q2",
@@ -1334,7 +242,7 @@
       },
       "answer": "D",
       "explanation": "Cookie 是儲存於客戶端的小型資料，與 CPU 性能無關。",
-      "source": "AI 生成"
+      "source": "Claude AI"
     },
     {
       "id": "2B6-GEN-1",
@@ -1347,228 +255,7 @@
       },
       "answer": "C",
       "explanation": "此題考核 2B6 網頁安全與私私 的核心概念。正確答案為 C: 使用參數化查詢（Prepared Statements）。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B6-GEN-V2",
-      "question": "關於 2B6 網頁安全與私私 中的「Cookies」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是完全相反的描述，不適用於 Cookies。",
-        "B": "這描述雖然常見，但在 Cookies 的情境下是錯誤的。",
-        "C": "這與 Cookies 無關，是另一種技術的特徵。",
-        "D": "這是 Cookies 的標準定義或特徵，符合香港 ICT 課程指引要求。"
-      },
-      "answer": "D",
-      "explanation": "此題測試學生對「Cookies」的理解。正確答案為 D。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B6-GEN-V3",
-      "question": "關於 2B6 網頁安全與私私 中的「XSS」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這描述雖然常見，但在 XSS 的情境下是錯誤的。",
-        "B": "這是完全相反的描述，不適用於 XSS。",
-        "C": "這是 XSS 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "D": "這與 XSS 無關，是另一種技術的特徵。"
-      },
-      "answer": "C",
-      "explanation": "此題測試學生對「XSS」的理解。正確答案為 C。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B6-GEN-V4",
-      "question": "關於 2B6 網頁安全與私私 中的「XSS」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這與 XSS 無關，是另一種技術的特徵。",
-        "B": "這是 XSS 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "C": "這是完全相反的描述，不適用於 XSS。",
-        "D": "這描述雖然常見，但在 XSS 的情境下是錯誤的。"
-      },
-      "answer": "B",
-      "explanation": "此題測試學生對「XSS」的理解。正確答案為 B。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B6-GEN-V5",
-      "question": "關於 2B6 網頁安全與私私 中的「SQL Injection」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "SQL Injection 能有效管理數據結構並確保資料完整性。",
-        "B": "這描述雖然常見，但在 SQL Injection 的情境下是錯誤的。",
-        "C": "這與 SQL Injection 無關，是另一種技術的特徵。",
-        "D": "這是完全相反的描述，不適用於 SQL Injection。"
-      },
-      "answer": "A",
-      "explanation": "此題測試學生對「SQL Injection」的理解。正確答案為 A。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B6-GEN-V6",
-      "question": "關於 2B6 網頁安全與私私 中的「Cookies」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這與 Cookies 無關，是另一種技術的特徵。",
-        "B": "這是 Cookies 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "C": "這是完全相反的描述，不適用於 Cookies。",
-        "D": "這描述雖然常見，但在 Cookies 的情境下是錯誤的。"
-      },
-      "answer": "B",
-      "explanation": "此題測試學生對「Cookies」的理解。正確答案為 B。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B6-GEN-V7",
-      "question": "關於 2B6 網頁安全與私私 中的「XSS」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是 XSS 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "B": "這是完全相反的描述，不適用於 XSS。",
-        "C": "這描述雖然常見，但在 XSS 的情境下是錯誤的。",
-        "D": "這與 XSS 無關，是另一種技術的特徵。"
-      },
-      "answer": "A",
-      "explanation": "此題測試學生對「XSS」的理解。正確答案為 A。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B6-GEN-V8",
-      "question": "關於 2B6 網頁安全與私私 中的「SQL Injection」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是完全相反的描述，不適用於 SQL Injection。",
-        "B": "這描述雖然常見，但在 SQL Injection 的情境下是錯誤的。",
-        "C": "SQL Injection 能有效管理數據結構並確保資料完整性。",
-        "D": "這與 SQL Injection 無關，是另一種技術的特徵。"
-      },
-      "answer": "C",
-      "explanation": "此題測試學生對「SQL Injection」的理解。正確答案為 C。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B6-GEN-V9",
-      "question": "關於 2B6 網頁安全與私私 中的「Cookies」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是 Cookies 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "B": "這描述雖然常見，但在 Cookies 的情境下是錯誤的。",
-        "C": "這是完全相反的描述，不適用於 Cookies。",
-        "D": "這與 Cookies 無關，是另一種技術的特徵。"
-      },
-      "answer": "A",
-      "explanation": "此題測試學生對「Cookies」的理解。正確答案為 A。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B6-GEN-V10",
-      "question": "關於 2B6 網頁安全與私私 中的「SQL Injection」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "SQL Injection 能有效管理數據結構並確保資料完整性。",
-        "B": "這與 SQL Injection 無關，是另一種技術的特徵。",
-        "C": "這是完全相反的描述，不適用於 SQL Injection。",
-        "D": "這描述雖然常見，但在 SQL Injection 的情境下是錯誤的。"
-      },
-      "answer": "A",
-      "explanation": "此題測試學生對「SQL Injection」的理解。正確答案為 A。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B6-GEN-V11",
-      "question": "關於 2B6 網頁安全與私私 中的「XSS」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這描述雖然常見，但在 XSS 的情境下是錯誤的。",
-        "B": "這是 XSS 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "C": "這是完全相反的描述，不適用於 XSS。",
-        "D": "這與 XSS 無關，是另一種技術的特徵。"
-      },
-      "answer": "B",
-      "explanation": "此題測試學生對「XSS」的理解。正確答案為 B。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B6-GEN-V12",
-      "question": "關於 2B6 網頁安全與私私 中的「SQL Injection」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這描述雖然常見，但在 SQL Injection 的情境下是錯誤的。",
-        "B": "SQL Injection 能有效管理數據結構並確保資料完整性。",
-        "C": "這與 SQL Injection 無關，是另一種技術的特徵。",
-        "D": "這是完全相反的描述，不適用於 SQL Injection。"
-      },
-      "answer": "B",
-      "explanation": "此題測試學生對「SQL Injection」的理解。正確答案為 B。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B6-GEN-V13",
-      "question": "關於 2B6 網頁安全與私私 中的「Cookies」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是 Cookies 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "B": "這與 Cookies 無關，是另一種技術的特徵。",
-        "C": "這描述雖然常見，但在 Cookies 的情境下是錯誤的。",
-        "D": "這是完全相反的描述，不適用於 Cookies。"
-      },
-      "answer": "A",
-      "explanation": "此題測試學生對「Cookies」的理解。正確答案為 A。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B6-GEN-V14",
-      "question": "關於 2B6 網頁安全與私私 中的「Cookies」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這與 Cookies 無關，是另一種技術的特徵。",
-        "B": "這是 Cookies 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "C": "這是完全相反的描述，不適用於 Cookies。",
-        "D": "這描述雖然常見，但在 Cookies 的情境下是錯誤的。"
-      },
-      "answer": "B",
-      "explanation": "此題測試學生對「Cookies」的理解。正確答案為 B。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B6-GEN-V15",
-      "question": "關於 2B6 網頁安全與私私 中的「SQL Injection」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這與 SQL Injection 無關，是另一種技術的特徵。",
-        "B": "這描述雖然常見，但在 SQL Injection 的情境下是錯誤的。",
-        "C": "SQL Injection 能有效管理數據結構並確保資料完整性。",
-        "D": "這是完全相反的描述，不適用於 SQL Injection。"
-      },
-      "answer": "C",
-      "explanation": "此題測試學生對「SQL Injection」的理解。正確答案為 C。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B6-GEN-V16",
-      "question": "關於 2B6 網頁安全與私私 中的「Cookies」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是 Cookies 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "B": "這描述雖然常見，但在 Cookies 的情境下是錯誤的。",
-        "C": "這與 Cookies 無關，是另一種技術的特徵。",
-        "D": "這是完全相反的描述，不適用於 Cookies。"
-      },
-      "answer": "A",
-      "explanation": "此題測試學生對「Cookies」的理解。正確答案為 A。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B6-GEN-V17",
-      "question": "關於 2B6 網頁安全與私私 中的「SQL Injection」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是完全相反的描述，不適用於 SQL Injection。",
-        "B": "SQL Injection 能有效管理數據結構並確保資料完整性。",
-        "C": "這與 SQL Injection 無關，是另一種技術的特徵。",
-        "D": "這描述雖然常見，但在 SQL Injection 的情境下是錯誤的。"
-      },
-      "answer": "B",
-      "explanation": "此題測試學生對「SQL Injection」的理解。正確答案為 B。",
-      "source": "AI生成"
-    },
-    {
-      "id": "2B6-GEN-V18",
-      "question": "關於 2B6 網頁安全與私私 中的「Cookies」，下列哪一項描述是正確的？",
-      "options": {
-        "A": "這是 Cookies 的標準定義或特徵，符合香港 ICT 課程指引要求。",
-        "B": "這是完全相反的描述，不適用於 Cookies。",
-        "C": "這描述雖然常見，但在 Cookies 的情境下是錯誤的。",
-        "D": "這與 Cookies 無關，是另一種技術的特徵。"
-      },
-      "answer": "A",
-      "explanation": "此題測試學生對「Cookies」的理解。正確答案為 A。",
-      "source": "AI生成"
+      "source": "Claude AI"
     }
   ]
 }

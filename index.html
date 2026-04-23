@@ -830,10 +830,7 @@ function TestSetupModal({ questionBank, onStart, onClose }) {
     curriculumData.forEach(u => {
       let total = 0;
       u.sections.forEach(s => {
-        total += (questionBank[s.id] || []).filter(q => {
-          const src = String(q.source || '').trim().toLowerCase();
-          return src !== 'ai生成' && src !== 'ai 生成' && src !== 'ai-generated' && src !== 'ai generated';
-        }).length;
+        total += (questionBank[s.id] || []).length;
       });
       m[u.id] = total;
     });
@@ -846,10 +843,6 @@ function TestSetupModal({ questionBank, onStart, onClose }) {
       if (!selected.has(u.id)) return;
       u.sections.forEach(s => {
         (questionBank[s.id] || [])
-          .filter(q => {
-            const src = String(q.source || '').trim().toLowerCase();
-            return src !== 'ai生成' && src !== 'ai 生成' && src !== 'ai-generated' && src !== 'ai generated';
-          })
           .forEach(q => qs.push({ ...q, sectionId: s.id, unitId: u.id }));
       });
     });
@@ -882,7 +875,6 @@ function TestSetupModal({ questionBank, onStart, onClose }) {
         </div>
         <div className="p-5 overflow-y-auto flex-1">
           <div className="mb-4">
-            <div className="mb-2 text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded p-2">⚠️ 測驗模式會自動排除 source 為「AI生成」的題目；答題練習則不受影響。</div>
             <h3 className="font-bold text-slate-700 mb-2">1️⃣ 選擇單元範圍</h3>
             <div className="space-y-1">
               {curriculumData.map(u => (
