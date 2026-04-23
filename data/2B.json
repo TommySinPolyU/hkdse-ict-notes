@@ -38,6 +38,45 @@
       "answer": "B",
       "explanation": "DNS 將網域名稱轉換為 IP 地址，之後瀏覽器才連接到該 IP 的 Web Server。",
       "source": "AI 生成"
+    },
+    {
+      "id": "2B-01",
+      "question": "下列哪一種伺服器負責自動分配 IP 地址給網絡中的電腦？",
+      "options": {
+        "A": "Proxy server（代理伺服器）",
+        "B": "Web server（網頁伺服器）",
+        "C": "DHCP 伺服器",
+        "D": "Gateway（網間連接器）"
+      },
+      "answer": "C",
+      "explanation": "DHCP（動態主機配置協定）伺服器負責自動分配 IP 地址、子網掩碼等網絡參數給客戶端。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2B-02",
+      "question": "Proxy server（代理伺服器）的主要功能之一是什麼？",
+      "options": {
+        "A": "將域名轉換為 IP 地址",
+        "B": "快取（Cache）網頁內容以提升存取速度及過濾不當內容",
+        "C": "儲存公司的關聯式數據庫",
+        "D": "統一管理網域內的使用者登入權限"
+      },
+      "answer": "B",
+      "explanation": "代理伺服器充當客戶端與互聯網之間的中介，提供快取以節省頻寬，並可設置防火牆或內容過濾規則。管理使用者登入權限的是 Domain controller。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2B-03",
+      "question": "HTTP 協定中，關於 GET 和 POST 的通訊與保安考量，何者正確？",
+      "options": {
+        "A": "GET 方法的參數顯示在 URL 中，較不適合傳送敏感資訊",
+        "B": "POST 方法執行的速度永遠比 GET 快",
+        "C": "GET 沒有資料長度限制，POST 則有嚴格長度限制",
+        "D": "GET 只使用於 HTTPS，POST 使用於 HTTP"
+      },
+      "answer": "A",
+      "explanation": "GET 的參數在 URL 可見且有長度限制，不安全；POST 將參數藏在 HTTP request body 中，適合傳遞敏感及大量數據。",
+      "source": "AI生成"
     }
   ],
   "2B2": [
@@ -66,6 +105,32 @@
       "answer": "C",
       "explanation": "200 OK；404 Not Found；500 Internal Server Error；401 Unauthorized。",
       "source": "AI 生成"
+    },
+    {
+      "id": "2B-04",
+      "question": "在網頁程式編寫中，內部樣式表（Internal CSS）與外部樣式表（External CSS）相比有何缺點？",
+      "options": {
+        "A": "無法控制文字大小",
+        "B": "不利於多個網頁共用同一套樣式，維護較困難",
+        "C": "只能在伺服器端執行",
+        "D": "無法與 HTML5 相容"
+      },
+      "answer": "B",
+      "explanation": "External CSS 把樣式獨立為 .css 檔案，所有網頁均可載入，修改時只需改一次。Internal CSS 只能寫在單一 HTML 檔案的 <style> 標籤內。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2B-05",
+      "question": "下列哪種程式語言主要在「伺服器端（Server-side）」執行，用來處理表單數據及連接數據庫？",
+      "options": {
+        "A": "JavaScript",
+        "B": "CSS",
+        "C": "PHP",
+        "D": "HTML"
+      },
+      "answer": "C",
+      "explanation": "PHP 是伺服器端語言，負責後端邏輯與資料庫互動；JavaScript 是客戶端（Client-side）語言，負責瀏覽器前端互動。HTML/CSS 是標記/樣式語言。",
+      "source": "AI生成"
     }
   ],
   "2B3": [
@@ -94,6 +159,58 @@
       "answer": "B",
       "explanation": "執行檔需要讀取和執行權限，但不應給 W 以防被修改或感染。",
       "source": "AI 生成"
+    },
+    {
+      "id": "2B-06",
+      "question": "使用者註冊時，密碼欄位被設定為「不能留空」，這屬於哪一種數據驗證方法？",
+      "options": {
+        "A": "格式檢查（Format Check）",
+        "B": "長度檢查（Length Check）",
+        "C": "存在性檢查（Presence Check）",
+        "D": "範圍檢查（Range Check）"
+      },
+      "answer": "C",
+      "explanation": "確保必須輸入數據（不能留空）的驗證稱為存在性檢查（Presence Check）。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2B-07",
+      "question": "若系統要求輸入的考試分數必須介於 0 至 100 之間，這是什麼驗證？",
+      "options": {
+        "A": "類型檢查（Type Check）",
+        "B": "範圍檢查（Range Check）",
+        "C": "固定值檢查（Fixed Value Check）",
+        "D": "存在性檢查（Presence Check）"
+      },
+      "answer": "B",
+      "explanation": "檢查數值是否落在指定的上下限內，屬於範圍檢查（Range Check）。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2B-08",
+      "question": "網頁如何防範 SQL 注入攻擊（SQL Injection）？",
+      "options": {
+        "A": "完全不使用 SQL 數據庫",
+        "B": "對使用者輸入進行過濾並使用參數化查詢",
+        "C": "在 HTML 中隱藏表單欄位",
+        "D": "使用 GET 取代 POST 傳輸資料"
+      },
+      "answer": "B",
+      "explanation": "SQL Injection 攻擊是透過輸入惡意 SQL 語法破壞資料庫。最佳防範是進行輸入驗證、過濾特殊字元，以及在 PHP 中使用參數化查詢（Prepared Statements）。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2B-09",
+      "question": "Cookies 在網頁應用中的主要功能是什麼？",
+      "options": {
+        "A": "在伺服器端儲存龐大的數據庫",
+        "B": "在客戶端瀏覽器儲存小量資料，以辨識用戶或保持登入狀態",
+        "C": "攔截所有的網絡攻擊",
+        "D": "取代 HTML 以顯示網頁內容"
+      },
+      "answer": "B",
+      "explanation": "Cookies 是儲存在使用者瀏覽器的小型純文字檔，用於記錄用戶偏好、購物車狀態或維持登入 session（狀態管理），但有隱私洩露風險。",
+      "source": "AI生成"
     }
   ],
   "2B4": [

@@ -25,6 +25,32 @@
       "answer": "B",
       "explanation": "Local 局部變數只在該子程序中可見，離開後自動釋放；應優先使用以避免副作用。",
       "source": "AI 生成"
+    },
+    {
+      "id": "2C-01",
+      "question": "在呼叫子程序時，若使用「傳值（Pass by value）」，下列敘述何者正確？",
+      "options": {
+        "A": "子程序內部對該參數的修改會直接改變主程式中的原始變數",
+        "B": "子程序接收的是原始變數的副本，修改不會影響原始變數",
+        "C": "不需要佔用額外的記憶體空間",
+        "D": "該參數必須是全域變數（Global variable）"
+      },
+      "answer": "B",
+      "explanation": "傳值（Pass by value）只傳遞資料的副本；而傳址（Pass by reference）則是傳遞記憶體位址，會修改到原變數。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C-02",
+      "question": "全域變數（Global variable）與局部變數（Local variable）的主要差別為何？",
+      "options": {
+        "A": "全域變數只能在子程序內使用",
+        "B": "局部變數的作用域（Scope）僅限於宣告它的子程序內",
+        "C": "局部變數會一直保存在記憶體中直到程式結束",
+        "D": "全域變數不能被賦予初始值"
+      },
+      "answer": "B",
+      "explanation": "局部變數只在其宣告的模組/子程序內有效，執行完畢即被釋放；全域變數則在整個程式運行期間皆可被任何模組存取，容易造成意外改寫的錯誤。",
+      "source": "AI生成"
     }
   ],
   "2C2": [
@@ -79,6 +105,45 @@
       "answer": "D",
       "explanation": "狀態變化：[1]→[1,2]→[1,2,3]→pop 3 得[1,2]→push 4 得[1,2,4]。頂端為 4。",
       "source": "AI 生成"
+    },
+    {
+      "id": "2C-03",
+      "question": "哪種資料結構最適合用來實作瀏覽器的「上一頁（Back）」功能？",
+      "options": {
+        "A": "隊列（Queue）",
+        "B": "堆疊（Stack）",
+        "C": "鏈結串列（Linked List）",
+        "D": "二維陣列（2D Array）"
+      },
+      "answer": "B",
+      "explanation": "瀏覽器歷史紀錄符合「後進先出（LIFO）」特性，最後造訪的網頁會最先被退回，因此最適合使用 Stack。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C-04",
+      "question": "隊列（Queue）的運作特性是什麼？",
+      "options": {
+        "A": "先進先出（FIFO）",
+        "B": "後進先出（LIFO）",
+        "C": "隨機存取",
+        "D": "只能從中間插入"
+      },
+      "answer": "A",
+      "explanation": "Queue 的操作（如 enqueue 和 dequeue）就像排隊一樣，先加入的元素先被處理（First In First Out）。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C-05",
+      "question": "鏈結串列（Linked List）的每一個節點（Node）通常包含什麼？",
+      "options": {
+        "A": "只有資料本身",
+        "B": "資料和指向前一個節點的 IP 地址",
+        "C": "資料和指向下一個節點的指標（Pointer）",
+        "D": "一個完整的堆疊"
+      },
+      "answer": "C",
+      "explanation": "Linked List 由多個節點組成，每個節點儲存資料（Data）以及一個指向下一個節點記憶體位址的指標（Pointer）。",
+      "source": "AI生成"
     }
   ],
   "2C3": [
@@ -107,6 +172,58 @@
       "answer": "A",
       "explanation": "log₂(1024) = 10，最多 10 次比較。",
       "source": "AI 生成"
+    },
+    {
+      "id": "2C-06",
+      "question": "使用二分搜尋法（Binary Search）有一個絕對前提，是什麼？",
+      "options": {
+        "A": "陣列的長度必須是偶數",
+        "B": "陣列中的資料必須已經預先排序",
+        "C": "目標值必須存在於陣列中",
+        "D": "只能用於整數搜尋"
+      },
+      "answer": "B",
+      "explanation": "二分搜尋法依賴比對中間值來排除一半的範圍，如果資料未經排序，則無法判斷目標值在左半部還是右半部。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C-07",
+      "question": "「在未排序的部分中尋找最小（或最大）的值，然後將它與未排序部分的第一個元素交換。」這是哪種排序演算法的特徵？",
+      "options": {
+        "A": "冒泡排序（Bubble Sort）",
+        "B": "插入排序（Insertion Sort）",
+        "C": "選擇排序（Selection Sort）",
+        "D": "二分排序"
+      },
+      "answer": "C",
+      "explanation": "選擇排序（Selection Sort）的核心思想是「找最小放前面」；冒泡排序是「相鄰交換像氣泡上升」；插入排序是「像打牌一樣排隊插隊」。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C-08",
+      "question": "冒泡排序（Bubble Sort）在最壞情況下的時間複雜度（Time Complexity）是多少？",
+      "options": {
+        "A": "O(1)",
+        "B": "O(log n)",
+        "C": "O(n)",
+        "D": "O(n^2)"
+      },
+      "answer": "D",
+      "explanation": "冒泡排序在最壞情況下（如完全逆序），需要進行兩層迴圈的比較與交換，複雜度為 O(n^2)。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2C-09",
+      "question": "什麼是事件驅動程式設計（Event-driven Programming）？",
+      "options": {
+        "A": "程式由頭到尾按順序執行一次便結束",
+        "B": "程式的執行流程取決於特定事件的觸發（如滑鼠點擊、感測器信號）",
+        "C": "程式只能在指定的時間自動啟動",
+        "D": "完全不使用任何迴圈或子程序"
+      },
+      "answer": "B",
+      "explanation": "事件驅動編程常見於圖形使用者介面（GUI）或物聯網應用中，程式會處於等待狀態（如 Forever loop），當特定事件（Event）發生時才執行對應的程式碼。",
+      "source": "AI生成"
     }
   ],
   "2C4": [

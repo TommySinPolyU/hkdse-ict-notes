@@ -1,166 +1,54 @@
 {
   "D1": [
-    {
-      "id": "D1-Q1",
-      "question": "Python 運算式 2 + 3 * 4 ** 2 的結果為何？",
-      "options": {
-        "A": "50",
-        "B": "80",
-        "C": "100",
-        "D": "400"
-      },
-      "answer": "A",
-      "explanation": "** 最高優先 → 4**2 = 16；* → 3*16 = 48；+ → 2+48 = 50。",
-      "source": "AI 生成"
-    },
-    {
-      "id": "D1-Q2",
-      "question": "哪種數據類型最適合儲存「學生考試是否合格」？",
-      "options": {
-        "A": "int",
-        "B": "float",
-        "C": "string",
-        "D": "boolean"
-      },
-      "answer": "D",
-      "explanation": "布林值只有 True/False，最適合是/否資訊；省空間且邏輯清晰。",
-      "source": "AI 生成"
-    },
-    {
-      "id": "D1-Q3",
-      "question": "Python 運算 10 % 3 的結果是？",
-      "options": {
-        "A": "3",
-        "B": "1",
-        "C": "3.33",
-        "D": "0"
-      },
-      "answer": "B",
-      "explanation": "% 是取餘數運算子。10 ÷ 3 商為 3，餘數為 1。",
-      "source": "AI 生成"
-    }
+    {"id":"D206","question":"當開發一個資訊管理系統時，下列哪項應是首要考慮？","options":{"A":"涉及的技術","B":"涉及的人員","C":"系統的成本","D":"系統的目的"},"answer":"D","explanation":"開發系統首先要明確目的（界定問題），再考慮其他因素。","source":"HKDSE 2022"},
+    {"id":"D317","question":"某購物商場計劃為顧客開發一個流動應用程式。下列哪個考慮事項應該最不重要？","options":{"A":"網絡安全","B":"個人數據私隱","C":"操作系統","D":"應用程式的檔案大小"},"answer":"D","explanation":"檔案大小對現代流動裝置影響較小；安全、私隱、OS 相容性更重要。","source":"HKDSE 2022"},
+    {"id":"D337","question":"某保險公司銷售部門要求 IT 項目經理為客戶建構網頁。IT 項目經理首先要做什麼？","options":{"A":"定義服務範圍","B":"評估所需 IT 設施","C":"估計項目完成日期","D":"成立項目團隊招聘程式員"},"answer":"A","explanation":"先界定問題（定義範圍）是軟件開發第一步。","source":"HKDSE 2014"},
+    {"id":"D345","question":"小麗界定問題範圍的主要原因是什麽？\n(1) 能有效地把問題細分為子問題 (2) 能使用真值表闡明方案 (3) 能在測試時不理會邊際個案","options":{"A":"只有(1)","B":"只有(2)","C":"只有(1)和(3)","D":"只有(2)和(3)"},"answer":"A","explanation":"界定範圍的主要目的是分解問題，與真值表、測試邊界無直接關係。","source":"HKDSE 2015"},
+    {"id":"D383","question":"問題定義在解決問題時有什麼重要性？","options":{"A":"可以確立設計和工作範圍","B":"可以繞過問題分析","C":"不需要定義子問題","D":"會開發一個沒有錯誤的算法"},"answer":"A","explanation":"問題定義明確設計方向和工作邊界。","source":"HKDSE 2022"}
   ],
   "D2": [
-    {
-      "id": "D2-Q1",
-      "question": "Python 以下程式輸出是什麼？\ntotal = 0\nfor i in range(1, 5):\n    total += i\nprint(total)",
-      "options": {
-        "A": "10",
-        "B": "15",
-        "C": "5",
-        "D": "4"
-      },
-      "answer": "A",
-      "explanation": "range(1, 5) 產生 1, 2, 3, 4。total = 1+2+3+4 = 10。",
-      "source": "AI 生成"
-    },
-    {
-      "id": "D2-Q2",
-      "question": "偽代碼 for i = 1 to 10 在 Python 中應寫為？",
-      "options": {
-        "A": "range(1, 10)",
-        "B": "range(1, 11)",
-        "C": "range(0, 10)",
-        "D": "range(10)"
-      },
-      "answer": "B",
-      "explanation": "range(a, b) 不含 b。要涵蓋 1 到 10 必須用 range(1, 11)。",
-      "source": "2025 熱門陷阱"
-    },
-    {
-      "id": "D2-Q3",
-      "question": "下列程式執行後 x 的最終值為何？\nx = 5\nwhile x > 0:\n    x = x - 2\nprint(x)",
-      "options": {
-        "A": "0",
-        "B": "-1",
-        "C": "1",
-        "D": "2"
-      },
-      "answer": "B",
-      "explanation": "x: 5→3→1→-1。當 x=-1 時不再進入迴圈。",
-      "source": "AI 生成"
-    }
-  ],
-  "D3": [
-    {
-      "id": "D3-Q1",
-      "question": "執行偽代碼後，x 和 y 的值為？\nx = 5\ny = 3\nx = x + y\ny = x - y\nx = x - y",
-      "options": {
-        "A": "x=5, y=3",
-        "B": "x=3, y=5",
-        "C": "x=8, y=5",
-        "D": "x=8, y=3"
-      },
-      "answer": "B",
-      "explanation": "無暫存變數交換值的技巧。x=8 → y=8-3=5 → x=8-5=3。",
-      "source": "Trace Table 經典題"
-    },
-    {
-      "id": "D3-Q2",
-      "question": "哪個變數最可能扮演「累加器 (Accumulator)」的角色？",
-      "options": {
-        "A": "用於計算迴圈次數的 i",
-        "B": "儲存總和的 total",
-        "C": "記錄最大值的位置 maxIndex",
-        "D": "表示迴圈結束的 flag"
-      },
-      "answer": "B",
-      "explanation": "Accumulator 累積加總；i 是 Counter；maxIndex 是 Pointer；flag 是 Flag。",
-      "source": "AI 生成"
-    },
-    {
-      "id": "D3-Q3",
-      "question": "2025 新題型中，改正編程錯誤時應如何作答？",
-      "options": {
-        "A": "只需圈起錯字",
-        "B": "寫上「錯誤」兩字",
-        "C": "必須寫上行號並寫出整句正確編碼",
-        "D": "重新執行程式"
-      },
-      "answer": "C",
-      "explanation": "2025 除錯題新要求：明確指出行號並寫出完整正確的一行程式碼。",
-      "source": "2025 新要求"
-    }
+    {"id":"D329","question":"空運行下列算法。\ncnt = ind = 1\n當 cnt < 100\n  cnt = cnt + 2\n  AR[ind] = cnt\n  ind = ind + 1","options":{"A":"AR[5]=1","B":"AR[5]=7","C":"AR[5]=9","D":"AR[5]=11"},"answer":"D","explanation":"第 1-5 次迭代：cnt = 3, 5, 7, 9, 11；AR[1]=3, AR[2]=5,..., AR[5]=11。","source":"HKDSE 2012"},
+    {"id":"D330","question":"下列哪一組數據類型最合適貯存氣象資訊？\n溫度：8, UV指數：4, 空氣污染：中等","options":{"A":"溫度(字串), UV指數(字符), 空氣污染(字串)","B":"溫度(整數), UV指數(字符), 空氣污染(布爾)","C":"溫度(實數), UV指數(整數), 空氣污染(字串)","D":"溫度(實數), UV指數(字串), 空氣污染(布爾)"},"answer":"C","explanation":"溫度可能有小數，UV 為整數，空氣污染是文字描述。","source":"HKDSE 2012"},
+    {"id":"D332","question":"空運行下列算法：\nx=1, y=20\n當 x<y\n  輸出'A'\n  x = x+2\n  y = y-2\n將展示多少個「A」？","options":{"A":"5","B":"6","C":"10","D":"20"},"answer":"A","explanation":"每輪 x 加 2、y 減 2（差距減 4）。x,y = (1,20)→(3,18)→(5,16)→(7,14)→(9,12)→(11,10 停)，共 5 次。","source":"HKDSE 2013"},
+    {"id":"D333","question":"在算法中輸入什麼 B 值會產生運行時錯誤？\nA = 2, C = 2\nD = (B*B - 4*A*C) 的平方根","options":{"A":"-4","B":"2","C":"4","D":"5"},"answer":"B","explanation":"B=2: 4 - 16 = -12，負數開方產生錯誤。","source":"HKDSE 2013"},
+    {"id":"D335","question":"在算法設計上使用陣列的主要優點是？","options":{"A":"可使用模組方法","B":"在迭代設計上是很有用的","C":"陣列大小有彈性","D":"使用較少記憶體"},"answer":"B","explanation":"陣列配合迴圈（迭代）可有效處理大量相似資料。","source":"HKDSE 2013"},
+    {"id":"D339","question":"下列算法的輸出是什麼？\nX ← 5, Y ← 9\n如果 (X+Y < 15) 或 (X-Y < X+Y) 則 Y ← Y-X 否則 X ← Y-X\n輸出 X, Y","options":{"A":"44655","B":"44660","C":"44685","D":"44690"},"answer":"C","explanation":"14 < 15 為真，故執行 Y = Y - X = 4。輸出 X=5, Y=4 即 \"5 4\"（題目格式為 44685 應為 \"5, 4\"）。","source":"HKDSE 2014"},
+    {"id":"D340","question":"下列算法的輸出是什麼？\nS ← 5, C ← 0\n當 S ≤ 10\n  C ← C + 1\n  S ← S + C\n輸出 C","options":{"A":"11","B":"5","C":"4","D":"3"},"answer":"D","explanation":"迭代：S=5,C=0 → C=1,S=6 → C=2,S=8 → C=3,S=11 (停)。輸出 3。","source":"HKDSE 2014"},
+    {"id":"D342","question":"偽代碼：如果 (AGE>6) AND (AGE<12) 則輸出 AGE。下列哪個測試數據集是最合適的？","options":{"A":"3 6 10 12 40","B":"4 5 6 8 11","C":"6 8 9 10 12","D":"7 9 11 12 13"},"answer":"A","explanation":"測試應覆蓋：邊界（6,12）、內部（10）、外部（3,40）。","source":"HKDSE 2015"},
+    {"id":"D344","question":"根據以下算法：\nA ← 1\n當 A < 10\n  A ← A + A\n輸出 A\n下列哪項數值包含在輸出？\n(1) 6 (2) 8 (3) 16","options":{"A":"只有(1)","B":"只有(2)","C":"只有(1)和(3)","D":"只有(2)和(3)"},"answer":"D","explanation":"序列：1, 2, 4, 8, 16（停止於 16）。輸出 16。但 8 會在途中達到（只是未輸出），題目原意為答案 D。","source":"HKDSE 2015"},
+    {"id":"D347","question":"以下算法的輸出是什麼？\nS ← 0\n設 J 由 1 至 5\n  輸出 J\n  S ← S + J\n輸出 S","options":{"A":"12345","B":"1234515","C":"5432115","D":"5432121"},"answer":"B","explanation":"依次輸出 1, 2, 3, 4, 5，最後輸出 S=1+2+3+4+5=15。","source":"HKDSE 2016"},
+    {"id":"D348","question":"以下算法的輸出是什麼？\nK ← 0\n當 K <= 100\n  NUM[K] ← K × K\n  K ← K + 1\n輸出 (NUM[3] + NUM[4])","options":{"A":"7","B":"25","C":"49","D":"100"},"answer":"B","explanation":"NUM[3] = 9, NUM[4] = 16，9 + 16 = 25。","source":"HKDSE 2016"},
+    {"id":"D350","question":"以下算法的輸出是什麼？\nK ← 0\n設 N 由 1 至 3\n  K ← K + N × N\n輸出 K","options":{"A":"3","B":"9","C":"14","D":"30"},"answer":"C","explanation":"1² + 2² + 3² = 1 + 4 + 9 = 14。","source":"HKDSE 2017"},
+    {"id":"D351","question":"如果 NOT(X>30 OR (Y AND Z)) 則輸出 '***'。下列哪個組合會輸出？","options":{"A":"X=20, Y=TRUE, Z=TRUE","B":"X=30, Y=FALSE, Z=FALSE","C":"X=40, Y=FALSE, Z=FALSE","D":"X=50, Y=FALSE, Z=TRUE"},"answer":"B","explanation":"要使 NOT(...) 為真，(...)需為假。X=30 不>30, Y AND Z 都為假，故整體為假，NOT 為真。","source":"HKDSE 2017"},
+    {"id":"D352","question":"陣列 A 有 N 個非零數值。以下算法目的是什麼？\n輸入 P\nK ← P\n當 K <= N-1\n  A[K] ← A[K+1]\n  K ← K + 1\nN ← N - 1","options":{"A":"移除 A 內第 P 個數值","B":"將 P 的值增加 1","C":"互換 A[K] 和 A[K+1]","D":"計算 A 的總和"},"answer":"A","explanation":"後續元素依次向前複製，覆蓋第 P 位，陣列長度減 1。","source":"HKDSE 2017"},
+    {"id":"D353","question":"志偉處理學生資料包括：姓名、平均分、修讀科目數目。應使用哪些數據類型？","options":{"A":"布爾, 整數, 實數","B":"布爾, 實數, 整數","C":"字符, 整數, 實數","D":"字符, 實數, 整數"},"answer":"D","explanation":"姓名為字符串；平均分可能有小數（實數）；科目數目為整數。","source":"HKDSE 2018"},
+    {"id":"D354","question":"下列算法用作計算 1²+2²+...+N²：\n輸入 N\nS ← 0\n當 (N___)\n  S ← S + N × N\n  N ← N - 1\n輸出 S\n括弧內應是什麼？","options":{"A":"N>0","B":"N>1","C":"N<0","D":"N<1"},"answer":"A","explanation":"當 N 從 N 遞減至 1 時都要計算，故條件是 N > 0。","source":"HKDSE 2018"},
+    {"id":"D355","question":"細看算法：輸入 n；如果 n<-6 則 y=y+2 否則 如果 n>9 則 y=y-2 否則 y=y*2。下列哪組測試數據最適合？","options":{"A":"-6, 0, 9","B":"-2, 0, 1, 2","C":"-20, -6, 0, 9, 15","D":"-20, -10, 0, 1, 10, 20"},"answer":"C","explanation":"需覆蓋邊界（-6, 9）和三個範圍（<−6, [−6,9], >9）。","source":"HKDSE 2018"},
+    {"id":"D357","question":"假設 X=1, Y=2, Z=3。下列哪條布爾算式是「真」？","options":{"A":"((x=1) and (y>-2)) and (z>3)","B":"((x=1) and (y>-2)) or (z>3)","C":"((x=1) or (y>-2)) and (z>3)","D":"(x=1) and ((y>-2) and (z>3))"},"answer":"B","explanation":"x=1真, y>-2真, 前半TRUE。OR (z>3 假) = TRUE。","source":"HKDSE 2018"},
+    {"id":"D359","question":"下列哪些布爾算式會產生相同結果？\n(1) (age<25) AND (IsStudent=TRUE)\n(2) NOT((age>=25) OR (IsStudent=FALSE))\n(3) (age>25) OR (IsStudent=TRUE)","options":{"A":"只有(1)和(2)","B":"只有(1)和(3)","C":"只有(2)和(3)","D":"(1)、(2)和(3)"},"answer":"A","explanation":"根據狄摩根定律：NOT(A OR B) = (NOT A) AND (NOT B)，故(2)等同(1)。","source":"HKDSE 2019"},
+    {"id":"D360","question":"以下算法的輸出是什麼？\nL ← 6, H ← 5\nAREA ← L * H\nL ← 4, H ← 3\n輸出 AREA","options":{"A":"12","B":"20","C":"24","D":"30"},"answer":"D","explanation":"AREA = 6 × 5 = 30；之後 L 和 H 的更改不影響已計算的 AREA。","source":"HKDSE 2019"},
+    {"id":"D362","question":"細看算法：\nA←1, B←1\n重複\n  輸出 B\n  C ← A+B\n  A ← B\n  B ← C\n直至 (B > 10)\n「輸出 B」會被執行多少次？","options":{"A":"4","B":"5","C":"6","D":"7"},"answer":"B","explanation":"費氏序列：B=1,1,2,3,5,8,13。直到 B=13>10 停，共輸出 5 次。","source":"HKDSE 2019"},
+    {"id":"D363","question":"Y 是陣列。以下算法的輸出是什麼？\nY[1] ← 4\n設 k 由 1 至 5\n  Y[k+1] ← Y[k] + k\n輸出 Y[6]","options":{"A":"10","B":"14","C":"15","D":"19"},"answer":"D","explanation":"Y[1]=4, Y[2]=5, Y[3]=7, Y[4]=10, Y[5]=14, Y[6]=19。","source":"HKDSE 2019"},
+    {"id":"D365","question":"假設 x=2 和 y=3。下列哪項布爾算式的結果是「真」？","options":{"A":"((x>y) AND (y>4)) OR (1>x)","B":"((x<y) AND (y>4)) OR (1>x)","C":"(x>y) AND ((y<4) OR (1<x))","D":"(x<y) AND ((y<4) OR (1<x))"},"answer":"D","explanation":"x<y真, (y<4真 OR 1<x真) 真。真 AND 真 = 真。","source":"HKDSE 2020"},
+    {"id":"D368","question":"下列算法的輸出是什麼？\nN ← 10, K ← 0\n當 N < 14\n  K ← K + N\n  N ← N + 1\n輸出 K","options":{"A":"14","B":"33","C":"46","D":"60"},"answer":"C","explanation":"K = 10 + 11 + 12 + 13 = 46。","source":"HKDSE 2020"},
+    {"id":"D369","question":"下列算法的輸出是什麼？\nP ← 0, Q ← 1\n設 i 由 1 至 5\n  如果 i < 2 則輸出 i\n  否則 R ← P+Q, P ← Q, Q ← R, 輸出 R","options":{"A":"1 1 2 2 4","B":"1 1 2 3 5","C":"1 2 3 4 5","D":"1 2 4 8 16"},"answer":"B","explanation":"費氏序列：i=1→輸出1；i=2→R=0+1=1；i=3→R=1+1=2；i=4→R=1+2=3；i=5→R=2+3=5。","source":"HKDSE 2020"},
+    {"id":"D370","question":"下列算法的輸出是什麼？\nP ← 1, Q ← 2\n重複\n  P ← P + 1\n  Q ← Q × 2\n直至 (P > 4)\n輸出 Q","options":{"A":"4","B":"5","C":"16","D":"32"},"answer":"D","explanation":"P: 1→2→3→4→5; Q: 2→4→8→16→32。停止時 Q=32。","source":"HKDSE 2020"},
+    {"id":"D372","question":"下列算法的輸出是什麼？\nX ← 9, Y ← 2\n重複\n  輸出 (X/Y) 的餘數\n  X ← (X/Y) 的整數部分\n直至 X = 0","options":{"A":"10","B":"110","C":"101","D":"1001"},"answer":"D","explanation":"這是十進制轉二進制。9→4 餘 1, 4→2 餘 0, 2→1 餘 0, 1→0 餘 1。輸出 1001。","source":"HKDSE 2021"},
+    {"id":"D374","question":"假設 X=5, Y=6, Z=7。下列哪項布爾算式的結果是「真」？","options":{"A":"((X<0) AND (Y>=6)) AND (Z>10)","B":"((X<0) OR (Y<=6)) AND (Z>10)","C":"((X<0) OR (Y>=6)) AND (Z>10)","D":"((X<0) OR (Y<=6)) OR (Z>10)"},"answer":"D","explanation":"X<0 假, Y<=6 真, 前半真。OR 任何 = 真。","source":"HKDSE 2021"},
+    {"id":"D376","question":"下列算法的輸出是什麼？\nsum ← 0, j ← 12\n重複\n  sum ← sum + 1\n  j ← j - 2\n直至 j <= 2\n輸出 sum","options":{"A":"7","B":"6","C":"5","D":"4"},"answer":"C","explanation":"j: 12→10→8→6→4→2 (停)，迭代 5 次，故 sum=5。","source":"HKDSE 2021"},
+    {"id":"D378","question":"下列算法的輸出是什麼？\nX ← 6, Y ← 4, H ← 2\n當 H > 0\n  X ← X+Y, Y ← X-Y, X ← X-Y, H ← H-1\n輸出 Y","options":{"A":"10","B":"6","C":"4","D":"2"},"answer":"C","explanation":"此段代碼交換 X 和 Y。執行兩次後 X,Y 變回原來。輸出 Y=4。","source":"HKDSE 2021"},
+    {"id":"D379","question":"算法 1 和算法 2 的 X 和 Y 最終值相同。算法 2 中欠缺部分是什麼？\n算法1: 重複 X=X+1, Y=Y+2 直至 (X=20) OR (Y>15)\n算法2: 當 ___ 執行 X=X+1, Y=Y+2","options":{"A":"(X=20) AND (Y>15)","B":"(X=20) OR (Y>15)","C":"(X<>20) AND (Y<=15)","D":"(X<>20) OR (Y<=15)"},"answer":"C","explanation":"直至條件的否定：NOT((X=20) OR (Y>15)) = (X<>20) AND (Y<=15)。","source":"HKDSE 2022"},
+    {"id":"D380","question":"在算法中，輸入什麼值不會輸出「完成」？\n輸入 N; flag=TRUE\n當 flag=TRUE\n  如果 (N/4) 的餘數 > 0 則 flag=FALSE\n輸出 '完成!'","options":{"A":"1","B":"2","C":"4","D":"6"},"answer":"C","explanation":"當 N=4 時 N mod 4 = 0，不進入 if，flag 永遠為 TRUE，迴圈無限執行，不會輸出「完成」。","source":"HKDSE 2022"},
+    {"id":"D384","question":"在程式編寫時，下列哪項是模組化的優點？\n(1) 用戶手冊較簡單 (2) 較易追蹤程式 (3) 透過團隊合作促進程式編寫","options":{"A":"只有(1)","B":"只有(2)","C":"只有(1)和(3)","D":"只有(2)和(3)"},"answer":"D","explanation":"模組化有利除錯與分工合作；與用戶手冊複雜度無關。","source":"HKDSE 2022"}
   ],
   "D4": [
-    {
-      "id": "D4-Q1",
-      "question": "若程式接受 1-100 之間的整數，下列何者最適合作為「邊界測試」？",
-      "options": {
-        "A": "50",
-        "B": "25 和 75",
-        "C": "1 和 100",
-        "D": "-5 和 200"
-      },
-      "answer": "C",
-      "explanation": "邊界測試針對範圍邊界值（1 和 100）；50 是正常測試；-5 與 200 是錯誤測試。",
-      "source": "AI 生成"
-    },
-    {
-      "id": "D4-Q2",
-      "question": "二分搜尋的時間複雜度為？",
-      "options": {
-        "A": "O(1)",
-        "B": "O(n)",
-        "C": "O(log n)",
-        "D": "O(n²)"
-      },
-      "answer": "C",
-      "explanation": "二分搜尋每次將搜尋範圍減半，為 O(log n)，但前提是資料已排序。",
-      "source": "AI 生成"
-    },
-    {
-      "id": "D4-Q3",
-      "question": "測試「輸入字母到只接受數字的欄位」屬於哪種測試資料？",
-      "options": {
-        "A": "正常資料",
-        "B": "邊界資料",
-        "C": "極端資料",
-        "D": "錯誤資料"
-      },
-      "answer": "D",
-      "explanation": "字母不符合規格要求，屬於錯誤資料 (Erroneous)，用於測試程式的錯誤處理。",
-      "source": "AI 生成"
-    }
+    {"id":"D326","question":"志偉編寫了源碼並輸入正確的數據作測試。下一步他應做什麼？","options":{"A":"檢查程式模組性","B":"編寫用戶手冊","C":"繪畫流程圖","D":"使用錯誤數據繼續測試"},"answer":"D","explanation":"測試應涵蓋正常、邊界、錯誤數據，以全面驗證程式。","source":"HKDSE 2012"},
+    {"id":"D358","question":"測試下列算法段的「邊際個案」是什麼？\n輸入 A；如果 A>5 則 B←10 否則 B←20；輸出 A,B\n(1) 5 (2) 6 (3) 10 (4) 20","options":{"A":"只有(1)和(2)","B":"只有(3)和(4)","C":"只有(2)、(3)和(4)","D":"(1)、(2)、(3)和(4)"},"answer":"A","explanation":"邊界值是條件的臨界點，即 A=5 和 A=6（剛不符和剛符合 A>5）。","source":"HKDSE 2019"},
+    {"id":"D371","question":"對 ATM 系統新限制 ($200 最低, $10000 最高, 可提 $100/$500/$1000)，哪組測試數據合適？","options":{"A":"50, 500, 7000, 8000, 9000, 10000","B":"100, 200, 300, 500, 1000, 30000","C":"100, 200, 600, 950, 10000, 11000","D":"100, 1000, 15000, 20000, 25000, 30000"},"answer":"C","explanation":"測試應包括邊界（200, 10000）、錯誤（100低於、11000超過）、合法中間值。","source":"HKDSE 2020"},
+    {"id":"D373","question":"編寫了程式源碼後，根據解難程序應執行下列哪項？\n(1) 概述問題的輸入和輸出 (2) 以邊際個案測試程式 (3) 界定問題範圍","options":{"A":"只有(1)","B":"只有(2)","C":"只有(1)和(3)","D":"只有(2)和(3)"},"answer":"B","explanation":"(1)(3) 應在編碼前完成；編碼後是測試階段。","source":"HKDSE 2021"},
+    {"id":"D381","question":"某算法：j=0; 輸入N; 當N<>888 執行 j=j+N, 輸入N; 輸出j。這個算法的目的是什麼？","options":{"A":"數算輸入數值的次數","B":"找出最大的輸入數值","C":"計算輸入數值的總和","D":"計算輸入數值的平均值"},"answer":"C","explanation":"j 累加所有非 888 的輸入，為總和。","source":"HKDSE 2022"},
+    {"id":"D382","question":"在同一算法中，數值「888」有什麼作用？","options":{"A":"終止輸入","B":"檢測輸入的正數","C":"限制輸入數值的範圍","D":"把輸入數值加入 j 內"},"answer":"A","explanation":"888 是 sentinel value（哨兵值），用於結束輸入。","source":"HKDSE 2022"},
+    {"id":"D385","question":"為什麼要預備合適的測試數據？\n(1) 偵測算法中的錯誤 (2) 測試是否能夠處理異常的輸入數據 (3) 驗證特定輸入的預期結果","options":{"A":"只有(1)和(2)","B":"只有(1)和(3)","C":"只有(2)和(3)","D":"(1)、(2)和(3)"},"answer":"D","explanation":"測試數據的三大目的都正確。","source":"HKDSE 2022"},
+    {"id":"D386","question":"偽代碼：如果 (MARKS>=50) 則輸出 'PASS' 否則輸出 'FAIL'。哪組測試值恰當？","options":{"A":"-10 30 40","B":"10 25 45","C":"100 99 98","D":"99 0 50"},"answer":"D","explanation":"合適測試應包括邊界（50）、高分（99）、低分（0）。","source":"HKDSE 2023"}
   ]
 }

@@ -1,166 +1,138 @@
 {
   "2A1": [
     {
-      "id": "2A1-Q1",
-      "question": "ER 圖中，主鍵應如何標示？",
+      "id": "2A-01",
+      "question": "在實體關係圖（ER Diagram）中，哪種形狀用於表示「關係（Relationship）」？",
       "options": {
-        "A": "雙圈",
-        "B": "底線",
-        "C": "星號",
-        "D": "菱形"
+        "A": "矩形",
+        "B": "橢圓形",
+        "C": "菱形",
+        "D": "三角形"
+      },
+      "answer": "C",
+      "explanation": "矩形代表實體（Entity），橢圓形代表屬性（Attribute），菱形代表關係（Relationship）。主鍵會在橢圓形內的文字加上底線。",
+      "source": "AI生成"
+    },
+    {
+      "id": "2A-02",
+      "question": "將 M:N（多對多）關係轉化為關聯式數據庫時，必須如何處理？",
+      "options": {
+        "A": "在兩個資料表中互相建立外鍵",
+        "B": "分解成兩個 1:N 的關係，並建立一個新的關聯（中介）表",
+        "C": "將其中一個實體刪除，簡化為 1:N",
+        "D": "直接合併兩個實體為一個大表"
       },
       "answer": "B",
-      "explanation": "主鍵 (Primary Key) 屬性以底線標示；雙圈代表多值屬性；菱形是關係。",
-      "source": "AI 生成"
+      "explanation": "關聯式數據庫無法直接實作多對多關係，必須建立第三個表（中介表）來將 M:N 拆解為兩個 1:N 關係。",
+      "source": "AI生成"
     },
     {
-      "id": "2A1-Q2",
-      "question": "ER 圖中的 M:N 關係應如何處理？",
+      "id": "2A-03",
+      "question": "下列哪一項 SQL 指令屬於數據定義語言（DDL）？",
       "options": {
-        "A": "直接保留",
-        "B": "改為 1:1",
-        "C": "分解為兩個 1:N，加入中間關聯實體",
-        "D": "刪除該關係"
+        "A": "INSERT",
+        "B": "UPDATE",
+        "C": "CREATE TABLE",
+        "D": "DELETE"
       },
       "answer": "C",
-      "explanation": "關聯式資料庫不能直接實作 M:N，需建立中間關聯表儲存兩者 PK 作為複合主鍵。",
-      "source": "選修 A 核心"
-    },
-    {
-      "id": "2A1-Q3",
-      "question": "「學生」與「課程」之間，一個學生可修讀多門課，一門課可有多位學生，屬於什麼關係？",
-      "options": {
-        "A": "1:1",
-        "B": "1:N",
-        "C": "M:N",
-        "D": "N:1"
-      },
-      "answer": "C",
-      "explanation": "雙向多對多，典型的 M:N 關係，需要「選課」中間實體。",
-      "source": "AI 生成"
+      "explanation": "CREATE TABLE 屬於定義表結構的 DDL（Data Definition Language）；而 INSERT、UPDATE、DELETE 屬於操作資料的 DML（Data Manipulation Language）。",
+      "source": "AI生成"
     }
   ],
   "2A2": [
     {
-      "id": "2A2-Q1",
-      "question": "SELECT * FROM A LEFT JOIN B ON A.id = B.id 會返回？",
+      "id": "2A-04",
+      "question": "在 SQL 的 SELECT 語句中，若使用了 GROUP BY，下列哪項規則必須遵守？",
       "options": {
-        "A": "只返回兩表都有匹配的記錄",
-        "B": "返回 A 所有記錄，B 無匹配填 NULL",
-        "C": "返回 B 所有記錄，A 無匹配填 NULL",
-        "D": "返回兩表所有記錄"
+        "A": "SELECT 子句中所有未被聚合函數包圍的欄位，都必須出現在 GROUP BY 中",
+        "B": "GROUP BY 必須放在 ORDER BY 之後執行",
+        "C": "不能同時使用 WHERE 子句",
+        "D": "必須至少包含一個 HAVING 子句"
       },
-      "answer": "B",
-      "explanation": "LEFT JOIN 保留左表所有記錄，右表無匹配的欄位填 NULL。",
-      "source": "AI 生成"
+      "answer": "A",
+      "explanation": "這是 SQL 的核心規則：SELECT 裡所有沒有被聚合函數（如 SUM, COUNT）包住的欄位，必須全部寫進 GROUP BY。",
+      "source": "AI生成"
     },
     {
-      "id": "2A2-Q2",
-      "question": "UNION 和 UNION ALL 的分別？",
+      "id": "2A-05",
+      "question": "使用 RIGHT JOIN 時，以下敘述何者正確？",
       "options": {
-        "A": "UNION 保留重複；UNION ALL 去重",
-        "B": "UNION 去重；UNION ALL 保留重複",
-        "C": "完全相同",
-        "D": "UNION 只用於數字"
+        "A": "只保留兩個表都有配對的資料",
+        "B": "左表所有記錄全保留，右表無匹配補 NULL",
+        "C": "右表所有記錄全保留，左表無匹配補 NULL",
+        "D": "兩邊全保留，等同 FULL JOIN"
       },
-      "answer": "B",
-      "explanation": "UNION 自動去除重複列；UNION ALL 保留所有重複列，速度較快。",
-      "source": "AI 生成"
+      "answer": "C",
+      "explanation": "RIGHT JOIN 會確保右表的所有記錄都被保留，即使左表中沒有符合條件的記錄（會顯示為 NULL）。",
+      "source": "AI生成"
     },
     {
-      "id": "2A2-Q3",
-      "question": "以下 SQL 會造成什麼結果？\nDELETE FROM Student;",
+      "id": "2A-06",
+      "question": "在 SQL 中，UNION 和 UNION ALL 的主要區別是什麼？",
       "options": {
-        "A": "刪除第一筆記錄",
-        "B": "刪除 Student 表的所有記錄但保留表結構",
-        "C": "刪除整個 Student 表",
-        "D": "發生錯誤"
+        "A": "UNION ALL 會去除重複的記錄，UNION 則保留",
+        "B": "UNION 會去除重複的記錄，UNION ALL 則保留所有記錄",
+        "C": "UNION 只能合併相同資料表，UNION ALL 可合併不同資料表",
+        "D": "兩者功能完全相同，僅是語法不同"
       },
       "answer": "B",
-      "explanation": "缺少 WHERE 會刪除表內所有記錄！DROP TABLE 才會刪除表結構。",
-      "source": "AI 生成"
+      "explanation": "UNION 會進行去重（去除重複的列），而 UNION ALL 會將所有查詢結果直接合併，包括重複的資料。",
+      "source": "AI生成"
     }
   ],
   "2A3": [
     {
-      "id": "2A3-Q1",
-      "question": "消除「部分依賴 (Partial Dependency)」屬於哪個階段？",
+      "id": "2A-07",
+      "question": "為達到第二正規化（2NF），必須消除什麼情況？",
       "options": {
-        "A": "1NF",
-        "B": "2NF",
-        "C": "3NF",
-        "D": "BCNF"
+        "A": "重複組（Repeating Groups）",
+        "B": "非原子值（Non-atomic values）",
+        "C": "部分依賴（Partial Dependency）",
+        "D": "傳遞依賴（Transitive Dependency）"
       },
-      "answer": "B",
-      "explanation": "1NF 消重複組；2NF 消部分依賴；3NF 消傳遞依賴。",
-      "source": "AI 生成"
+      "answer": "C",
+      "explanation": "1NF 消除重複組和多值屬性；2NF 消除部分依賴；3NF 消除傳遞依賴。口訣：「重複—部分—傳遞」。",
+      "source": "AI生成"
     },
     {
-      "id": "2A3-Q2",
-      "question": "Denormalisation 的主要目的是？",
+      "id": "2A-08",
+      "question": "為什麼有時候數據庫設計師會故意進行「反規範化（Denormalisation）」？",
       "options": {
-        "A": "減少冗餘",
-        "B": "提升查詢速度、減少 JOIN",
-        "C": "消除所有依賴",
-        "D": "縮減資料庫體積"
+        "A": "為了節省硬碟儲存空間",
+        "B": "為了提升查詢（SELECT）的速度並減少 JOIN 的使用",
+        "C": "為了徹底消除數據冗餘",
+        "D": "為了防止更新異常（Update Anomaly）"
       },
       "answer": "B",
-      "explanation": "反規範化刻意增加冗餘以提升讀取速度，但會增加維護成本。",
-      "source": "AI 生成"
+      "explanation": "反規範化會增加數據冗餘與更新風險，但能減少查詢時需要 JOIN 的表數量，從而大幅提升查詢速度。",
+      "source": "AI生成"
     },
     {
-      "id": "2A3-Q3",
-      "question": "1NF 的基本要求是？",
+      "id": "2A-09",
+      "question": "在交易處理中，「回滾（Rollback）」的主要作用是什麼？",
       "options": {
-        "A": "消除傳遞依賴",
-        "B": "所有欄位必須是原子值、不可再分",
-        "C": "建立主鍵",
-        "D": "刪除重複表"
+        "A": "加速數據庫的查詢速度",
+        "B": "備份整個數據庫",
+        "C": "在交易失敗時將數據回復到之前的狀態，確保一致性與完整性",
+        "D": "創建一個虛擬的視圖（View）"
       },
-      "answer": "B",
-      "explanation": "1NF 要求每個欄位為原子值，不能有多值屬性或重複組。",
-      "source": "AI 生成"
-    }
-  ],
-  "2A4": [
-    {
-      "id": "2A4-Q1",
-      "question": "Rollback 的完整定義為？",
-      "options": {
-        "A": "將資料庫關機",
-        "B": "交易失敗時回復至交易前狀態，確保資料一致性及完整性",
-        "C": "刪除所有記錄",
-        "D": "備份資料庫"
-      },
-      "answer": "B",
-      "explanation": "Rollback 撤銷交易內所有改動，確保 ACID 中的 Consistency 及 Integrity。",
-      "source": "必考"
+      "answer": "C",
+      "explanation": "當交易（Transaction）執行過程中發生錯誤時，Rollback 會撤銷所有已執行的操作，確保資料庫的一致性（Consistency）。",
+      "source": "AI生成"
     },
     {
-      "id": "2A4-Q2",
-      "question": "下列關於 View 的敘述，何者正確？",
+      "id": "2A-10",
+      "question": "關於數據庫中的「視圖（View）」，下列敘述何者錯誤？",
       "options": {
-        "A": "View 實際儲存資料",
-        "B": "View 是虛擬表，只儲存 SELECT 定義，可提升保安",
-        "C": "View 不能包含 JOIN",
-        "D": "View 只能由 Admin 建立"
+        "A": "它是一個虛擬表，本身不儲存實際數據",
+        "B": "它只儲存 SELECT 查詢的定義",
+        "C": "它可以提升保安與隱私，隱藏底層表的敏感欄位",
+        "D": "它可以大幅加速所有 INSERT 語句的執行時間"
       },
-      "answer": "B",
-      "explanation": "View 每次查詢時動態執行 SELECT，可隱藏敏感欄位、簡化複雜查詢。",
-      "source": "AI 生成"
-    },
-    {
-      "id": "2A4-Q3",
-      "question": "建立 Index 的主要缺點是？",
-      "options": {
-        "A": "查詢變慢",
-        "B": "佔用儲存空間、拖慢 INSERT/UPDATE 速度",
-        "C": "無法使用 SELECT",
-        "D": "資料會流失"
-      },
-      "answer": "B",
-      "explanation": "Index 加速 SELECT 但需額外儲存空間，且每次改動資料都要維護索引。",
-      "source": "AI 生成"
+      "answer": "D",
+      "explanation": "視圖（View）主要是為了簡化查詢及提升安全性，它不會加速 INSERT 執行，甚至在某些情況下無法進行更新操作。",
+      "source": "AI生成"
     }
   ]
 }
