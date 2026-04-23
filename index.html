@@ -472,7 +472,7 @@ function Sidebar({ visible, data, activeSection, onSelect, onClose, questionBank
       {visible && <div className="fixed inset-0 bg-black/30 z-30 md:hidden" onClick={onClose}></div>}
       <aside className={`${visible ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 fixed md:relative z-40 md:z-auto top-0 md:top-auto bottom-0 md:bottom-auto h-full md:h-auto w-72 bg-white border-r overflow-y-auto transition-transform duration-300`}>
         <div className="p-3 md:p-4">
-          <button onClick={() => onSelect('home')} className={`w-full text-left p-2 rounded-lg border mb-3 ${activeSection === 'home' ? 'bg-indigo-50 border-indigo-300 text-indigo-700' : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'}`}>🏠 首頁及操作說明</button>
+          <button onClick={() => onSelect('home')} className={`w-full text-left p-2 rounded-lg border mb-3 ${activeSection === 'home' ? 'bg-indigo-50 border-indigo-300 text-indigo-700' : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'}`}>🏠 系統首頁</button>
           <div className="flex items-center justify-between mb-3">
             <h2 className="text-sm font-bold text-slate-700">📖 課程單元</h2>
             <button onClick={onClose} className="md:hidden text-slate-500 text-xl">×</button>
@@ -829,7 +829,12 @@ function TestSetupModal({ questionBank, onStart, onClose }) {
     const m = {};
     curriculumData.forEach(u => {
       let total = 0;
-      u.sections.forEach(s => { total += (questionBank[s.id] || []).length; });
+      u.sections.forEach(s => {
+        total += (questionBank[s.id] || []).filter(q => {
+          const src = String(q.source || '').trim().toLowerCase();
+          return src !== 'ai生成' && src !== 'ai 生成' && src !== 'ai-generated' && src !== 'ai generated';
+        }).length;
+      });
       m[u.id] = total;
     });
     return m;
@@ -840,7 +845,12 @@ function TestSetupModal({ questionBank, onStart, onClose }) {
     curriculumData.forEach(u => {
       if (!selected.has(u.id)) return;
       u.sections.forEach(s => {
-        (questionBank[s.id] || []).forEach(q => qs.push({ ...q, sectionId: s.id, unitId: u.id }));
+        (questionBank[s.id] || [])
+          .filter(q => {
+            const src = String(q.source || '').trim().toLowerCase();
+            return src !== 'ai生成' && src !== 'ai 生成' && src !== 'ai-generated' && src !== 'ai generated';
+          })
+          .forEach(q => qs.push({ ...q, sectionId: s.id, unitId: u.id }));
       });
     });
     return qs;
@@ -872,6 +882,7 @@ function TestSetupModal({ questionBank, onStart, onClose }) {
         </div>
         <div className="p-5 overflow-y-auto flex-1">
           <div className="mb-4">
+            <div className="mb-2 text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded p-2">⚠️ 測驗模式會自動排除 source 為「AI生成」的題目；答題練習則不受影響。</div>
             <h3 className="font-bold text-slate-700 mb-2">1️⃣ 選擇單元範圍</h3>
             <div className="space-y-1">
               {curriculumData.map(u => (
